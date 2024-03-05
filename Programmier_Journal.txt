@@ -2,7 +2,8 @@ Git und Github:
 https://www.youtube.com/watch?v=tRZGeaHPoaw
 - Git instaliert (https://www.git-scm.com/)
 - Git repository kreiert und Dateien commited
-
+- Github account erstellt (github.com)
+- local repository auf Github gepushed
 
 
 Vorgehensweise:
