@@ -12,15 +12,13 @@ pygame.display.set_caption("Sonnensystem")
 
 # Infos Sonne
 sonne_masse = 1.989 * 10**30
-sonne_radius = 6.9634 * 10**8
+sonne_radius = 20
 
 # Infos Merkur
 merkur_masse = 3.285 * 10**23
-merkur_radius = 2.4397 * 10**6
-
+merkur_radius = 8
 
 # Gravitationskonstante "G"
-
 G = 6.6743 * 10**-11
 
 
@@ -33,11 +31,11 @@ class Planet:     # Beinhält die Sonne obwohl die Sonne kein Planet ist
         self.y = y
         
 
-    def zeichnen(self, farbe, model_radius):
+    def zeichnen(self, farbe):
         self.farbe = farbe
         x = self.x + fenster_breite // 2 
         y = self.y + fenster_höhe // 2 
-        pygame.draw.circle(fenster, farbe, (x,y), model_radius)
+        pygame.draw.circle(fenster, farbe, (x,y), self.radius)
 
     # Distanz zwischen zwei Körpern berechnen mit Pythagoras
     def distanz(self, other):
@@ -73,8 +71,9 @@ while running:
 
     fenster.fill("black")
 
-    Sonne.zeichnen("yellow", 20 )
-    Merkur.zeichnen("orange", 8)
+    # Planeten zeichnen
+    Sonne.zeichnen("yellow")
+    Merkur.zeichnen("orange")
 
     pygame.display.flip()
     clock.tick(60)
