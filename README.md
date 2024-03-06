@@ -7,6 +7,7 @@ https://www.youtube.com/watch?v=tRZGeaHPoaw
 - Git repository kreiert und Dateien commited
 - Github account erstellt (github.com)
 - local repository auf Github gepushed
+- Von Vscode auf Github gepushed
 
 
 Vorgehensweise:
