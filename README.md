@@ -1,4 +1,6 @@
 # Sonnensystem
+
+Journal:
 Git und Github:
 https://www.youtube.com/watch?v=tRZGeaHPoaw
 - Git instaliert (https://www.git-scm.com/)
