@@ -51,7 +51,6 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
 Sonne = Planet(sonne_masse, sonne_radius, 0, 0)
 Merkur = Planet(merkur_masse, merkur_radius, 100, 0)
 
-print(Merkur.anziehung(Sonne, Merkur.distanz(Sonne)))
 
 # Main Game loop
 
