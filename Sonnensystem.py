@@ -18,8 +18,10 @@ sonne_radius = 20
 merkur_masse = 3.285 * 10 ** 23
 merkur_radius = 3
 
-# Gravitationskonstante "G"
-G = 6.6743 * 10 ** -11
+
+
+# Gravitationskonstante "G" mal den faktor  10 ^ -23
+G = 6.6743 * 10 ** -11 * 10 ** -23
 
 
 class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
@@ -46,14 +48,14 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
 
     def anziehung(self, other, d):
         Fg = G * ((self.masse * other.masse) / d ** 2)
-        winkel = math.atan2((self.x - other.x) / (self.y - other.y))
+        winkel = math.atan2((self.y - other.y), (self.x - other.x))
         Fg_x = math.cos(winkel) * Fg
         Fg_y = math.sin(winkel) * Fg
 
         return Fg_x, Fg_y
     
     def neue_pos(self, zeit):
-        fx, fy = self.anziehung(self.distanz())
+        fx, fy = self.anziehung(Sonne, self.distanz(Sonne))
         # Geschwindikeit berechnen indem man a * m durch m und dann durch die zeit rechnet
         self.vx += fx / self.masse * zeit
         self.vy += fy / self.masse * zeit
@@ -66,7 +68,7 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
 
 Sonne = Planet(sonne_masse, sonne_radius, 0, 0)
 Merkur = Planet(merkur_masse, merkur_radius, 100, 0)
-
+planeten = [Sonne, Merkur]
 
 # Main Game loop
 
@@ -80,6 +82,9 @@ while running:
             running = False
 
     fenster.fill("black")
+
+    # position updaten
+    Merkur.neue_pos(100)
 
     # Planeten zeichnen
     Sonne.zeichnen("yellow")

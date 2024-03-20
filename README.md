@@ -34,3 +34,15 @@ Die Masse werde ich mit einem Skalar passend verkleinern
 Habe eine Funktion hinzugefügt welche die distanz zwischen zwei Planeten bzw. einem Planeten und der Sonne berechnet. 
 https://stackoverflow.com/questions/55780439/how-to-use-a-method-in-a-class-to-compare-two-objects-of-the-class (Habe "other" verwendet)
 Funktion hinzugefügt um die Anziehung zwischen zwei Körpern zu berechnen. 
+
+
+Anziehungsfunktion Geändert, so dass die x- und die y-Komponente ersichtlich sind.
+Eine Funktion hinzugefügt welche die Position der Planeten updated.
+Kurzeitige Probleme aufgrung eines ZeroDivisionErrors.
+Der Fehler lag an der Berechnung des Winkels zwischen der x- und der y-Komponente. 
+Ich hatte die beiden vertauscht.
+Ein weiteres Problem ist, dass Merkur nicht mehr angezeigt wird. 
+Herausgefunden, dass der Fehler an einer viel zu starken Gravitation lag. 
+Diese um den Faktor 10^-20 verringert indem ich die Gravitationskonstante "G" mit ihr multipliziert habe.
+Planet bewegt sich momentan noch auf der Horizontale
+
