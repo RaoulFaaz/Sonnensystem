@@ -24,11 +24,13 @@ G = 6.6743 * 10 ** -11
 
 class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
 
-    def __init__(self, masse, radius, x, y):
+    def __init__(self, masse, radius, x, y, vx = 0, vy = 0):
         self.masse = masse
         self.radius = radius
         self.x = x
         self.y = y
+        self.vx = vx
+        self.vy = vy
 
     def zeichnen(self, farbe):
         x = self.x + fenster_breite // 2
