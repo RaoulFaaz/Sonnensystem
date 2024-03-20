@@ -45,7 +45,10 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
         return math.sqrt(x ** 2 + y ** 2)
 
     def anziehung(self, other, d):
-        return G * ((self.masse * other.masse) / d ** 2)
+        Fg = G * ((self.masse * other.masse) / d ** 2)
+        winkel = math.atan2((self.x - other.x) / (self.y - other.y))
+        Fg_x = math.cos(winkel) * Fg
+        Fg_y = math.sin(winkel) * Fg
 
 
 Sonne = Planet(sonne_masse, sonne_radius, 0, 0)
