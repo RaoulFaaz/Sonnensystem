@@ -50,6 +50,19 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
         Fg_x = math.cos(winkel) * Fg
         Fg_y = math.sin(winkel) * Fg
 
+        return Fg_x, Fg_y
+    
+    def neue_pos(self, zeit):
+        fx, fy = self.anziehung(self.distanz())
+        # Geschwindikeit berechnen indem man a * m durch m und dann durch die zeit rechnet
+        self.vx += fx / self.masse * zeit
+        self.vy += fy / self.masse * zeit
+
+        # die neue position berechnen
+        self.x += self.vx * zeit
+        self.y += self.vy * zeit
+    
+
 
 Sonne = Planet(sonne_masse, sonne_radius, 0, 0)
 Merkur = Planet(merkur_masse, merkur_radius, 100, 0)
