@@ -16,7 +16,7 @@ sonne_radius = 20
 
 # Infos Merkur
 merkur_masse = 3.285 * 10**23
-merkur_radius = 8
+merkur_radius = 3
 
 # Gravitationskonstante "G"
 G = 6.6743 * 10**-11
