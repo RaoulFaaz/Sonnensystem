@@ -1,6 +1,10 @@
 # Sonnensystem
 
 Journal:
+
+Nützliche Videos Sammlung:
+https://www.youtube.com/watch?v=WTLPmUHTPqo&list=PLq5P0kc2-loYR3qxreWKjWD2OyydzUsNi&index=4&t=1211s 
+
 Git und Github:
 https://www.youtube.com/watch?v=tRZGeaHPoaw
 - Git instaliert (https://www.git-scm.com/)
