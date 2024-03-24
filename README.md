@@ -3,7 +3,7 @@
 Journal:
 
 Nützliche Videos Sammlung:
-https://www.youtube.com/watch?v=WTLPmUHTPqo&list=PLq5P0kc2-loYR3qxreWKjWD2OyydzUsNi&index=4&t=1211s 
+https://www.youtube.com/watch?v=WTLPmUHTPqo
 
 Git und Github:
 https://www.youtube.com/watch?v=tRZGeaHPoaw
