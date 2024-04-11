@@ -48,7 +48,7 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
 
     def anziehung(self, other, d):
         Fg = G * ((self.masse * other.masse) / d ** 2)
-        winkel = math.atan2((self.y - other.y), (self.x - other.x))
+        winkel = math.atan2((other.y - self.y), (other.x - self.x))
         Fg_x = math.cos(winkel) * Fg
         Fg_y = math.sin(winkel) * Fg
 
@@ -68,7 +68,6 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
 
 Sonne = Planet(sonne_masse, sonne_radius, 0, 0)
 Merkur = Planet(merkur_masse, merkur_radius, 100, 0)
-planeten = [Sonne, Merkur]
 
 # Main Game loop
 

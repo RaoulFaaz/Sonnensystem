@@ -44,5 +44,6 @@ Ich hatte die beiden vertauscht.
 Ein weiteres Problem ist, dass Merkur nicht mehr angezeigt wird. 
 Herausgefunden, dass der Fehler an einer viel zu starken Gravitation lag. 
 Diese um den Faktor 10^-20 verringert indem ich die Gravitationskonstante "G" mit ihr multipliziert habe.
-Planet bewegt sich momentan noch auf der Horizontale
+Planet bewegt sich momentan noch auf der Horizontale und weg von der Sonne.
+Warum dies geschieht weiss ich momentan noch nicht. 
 
