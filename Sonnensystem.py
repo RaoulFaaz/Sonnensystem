@@ -16,8 +16,8 @@ sonne_radius = 20
 
 # Infos Merkur
 merkur_masse = 3.285 * 10 ** 23
-merkur_radius = 3
-merkur_geschwindigkeit = 0.004
+merkur_radius = 6
+merkur_geschwindigkeit = 0.003
 
 
 # Gravitationskonstante "G" mal den faktor  10 ^ -23
@@ -25,7 +25,7 @@ G = 6.6743 * 10 ** -11 * 10 ** -23
 
 # Dauer zwischen dem Update der Position in Sekunden 
 
-zeitsprung = 3600
+zeitsprung = 1000
 
 class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
 
@@ -78,6 +78,10 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
 
         # Position speichern um später die Umlaufbahn zu zeichnen
         self.umlaufbahn.append((self.x, self.y))
+
+        # Überschneidungen im Orbit verhindern indem man das erste Element löscht, falls die Liste zu lang wird
+        if len(self.umlaufbahn) > zeitsprung:
+            self.umlaufbahn.pop(0) 
 
         
 
