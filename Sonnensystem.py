@@ -80,7 +80,7 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
         self.umlaufbahn.append((self.x, self.y))
 
         # Überschneidungen im Orbit verhindern indem man das erste Element löscht, falls die Liste zu lang wird
-        if len(self.umlaufbahn) > zeitsprung:
+        if len(self.umlaufbahn) > 1000:
             self.umlaufbahn.pop(0) 
 
         

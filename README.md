@@ -55,3 +55,4 @@ Umlaufbahn programmiert. Fehler das noch nicht genug Werte vorhanden sind.
 Gelöst indem ich ein If-statment eingefügt habe welches überprüft ob genügend Werte vorhanden sind.
 Die Umlaufbahn wurde nicht relativ zum Fenster gezeichnet. Gelöst indem man es an der Fenstermitte orientiert. (ChatGPt) 
 Die Umlaufbahn wird mehrmals übereinander gezeichnet, was unschön ist. 
+Maximallänge für die Umlaufbahn eingefügt.
