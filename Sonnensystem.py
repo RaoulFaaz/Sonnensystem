@@ -12,7 +12,7 @@ pygame.display.set_caption("Sonnensystem")
 
 # Infos Sonne
 sonne_masse = 1.989 * 10 ** 30
-sonne_radius = 20
+sonne_radius = 25
 
 # Infos Merkur
 merkur_masse = 3.285 * 10 ** 23
@@ -20,12 +20,16 @@ merkur_radius = 6
 merkur_geschwindigkeit = 0.003
 # Infos Venus
 venus_masse = 4.87 * 10 ** 24
+venus_radius = 9
 # Infos Erde
 erde_masse = 5.97 * 10 ** 24
+erde_radius = 9
 # Infos Mars
 mars_masse = 6.42 * 10 ** 23
+mars_radius = 7
 # Infos Jupiter
 jupiter_masse = 1.898 * 10 ** 27
+jupiter_radius = 15
 # Infos Saturn
 saturn_masse = 5.68 * 10 ** 26
 # Infos Uranus
