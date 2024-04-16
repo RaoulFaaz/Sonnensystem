@@ -13,6 +13,9 @@ https://www.youtube.com/watch?v=tRZGeaHPoaw
 - local repository auf Github gepushed
 - Von Vscode auf Github gepushed
 
+Infos Planeten:
+https://nssdc.gsfc.nasa.gov/planetary/factsheet/
+
 
 Vorgehensweise:
 Pygame Fenster setup und Loop starten

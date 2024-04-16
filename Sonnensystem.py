@@ -18,6 +18,21 @@ sonne_radius = 20
 merkur_masse = 3.285 * 10 ** 23
 merkur_radius = 6
 merkur_geschwindigkeit = 0.003
+# Infos Venus
+venus_masse = 4.87 * 10 ** 24
+# Infos Erde
+erde_masse = 5.97 * 10 ** 24
+# Infos Mars
+mars_masse = 6.42 * 10 ** 23
+# Infos Jupiter
+jupiter_masse = 1.898 * 10 ** 27
+# Infos Saturn
+saturn_masse = 5.68 * 10 ** 26
+# Infos Uranus
+uranus_masse = 8.68 * 10 ** 25
+# Infos Neptun
+neptun_masse = 1.02 * 10 ** 26
+
 
 
 # Gravitationskonstante "G" mal den faktor  10 ^ -23
@@ -80,7 +95,8 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
         self.umlaufbahn.append((self.x, self.y))
 
         # Überschneidungen im Orbit verhindern indem man das erste Element löscht, falls die Liste zu lang wird
-        if len(self.umlaufbahn) > 1000:
+        
+        if len(self.umlaufbahn) > 2000:
             self.umlaufbahn.pop(0) 
 
         
