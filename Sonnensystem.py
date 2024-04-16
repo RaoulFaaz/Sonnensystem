@@ -21,24 +21,31 @@ merkur_geschwindigkeit = 0.003
 # Infos Venus
 venus_masse = 4.87 * 10 ** 24
 venus_radius = 9
+venus_geschwindigkeit = 0.002
 # Infos Erde
 erde_masse = 5.97 * 10 ** 24
 erde_radius = 9
+erde_geschwindigkeit = 0.001
 # Infos Mars
 mars_masse = 6.42 * 10 ** 23
 mars_radius = 7
+mars_geschwindigkeit = 0.001
 # Infos Jupiter
 jupiter_masse = 1.898 * 10 ** 27
 jupiter_radius = 15
+jupiter_geschwindigkeit = 0.001
 # Infos Saturn
 saturn_masse = 5.68 * 10 ** 26
 saturn_radius = 13
+saturn_geschwindigkeit = 0.001
 # Infos Uranus
 uranus_masse = 8.68 * 10 ** 25
 uranus_radius = 12
+uranus_geschwindigkeit = 0.001
 # Infos Neptun
 neptun_masse = 1.02 * 10 ** 26
 nepturn_radius = 12
+neptun_geschwindigkeit = 0.001
 
 
 
