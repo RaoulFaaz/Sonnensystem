@@ -3,7 +3,7 @@ import math
 
 pygame.init()
 
-fenster_breite = 1200
+fenster_breite = 1400
 fenster_hoehe = 900
 
 # Fenster kreieren
@@ -58,7 +58,8 @@ zeitsprung = 1000
 
 class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
 
-    def __init__(self, masse, radius, x, y, vy, vx = 0):
+    def __init__(self, farbe, masse, radius, x, y, vy, vx = 0):
+        self.farbe = farbe
         self.masse = masse
         self.radius = radius
         self.x = x
@@ -116,15 +117,15 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
         
 
 # planeten kreieren
-Sonne = Planet(sonne_masse, sonne_radius, 0, 0, 0)
-Merkur = Planet(merkur_masse, merkur_radius, 100, 0, merkur_geschwindigkeit)
-Venus = Planet(venus_masse, venus_radius, 200, 0, venus_geschwindigkeit)
-Erde = Planet(erde_masse, erde_radius, 300, 0, erde_geschwindigkeit)
-Mars = Planet(mars_masse, mars_radius, 400, 0, mars_geschwindigkeit)
-Jupiter = Planet(jupiter_masse, jupiter_radius, 500, 0, jupiter_geschwindigkeit)
-Saturn = Planet(saturn_masse, saturn_radius, 600, 0, saturn_geschwindigkeit)
-Uranus = Planet(uranus_masse, uranus_radius, 700, 0, uranus_geschwindigkeit)
-Neptun = Planet(neptun_masse, neptun_radius, 800, 0, neptun_geschwindigkeit)
+Sonne = Planet("yellow", sonne_masse, sonne_radius, 0, 0, 0)
+Merkur = Planet("grey", merkur_masse, merkur_radius, 100, 0, merkur_geschwindigkeit)
+Venus = Planet("palegoldenrod", venus_masse, venus_radius, 180, 0, venus_geschwindigkeit)
+Erde = Planet("blue", erde_masse, erde_radius, 260, 0, erde_geschwindigkeit)
+Mars = Planet("firebrick", mars_masse, mars_radius, 340, 0, mars_geschwindigkeit)
+Jupiter = Planet("darkgoldenrod", jupiter_masse, jupiter_radius, 420, 0, jupiter_geschwindigkeit)
+Saturn = Planet("lightgoldenrodyellow", saturn_masse, saturn_radius, 500, 0, saturn_geschwindigkeit)
+Uranus = Planet("paleturquoise", uranus_masse, uranus_radius, 580, 0, uranus_geschwindigkeit)
+Neptun = Planet("steelblue", neptun_masse, neptun_radius, 660, 0, neptun_geschwindigkeit)
 planeten = [Merkur, Venus, Erde, Mars, Jupiter, Saturn, Uranus, Neptun]
 
 # Main Game loop
@@ -145,9 +146,9 @@ while running:
         planet.neue_pos(zeitsprung)
 
     # Planeten zeichnen
-    Sonne.zeichnen("yellow")
+    Sonne.zeichnen(Sonne.farbe)
     for element in planeten:
-        element.zeichnen("orange")
+        element.zeichnen(element.farbe)
 
     pygame.display.flip()
     clock.tick(60)

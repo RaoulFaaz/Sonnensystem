@@ -63,3 +63,5 @@ Maximallänge für die Umlaufbahn eingefügt. (Schwachstelle dabei liegt, dass w
 Ich habe für alle Planeten eine Masse, einen angepassten Radius und eine angepasste Geschwindigkeit hinzugefügt. (Notiz: evt. in Zukunft durch ein Dict ersetzen) 
 
 Alle Planeten kreiert.
+
+Planetenfarben hinzugefügt. (https://sites.google.com/view/paztronomer/blog/basic/python-colors)
