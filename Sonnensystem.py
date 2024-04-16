@@ -32,10 +32,13 @@ jupiter_masse = 1.898 * 10 ** 27
 jupiter_radius = 15
 # Infos Saturn
 saturn_masse = 5.68 * 10 ** 26
+saturn_radius = 13
 # Infos Uranus
 uranus_masse = 8.68 * 10 ** 25
+uranus_radius = 12
 # Infos Neptun
 neptun_masse = 1.02 * 10 ** 26
+nepturn_radius = 12
 
 
 
