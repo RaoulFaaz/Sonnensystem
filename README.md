@@ -61,3 +61,5 @@ Die Umlaufbahn wird mehrmals übereinander gezeichnet, was unschön ist.
 Maximallänge für die Umlaufbahn eingefügt. (Schwachstelle dabei liegt, dass wenn der Zeitschrit zu klein ist, die Umlaufbahn zu kurz ist)
 
 Ich habe für alle Planeten eine Masse, einen angepassten Radius und eine angepasste Geschwindigkeit hinzugefügt. (Notiz: evt. in Zukunft durch ein Dict ersetzen) 
+
+Alle Planeten kreiert.

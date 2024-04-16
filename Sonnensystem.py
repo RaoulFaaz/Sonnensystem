@@ -44,7 +44,7 @@ uranus_radius = 12
 uranus_geschwindigkeit = 0.001
 # Infos Neptun
 neptun_masse = 1.02 * 10 ** 26
-nepturn_radius = 12
+neptun_radius = 12
 neptun_geschwindigkeit = 0.001
 
 
@@ -58,7 +58,7 @@ zeitsprung = 1000
 
 class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
 
-    def __init__(self, masse, radius, x, y, vx = 0, vy = 0):
+    def __init__(self, masse, radius, x, y, vy, vx = 0):
         self.masse = masse
         self.radius = radius
         self.x = x
@@ -115,10 +115,17 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
 
         
 
-
-Sonne = Planet(sonne_masse, sonne_radius, 0, 0)
-Merkur = Planet(merkur_masse, merkur_radius, 100, 0)
-Merkur.vy = merkur_geschwindigkeit
+# planeten kreieren
+Sonne = Planet(sonne_masse, sonne_radius, 0, 0, 0)
+Merkur = Planet(merkur_masse, merkur_radius, 100, 0, merkur_geschwindigkeit)
+Venus = Planet(venus_masse, venus_radius, 200, 0, venus_geschwindigkeit)
+Erde = Planet(erde_masse, erde_radius, 300, 0, erde_geschwindigkeit)
+Mars = Planet(mars_masse, mars_radius, 400, 0, mars_geschwindigkeit)
+Jupiter = Planet(jupiter_masse, jupiter_radius, 500, 0, jupiter_geschwindigkeit)
+Saturn = Planet(saturn_masse, saturn_radius, 600, 0, saturn_geschwindigkeit)
+Uranus = Planet(uranus_masse, uranus_radius, 700, 0, uranus_geschwindigkeit)
+Neptun = Planet(neptun_masse, neptun_radius, 800, 0, neptun_geschwindigkeit)
+planeten = [Merkur, Venus, Erde, Mars, Jupiter, Saturn, Uranus, Neptun]
 
 # Main Game loop
 
@@ -134,11 +141,13 @@ while running:
     fenster.fill("black")
 
     # position updaten
-    Merkur.neue_pos(zeitsprung)
+    for planet in planeten:
+        planet.neue_pos(zeitsprung)
 
     # Planeten zeichnen
     Sonne.zeichnen("yellow")
-    Merkur.zeichnen("orange")
+    for element in planeten:
+        element.zeichnen("orange")
 
     pygame.display.flip()
     clock.tick(60)
