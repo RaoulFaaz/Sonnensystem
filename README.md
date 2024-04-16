@@ -49,3 +49,9 @@ Warum dies geschieht weiss ich momentan noch nicht.
 Problem behoben indem ich die Winkelfunktion korrigiert habe. 
 Die Umlaufbahn des Planeten Merkur hinzugefügt indem ich mit der y-geschwindigkeit experimentiert habe. 
 
+Zeitschritt in Variabel geschpeichert. 
+Umlaufbahn programmiert. Fehler das noch nicht genug Werte vorhanden sind.
+(ValueError: points argument must contain 2 or more points)
+Gelöst indem ich ein If-statment eingefügt habe welches überprüft ob genügend Werte vorhanden sind.
+Die Umlaufbahn wurde nicht relativ zum Fenster gezeichnet. Gelöst indem man es an der Fenstermitte orientiert. (ChatGPt) 
+Die Umlaufbahn wird mehrmals übereinander gezeichnet, was unschön ist. 

@@ -23,6 +23,9 @@ merkur_geschwindigkeit = 0.004
 # Gravitationskonstante "G" mal den faktor  10 ^ -23
 G = 6.6743 * 10 ** -11 * 10 ** -23
 
+# Dauer zwischen dem Update der Position in Sekunden 
+
+zeitsprung = 3600
 
 class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
 
@@ -33,11 +36,19 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
         self.y = y
         self.vx = vx
         self.vy = vy
+        self.umlaufbahn = []
 
     def zeichnen(self, farbe):
         x = self.x + fenster_breite // 2
         y = self.y + fenster_hoehe // 2
         pygame.draw.circle(fenster, farbe, (x, y), self.radius)
+
+
+        # Überprüfen ob die Liste genügend Elemente 
+        if len(self.umlaufbahn) >= 2:
+            # Umlaufbahn zentrieren
+            angepasste_umlaufbahn = [(point[0] + fenster_breite // 2, point[1] + fenster_hoehe // 2) for point in self.umlaufbahn]
+            pygame.draw.lines(fenster, farbe, False, angepasste_umlaufbahn, 1)
 
     # Distanz zwischen zwei Körpern berechnen mit Pythagoras
     def distanz(self, other):
@@ -64,6 +75,10 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
         # die neue position berechnen 
         self.x += self.vx * zeit 
         self.y += self.vy * zeit
+
+        # Position speichern um später die Umlaufbahn zu zeichnen
+        self.umlaufbahn.append((self.x, self.y))
+
         
 
 
@@ -85,7 +100,7 @@ while running:
     fenster.fill("black")
 
     # position updaten
-    Merkur.neue_pos(1000)
+    Merkur.neue_pos(zeitsprung)
 
     # Planeten zeichnen
     Sonne.zeichnen("yellow")
