@@ -60,4 +60,4 @@ Die Umlaufbahn wurde nicht relativ zum Fenster gezeichnet. Gelöst indem man es 
 Die Umlaufbahn wird mehrmals übereinander gezeichnet, was unschön ist. 
 Maximallänge für die Umlaufbahn eingefügt. (Schwachstelle dabei liegt, dass wenn der Zeitschrit zu klein ist, die Umlaufbahn zu kurz ist)
 
-Ich habe für alle Planeten eine Masse und einen angepassten Radius hinzugefügt.  
+Ich habe für alle Planeten eine Masse und einen angepassten Radius hinzugefügt. (Notiz: evt. in Zukunft durch ein Dict ersetzen) 
