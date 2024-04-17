@@ -65,3 +65,6 @@ Ich habe für alle Planeten eine Masse, einen angepassten Radius und eine angepa
 Alle Planeten kreiert.
 
 Planetenfarben hinzugefügt. (https://sites.google.com/view/paztronomer/blog/basic/python-colors)
+
+Alle Atribute der Planeten (Masse, Radius und Geschwindigkeit) in Dictionarrys gepackt um das Programm kürzer und übersichtlicher
+zu machen. 
