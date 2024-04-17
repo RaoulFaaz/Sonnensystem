@@ -129,7 +129,6 @@ Neptun = Planet("steelblue", neptun_masse, neptun_radius, 660, 0, neptun_geschwi
 planeten = [Merkur, Venus, Erde, Mars, Jupiter, Saturn, Uranus, Neptun]
 
 # Main Game loop
-
 running = True
 clock = pygame.time.Clock()
 
@@ -139,16 +138,12 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    fenster.fill("black")
-
-    # position updaten
-    for planet in planeten:
-        planet.neue_pos(zeitsprung)
-
-    # Planeten zeichnen
+    # Position updaten und Planeten zeichnen
+    fenster.fill("black") 
     Sonne.zeichnen(Sonne.farbe)
-    for element in planeten:
-        element.zeichnen(element.farbe)
+    for planet in planeten:
+        planet.zeichnen(planet.farbe)
+        planet.neue_pos(zeitsprung)
 
     pygame.display.flip()
     clock.tick(60)
