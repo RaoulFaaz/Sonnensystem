@@ -14,39 +14,30 @@ masse = {"sonne": 1.989 * 10 ** 30, "merkur": 3.285 * 10 ** 23, "venus": 4.87 * 
          "mars": 6.42 * 10 ** 23, "jupiter": 1.898 * 10 ** 27, "saturn": 5.68 * 10 ** 26, "uranus": 8.68 * 10 ** 25,
          "neptun": 1.02 * 10 ** 26}
 # Infos Sonne
-
 sonne_radius = 25
 
 # Infos Merkur
-
 merkur_radius = 6
 merkur_geschwindigkeit = 0.003
 # Infos Venus
-
 venus_radius = 9
 venus_geschwindigkeit = 0.002
 # Infos Erde
-
 erde_radius = 9
 erde_geschwindigkeit = 0.001
 # Infos Mars
-
 mars_radius = 7
 mars_geschwindigkeit = 0.001
 # Infos Jupiter
-
 jupiter_radius = 15
 jupiter_geschwindigkeit = 0.001
 # Infos Saturn
-
 saturn_radius = 13
 saturn_geschwindigkeit = 0.001
 # Infos Uranus
-
 uranus_radius = 12
 uranus_geschwindigkeit = 0.001
 # Infos Neptun
-
 neptun_radius = 12
 neptun_geschwindigkeit = 0.001
 
