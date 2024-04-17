@@ -109,8 +109,8 @@ while running:
     fenster.fill("black")
     Sonne.zeichnen(Sonne.farbe)
     for planet in planeten:
-        planet.zeichnen(planet.farbe)
         planet.neue_pos(zeitsprung)
+        planet.zeichnen(planet.farbe)
 
     pygame.display.flip()
     clock.tick(60)
