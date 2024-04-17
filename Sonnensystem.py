@@ -13,33 +13,9 @@ pygame.display.set_caption("Sonnensystem")
 masse = {"sonne": 1.989 * 10 ** 30, "merkur": 3.285 * 10 ** 23, "venus": 4.87 * 10 ** 24, "erde": 5.97 * 10 ** 24,
          "mars": 6.42 * 10 ** 23, "jupiter": 1.898 * 10 ** 27, "saturn": 5.68 * 10 ** 26, "uranus": 8.68 * 10 ** 25,
          "neptun": 1.02 * 10 ** 26}
-# Infos Sonne
-sonne_radius = 25
+radius = {"sonne" : 25, "merkur" : 6, "venus" : 9, "erde" : 9, "mars" : 7, "jupiter" : 15, "saturn" : 13, "uranus" : 12, "neptun" : 12}
+geschwindigkeit = {"merkur" : 0.003, "venus" : 0.002, "erde" : 0.001, "mars" : 0.001, "jupiter" : 0.001, "saturn" : 0.001, "uranus" : 0.001, "neptun" : 0.001}
 
-# Infos Merkur
-merkur_radius = 6
-merkur_geschwindigkeit = 0.003
-# Infos Venus
-venus_radius = 9
-venus_geschwindigkeit = 0.002
-# Infos Erde
-erde_radius = 9
-erde_geschwindigkeit = 0.001
-# Infos Mars
-mars_radius = 7
-mars_geschwindigkeit = 0.001
-# Infos Jupiter
-jupiter_radius = 15
-jupiter_geschwindigkeit = 0.001
-# Infos Saturn
-saturn_radius = 13
-saturn_geschwindigkeit = 0.001
-# Infos Uranus
-uranus_radius = 12
-uranus_geschwindigkeit = 0.001
-# Infos Neptun
-neptun_radius = 12
-neptun_geschwindigkeit = 0.001
 
 # Gravitationskonstante "G" mal den faktor  10 ^ -23
 G = 6.6743 * 10 ** -11 * 10 ** -23
@@ -111,15 +87,15 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
         # planeten kreieren
 
 
-Sonne = Planet("yellow", masse["sonne"], sonne_radius, 0, 0, 0)
-Merkur = Planet("grey", masse["merkur"], merkur_radius, 100, 0, merkur_geschwindigkeit)
-Venus = Planet("palegoldenrod", masse["venus"], venus_radius, 180, 0, venus_geschwindigkeit)
-Erde = Planet("blue", masse["erde"], erde_radius, 260, 0, erde_geschwindigkeit)
-Mars = Planet("firebrick", masse["mars"], mars_radius, 340, 0, mars_geschwindigkeit)
-Jupiter = Planet("darkgoldenrod", masse["jupiter"], jupiter_radius, 420, 0, jupiter_geschwindigkeit)
-Saturn = Planet("lightgoldenrodyellow", masse["saturn"], saturn_radius, 500, 0, saturn_geschwindigkeit)
-Uranus = Planet("paleturquoise", masse["uranus"], uranus_radius, 580, 0, uranus_geschwindigkeit)
-Neptun = Planet("steelblue", masse["neptun"], neptun_radius, 660, 0, neptun_geschwindigkeit)
+Sonne = Planet("yellow", masse["sonne"], radius["sonne"], 0, 0, 0)
+Merkur = Planet("grey", masse["merkur"], radius["merkur"], 100, 0, geschwindigkeit["merkur"])
+Venus = Planet("palegoldenrod", masse["venus"], radius["venus"], 180, 0, geschwindigkeit["venus"])
+Erde = Planet("blue", masse["erde"], radius["erde"], 260, 0, geschwindigkeit["erde"])
+Mars = Planet("firebrick", masse["mars"], radius["mars"], 340, 0, geschwindigkeit["mars"])
+Jupiter = Planet("darkgoldenrod", masse["jupiter"], radius["jupiter"], 420, 0, geschwindigkeit["jupiter"])
+Saturn = Planet("lightgoldenrodyellow", masse["saturn"], radius["saturn"], 500, 0, geschwindigkeit["saturn"])
+Uranus = Planet("paleturquoise", masse["uranus"], radius["uranus"], 580, 0, geschwindigkeit["uranus"])
+Neptun = Planet("steelblue", masse["neptun"], radius["neptun"], 660, 0, geschwindigkeit["neptun"])
 planeten = [Merkur, Venus, Erde, Mars, Jupiter, Saturn, Uranus, Neptun]
 
 # Main Game loop
