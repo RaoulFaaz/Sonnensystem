@@ -68,3 +68,6 @@ Planetenfarben hinzugefügt. (https://sites.google.com/view/paztronomer/blog/bas
 
 Alle Atribute der Planeten (Masse, Radius und Geschwindigkeit) in Dictionarrys gepackt um das Programm kürzer und übersichtlicher
 zu machen. 
+
+Ich habe die Farbe aller Umlaufbahnen weiss gemacht, um die Simulation übersichtlicher zu machen. 
+Überkreuzungen zwischen den Planetenbahnen entfernt. 

@@ -16,14 +16,14 @@ masse = {"sonne": 1.989 * 10 ** 30, "merkur": 3.285 * 10 ** 23, "venus": 4.87 * 
          "neptun": 1.02 * 10 ** 26}
 radius = {"sonne": 25, "merkur": 6, "venus": 9, "erde": 9, "mars": 7, "jupiter": 15, "saturn": 13, "uranus": 12,
           "neptun": 12}
-geschwindigkeit = {"merkur": 0.003, "venus": 0.002, "erde": 0.001, "mars": 0.001, "jupiter": 0.001, "saturn": 0.001,
-                   "uranus": 0.001, "neptun": 0.001}
+geschwindigkeit = {"merkur": 0.003, "venus": 0.002, "erde": 0.0018, "mars": 0.0016, "jupiter": 0.0014, "saturn": 0.0013,
+                   "uranus": 0.0012, "neptun": 0.0011}
 
 # Gravitationskonstante "G" mal den faktor  10 ^ -23
 G = 6.6743 * 10 ** -11 * 10 ** -23
 
 # Dauer zwischen dem Update der Position in Sekunden 
-zeitsprung = 1000
+zeitsprung = 750
 
 class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
 
@@ -81,7 +81,7 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
         self.umlaufbahn.append((self.x, self.y))
 
         # Überschneidungen im Orbit verhindern indem man das erste Element löscht, falls die Liste zu lang wird
-        if len(self.umlaufbahn) > 1600:
+        if len(self.umlaufbahn) > 2500:
             self.umlaufbahn.pop(0)
 
 # planeten kreieren
