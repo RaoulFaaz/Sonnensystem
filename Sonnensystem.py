@@ -40,14 +40,15 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
     def zeichnen(self, farbe):
         x = self.x + fenster_breite // 2
         y = self.y + fenster_hoehe // 2
-        pygame.draw.circle(fenster, farbe, (x, y), self.radius)
 
         # Überprüfen ob die Liste genügend Elemente
         if len(self.umlaufbahn) >= 2:
             # Umlaufbahn zentrieren
             angepasste_umlaufbahn = [(point[0] + fenster_breite // 2, point[1] + fenster_hoehe // 2) for point in
                                      self.umlaufbahn]
-            pygame.draw.lines(fenster, farbe, False, angepasste_umlaufbahn, 1)
+            pygame.draw.lines(fenster, "white", False, angepasste_umlaufbahn, 1)
+
+        pygame.draw.circle(fenster, farbe, (x, y), self.radius)
 
     # Distanz zwischen zwei Körpern berechnen mit Pythagoras
     def distanz(self, other):
