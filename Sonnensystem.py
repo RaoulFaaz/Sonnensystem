@@ -23,7 +23,10 @@ geschwindigkeit = {"merkur": 0.003, "venus": 0.002, "erde": 0.0018, "mars": 0.00
 G = 6.6743 * 10 ** -11 * 10 ** -23
 
 # Dauer zwischen dem Update der Position in Sekunden 
-zeitsprung = 750
+ZEITSPRUNG = 750
+
+# maximal gespeicherte Werte für die Umlaufbahn
+MAX = 2500
 
 class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
 
@@ -81,7 +84,7 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
         self.umlaufbahn.append((self.x, self.y))
 
         # Überschneidungen im Orbit verhindern indem man das erste Element löscht, falls die Liste zu lang wird
-        if len(self.umlaufbahn) > 2500:
+        if len(self.umlaufbahn) > MAX:
             self.umlaufbahn.pop(0)
 
 # planeten kreieren
@@ -110,7 +113,7 @@ while running:
     fenster.fill("black")
     Sonne.zeichnen(Sonne.farbe)
     for planet in planeten:
-        planet.neue_pos(zeitsprung)
+        planet.neue_pos(ZEITSPRUNG)
         planet.zeichnen(planet.farbe)
 
     pygame.display.flip()
