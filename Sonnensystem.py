@@ -91,15 +91,15 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
             self.umlaufbahn.pop(0)
 
 # planeten kreieren
-Sonne = Planet("sonne.png", masse["sonne"], radius["sonne"], 0, 0, 0)
-Merkur = Planet("merkur.png", masse["merkur"], radius["merkur"], 100, 0, geschwindigkeit["merkur"])
-Venus = Planet("venus.png", masse["venus"], radius["venus"], 180, 0, geschwindigkeit["venus"])
-Erde = Planet("erde.png", masse["erde"], radius["erde"], 260, 0, geschwindigkeit["erde"])
-Mars = Planet("mars.png", masse["mars"], radius["mars"], 340, 0, geschwindigkeit["mars"])
-Jupiter = Planet("jupiter.png", masse["jupiter"], radius["jupiter"], 420, 0, geschwindigkeit["jupiter"])
-Saturn = Planet("saturn.png", masse["saturn"], radius["saturn"], 500, 0, geschwindigkeit["saturn"])
-Uranus = Planet("uranus.png", masse["uranus"], radius["uranus"], 580, 0, geschwindigkeit["uranus"])
-Neptun = Planet("neptun.png", masse["neptun"], radius["neptun"], 660, 0, geschwindigkeit["neptun"])
+Sonne = Planet("planeten/sonne.png", masse["sonne"], radius["sonne"], 0, 0, 0)
+Merkur = Planet("planeten/merkur.png", masse["merkur"], radius["merkur"], 100, 0, geschwindigkeit["merkur"])
+Venus = Planet("planeten/venus.png", masse["venus"], radius["venus"], 180, 0, geschwindigkeit["venus"])
+Erde = Planet("planeten/erde.png", masse["erde"], radius["erde"], 260, 0, geschwindigkeit["erde"])
+Mars = Planet("planeten/mars.png", masse["mars"], radius["mars"], 340, 0, geschwindigkeit["mars"])
+Jupiter = Planet("planeten/jupiter.png", masse["jupiter"], radius["jupiter"], 420, 0, geschwindigkeit["jupiter"])
+Saturn = Planet("planeten/saturn.png", masse["saturn"], radius["saturn"], 500, 0, geschwindigkeit["saturn"])
+Uranus = Planet("planeten/uranus.png", masse["uranus"], radius["uranus"], 580, 0, geschwindigkeit["uranus"])
+Neptun = Planet("planeten/neptun.png", masse["neptun"], radius["neptun"], 660, 0, geschwindigkeit["neptun"])
 planeten = [Merkur, Venus, Erde, Mars, Jupiter, Saturn, Uranus, Neptun]
 
 # Main Game loop
