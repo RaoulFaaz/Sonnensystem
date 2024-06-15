@@ -16,6 +16,9 @@ https://www.youtube.com/watch?v=tRZGeaHPoaw
 Infos Planeten:
 https://nssdc.gsfc.nasa.gov/planetary/factsheet/
 
+Pygame:
+https://www.pygame.org/
+
 
 Vorgehensweise:
 Pygame Fenster setup und Loop starten
@@ -93,3 +96,6 @@ Uranus:
 <a href="https://www.flaticon.com/free-icons/uranus" title="uranus icons">Uranus icons created by Muhammad_Usman - Flaticon</a>
 Neptun:
 <a href="https://www.flaticon.com/free-icons/planet" title="planet icons">Planet icons created by Freepik - Flaticon</a>
+
+Funktion hinzugefügt welche testet, ob der Mauszeiger und ein Planet überlappen:
+https://www.pygame.org/docs/ref/rect.html#pygame.Rect.collidepoint

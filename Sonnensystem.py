@@ -89,7 +89,13 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
         # Überschneidungen im Orbit verhindern indem man das erste Element löscht, falls die Liste zu lang wird
         if len(self.umlaufbahn) > MAX:
             self.umlaufbahn.pop(0)
-
+            
+    # Überprüft ob der Mauszeiger über einem Planeten ist
+    def kollision(self):
+        if self.rect.collidepoint(pygame.mouse.get_pos()):
+            return self
+        else: 
+            return chr(0)
 # planeten kreieren
 Sonne = Planet("planeten/sonne.png", masse["sonne"], radius["sonne"], 0, 0, 0)
 Merkur = Planet("planeten/merkur.png", masse["merkur"], radius["merkur"], 100, 0, geschwindigkeit["merkur"])
@@ -118,7 +124,7 @@ while running:
     for planet in planeten:
         planet.neue_pos(ZEITSPRUNG)
         planet.zeichnen()
-
+        
     pygame.display.flip()
     clock.tick(60)
 
