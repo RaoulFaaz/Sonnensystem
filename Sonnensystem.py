@@ -30,17 +30,19 @@ MAX = 2500
 
 class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
 
-    def __init__(self, farbe, masse, radius, x, y, vy, vx=0):
-        self.farbe = farbe
+    def __init__(self,img, masse, radius, x, y, vy, vx=0):
+        self.img = pygame.image.load(img)
+        self.rect = self.img.get_rect(center=(x + fenster_breite // 2, y + fenster_hoehe // 2))
         self.masse = masse
         self.radius = radius
         self.x = x
         self.y = y
+        self.img = pygame.image.load(img)
         self.vx = vx
         self.vy = vy
         self.umlaufbahn = []
 
-    def zeichnen(self, farbe):
+    def zeichnen(self):
         x = self.x + fenster_breite // 2
         y = self.y + fenster_hoehe // 2
 
@@ -51,7 +53,8 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
                                      self.umlaufbahn]
             pygame.draw.lines(fenster, "white", False, angepasste_umlaufbahn, 1)
 
-        pygame.draw.circle(fenster, farbe, (x, y), self.radius)
+        self.rect.center = (self.x + fenster_breite // 2, self.y + fenster_hoehe // 2)
+        fenster.blit(self.img, self.rect)
 
     # Distanz zwischen zwei Körpern berechnen mit Pythagoras
     def distanz(self, other):
@@ -88,15 +91,15 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
             self.umlaufbahn.pop(0)
 
 # planeten kreieren
-Sonne = Planet("yellow", masse["sonne"], radius["sonne"], 0, 0, 0)
-Merkur = Planet("grey", masse["merkur"], radius["merkur"], 100, 0, geschwindigkeit["merkur"])
-Venus = Planet("palegoldenrod", masse["venus"], radius["venus"], 180, 0, geschwindigkeit["venus"])
-Erde = Planet("blue", masse["erde"], radius["erde"], 260, 0, geschwindigkeit["erde"])
-Mars = Planet("firebrick", masse["mars"], radius["mars"], 340, 0, geschwindigkeit["mars"])
-Jupiter = Planet("darkgoldenrod", masse["jupiter"], radius["jupiter"], 420, 0, geschwindigkeit["jupiter"])
-Saturn = Planet("lightgoldenrodyellow", masse["saturn"], radius["saturn"], 500, 0, geschwindigkeit["saturn"])
-Uranus = Planet("paleturquoise", masse["uranus"], radius["uranus"], 580, 0, geschwindigkeit["uranus"])
-Neptun = Planet("steelblue", masse["neptun"], radius["neptun"], 660, 0, geschwindigkeit["neptun"])
+Sonne = Planet("sonne.png", masse["sonne"], radius["sonne"], 0, 0, 0)
+Merkur = Planet("merkur.png", masse["merkur"], radius["merkur"], 100, 0, geschwindigkeit["merkur"])
+Venus = Planet("venus.png", masse["venus"], radius["venus"], 180, 0, geschwindigkeit["venus"])
+Erde = Planet("erde.png", masse["erde"], radius["erde"], 260, 0, geschwindigkeit["erde"])
+Mars = Planet("mars.png", masse["mars"], radius["mars"], 340, 0, geschwindigkeit["mars"])
+Jupiter = Planet("jupiter.png", masse["jupiter"], radius["jupiter"], 420, 0, geschwindigkeit["jupiter"])
+Saturn = Planet("saturn.png", masse["saturn"], radius["saturn"], 500, 0, geschwindigkeit["saturn"])
+Uranus = Planet("uranus.png", masse["uranus"], radius["uranus"], 580, 0, geschwindigkeit["uranus"])
+Neptun = Planet("neptun.png", masse["neptun"], radius["neptun"], 660, 0, geschwindigkeit["neptun"])
 planeten = [Merkur, Venus, Erde, Mars, Jupiter, Saturn, Uranus, Neptun]
 
 # Main Game loop
@@ -111,10 +114,10 @@ while running:
 
     # Position updaten und Planeten zeichnen
     fenster.fill("black")
-    Sonne.zeichnen(Sonne.farbe)
+    Sonne.zeichnen()
     for planet in planeten:
         planet.neue_pos(ZEITSPRUNG)
-        planet.zeichnen(planet.farbe)
+        planet.zeichnen()
 
     pygame.display.flip()
     clock.tick(60)

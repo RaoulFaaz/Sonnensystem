@@ -71,3 +71,25 @@ zu machen.
 
 Ich habe die Farbe aller Umlaufbahnen weiss gemacht, um die Simulation übersichtlicher zu machen. 
 Überkreuzungen zwischen den Planetenbahnen entfernt. 
+
+Icons hinzugefügt und die Planeten als rects dargestellt. Dabei unteranderem die init-Funktion, die Zeichnen-Funktion und
+die Erstellung der Planetobjekten angepasst.
+https://www.flaticon.com/
+Sonne:
+<a href="https://www.flaticon.com/free-icons/sun" title="sun icons">Sun icons created by Freepik - Flaticon</a> 
+Merkur:
+<a href="https://www.flaticon.com/free-icons/mercury" title="mercury icons">Mercury icons created by Freepik - Flaticon</a>
+Venus:
+<a href="https://www.flaticon.com/free-icons/venus" title="venus icons">Venus icons created by Freepik - Flaticon</a>
+Erde:
+<a href="https://www.flaticon.com/free-icons/globe" title="globe icons">Globe icons created by Freepik - Flaticon</a>
+Mars:
+<a href="https://www.flaticon.com/free-icons/planet" title="planet icons">Planet icons created by Freepik - Flaticon</a>
+Jupiter:
+<a href="https://www.flaticon.com/free-icons/jupiter" title="jupiter icons">Jupiter icons created by Freepik - Flaticon</a>
+Saturn:
+<a href="https://www.flaticon.com/free-icons/planet" title="planet icons">Planet icons created by Freepik - Flaticon</a>
+Uranus:
+<a href="https://www.flaticon.com/free-icons/uranus" title="uranus icons">Uranus icons created by Muhammad_Usman - Flaticon</a>
+Neptun:
+<a href="https://www.flaticon.com/free-icons/planet" title="planet icons">Planet icons created by Freepik - Flaticon</a>
