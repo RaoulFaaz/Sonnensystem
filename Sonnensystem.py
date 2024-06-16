@@ -41,8 +41,8 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
         self.umlaufbahn = []
 
     def zeichnen(self):
-        x = self.x + fenster_breite // 2
-        y = self.y + fenster_hoehe // 2
+        x = self.x + (fenster_breite // 2) - 32
+        y = self.y + (fenster_hoehe // 2) - 32
 
         # Überprüfen ob die Liste genügend Elemente
         if len(self.umlaufbahn) >= 2:
@@ -128,15 +128,16 @@ while running:
         
     pygame.display.flip()
     clock.tick(60)
-
+    # Erde Schleife
     while not running and name == "erde":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
                 pygame.quit()
-                
+
         fenster.fill("black")
-        Erde.rect.center = (fenster_breite // 2, fenster_hoehe // 2)
+        Erde.img = pygame.transform.scale(Erde.img, (128, 128))
+        Erde.rect.center = ((fenster_breite // 2) -64, (fenster_hoehe // 2) -64)
         fenster.blit(Erde.img, Erde.rect)   
 
         pygame.display.flip()

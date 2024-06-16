@@ -108,3 +108,5 @@ Problem: Kann noch nicht erkennen welcher Planet geklickt wird.
 Lösung: Planetnamen in die init funktion aufnehmen und nach anklicken speichern. 
 Schleife angepasst, so dass sie nur die Erde im Zentrum zeigt wenn man diese Anklickt.
 -> Grundlage für die weiteren Schleifen.  
+Zoom hinzugefügt:
+https://www.pygame.org/docs/ref/transform.html#pygame.transform.scale
