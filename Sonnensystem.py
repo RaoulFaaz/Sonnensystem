@@ -13,9 +13,9 @@ pygame.display.set_caption("Sonnensystem")
 # Attribute Planeten
 masse = {"sonne": 1.989 * 10 ** 30, "merkur": 3.285 * 10 ** 23, "venus": 4.87 * 10 ** 24, "erde": 5.97 * 10 ** 24,
          "mars": 6.42 * 10 ** 23, "jupiter": 1.898 * 10 ** 27, "saturn": 5.68 * 10 ** 26, "uranus": 8.68 * 10 ** 25,
-         "neptun": 1.02 * 10 ** 26}
+         "neptun": 1.02 * 10 ** 26, "mond" : 7.3 * 10 ** 22}
 geschwindigkeit = {"merkur": 0.003, "venus": 0.002, "erde": 0.0018, "mars": 0.0016, "jupiter": 0.0014, "saturn": 0.0013,
-                   "uranus": 0.0012, "neptun": 0.0011}
+                   "uranus": 0.0012, "neptun": 0.0011, "mond" : 0.0018}
 
 # Gravitationskonstante "G" mal den faktor  10 ^ -23
 G = 6.6743 * 10 ** -11 * 10 ** -23
@@ -71,9 +71,9 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
         return Fg_x, Fg_y
 
     # Neue position eines Körpers berechnen
-    def neue_pos(self, zeit):
-        fx, fy = self.anziehung(Sonne, self.distanz(Sonne))
-        # Geschwindikeit berechnen indem man a * m durch m und dann durch die zeit rechnet
+    def neue_pos(self, zeit, other):
+        fx, fy = self.anziehung(other, self.distanz(other))
+        # Geschwindikeit berechnen indem man a * m durch m und dann durch die Zeit rechnet
         self.vx += fx / self.masse * zeit
         self.vy += fy / self.masse * zeit
 
@@ -103,6 +103,7 @@ Jupiter = Planet("jupiter", "planeten/jupiter.png", masse["jupiter"], 420, 0, ge
 Saturn = Planet("saturn", "planeten/saturn.png", masse["saturn"], 500, 0, geschwindigkeit["saturn"])
 Uranus = Planet("uranus", "planeten/uranus.png", masse["uranus"], 580, 0, geschwindigkeit["uranus"])
 Neptun = Planet("neptun", "planeten/neptun.png", masse["neptun"], 660, 0, geschwindigkeit["neptun"])
+Mond = Planet("mond", "planeten/mond.png", masse["mond"], 100, 0, geschwindigkeit["mond"])
 planeten = [Merkur, Venus, Erde, Mars, Jupiter, Saturn, Uranus, Neptun]
 
 # Main Game loop
@@ -120,7 +121,7 @@ while running:
     fenster.fill("black")
     Sonne.zeichnen()
     for planet in planeten:
-        planet.neue_pos(ZEITSPRUNG)
+        planet.neue_pos(ZEITSPRUNG, Sonne)
         planet.zeichnen()
         if planet.kollision() and pygame.mouse.get_pressed()[0]:
             name = planet.name
@@ -138,6 +139,8 @@ while running:
         fenster.fill("black")
         Erde.img = pygame.transform.scale(Erde.img, (128, 128))
         Erde.rect.center = ((fenster_breite // 2) -64, (fenster_hoehe // 2) -64)
+        Mond.neue_pos(ZEITSPRUNG, Erde)
+        Mond.zeichnen()
         fenster.blit(Erde.img, Erde.rect)   
 
         pygame.display.flip()

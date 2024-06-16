@@ -110,3 +110,9 @@ Schleife angepasst, so dass sie nur die Erde im Zentrum zeigt wenn man diese Ank
 -> Grundlage für die weiteren Schleifen.  
 Zoom hinzugefügt:
 https://www.pygame.org/docs/ref/transform.html#pygame.transform.scale
+
+Mond Objekt hinzugefügt:
+<a href="https://www.flaticon.com/free-icons/full-moon" title="full moon icons">Full moon icons created by vectorsmarket15 - Flaticon</a>
+Mond in die Erde Schleife eingefügt indem ich die neue_pos-Funktion verallgemeinert habe. 
+Problem: Anziehung zwischen Mond und Erde zu klein.
+  
