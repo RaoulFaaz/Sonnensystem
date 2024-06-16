@@ -102,5 +102,9 @@ https://www.pygame.org/docs/ref/rect.html#pygame.Rect.collidepoint
 
 Radien entfernt da sie nicht mehr zum zeichnen der Kreise benötigt werden. 
 
-Neue Schlaufe eingebaut welche läuft, wenn man einen Planeten anklickt.
+Neue Schleife eingebaut welche läuft, wenn man einen Planeten anklickt.
 https://www.pygame.org/docs/ref/mouse.html
+Problem: Kann noch nicht erkennen welcher Planet geklickt wird. 
+Lösung: Planetnamen in die init funktion aufnehmen und nach anklicken speichern. 
+Schleife angepasst, so dass sie nur die Erde im Zentrum zeigt wenn man diese Anklickt.
+-> Grundlage für die weiteren Schleifen.  
