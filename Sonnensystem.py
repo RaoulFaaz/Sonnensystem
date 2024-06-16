@@ -94,7 +94,7 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
     
 # Kreiert eine Textbox an Position xy
 def textbox(text, x, y):
-    box = pygame.font.SysFont("Arial", 30).render(text, True, "white")
+    box = pygame.font.SysFont("Arial", 20).render(text, True, "white")
     fenster.blit(box, (x, y))
 
 # planeten kreieren
@@ -148,7 +148,9 @@ while running:
         Erde.rect.center = ((fenster_breite // 2) -64, (fenster_hoehe // 2) -64)
         Mond.neue_pos(ZEITSPRUNG, Erde)
         Mond.zeichnen()
-        fenster.blit(Erde.img, Erde.rect)   
+        fenster.blit(Erde.img, Erde.rect) 
+        textbox("Erde", fenster_breite - 300, 30)  
+        textbox("Test", fenster_breite - 300, 50) 
 
         pygame.display.flip()
         clock.tick(60)

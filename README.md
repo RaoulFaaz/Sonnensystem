@@ -120,3 +120,5 @@ Dies ist pysikalsich nicht korrekt, da eine Konstante konstant bleiben sollte.
 
 Funktion hinzugefügt, welche eine Textbox kreiert. 
 https://www.youtube.com/watch?v=ndtFoWWBAoE
+Problem: Nur eine Zeile
+Lösung: Momentan mehrere Befehle
