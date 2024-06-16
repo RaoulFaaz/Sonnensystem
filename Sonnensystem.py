@@ -89,8 +89,8 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
             
     # Überprüft ob der Mauszeiger über einem Planeten ist
     def kollision(self):
-        if self.rect.collidepoint(pygame.mouse.get_pos()):
-            return self
+        return self.rect.collidepoint(pygame.mouse.get_pos())
+            
         
 # planeten kreieren
 Sonne = Planet("planeten/sonne.png", masse["sonne"], 0, 0, 0)
@@ -113,6 +113,7 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+            pygame.quit()
 
     # Position updaten und Planeten zeichnen
     fenster.fill("black")
@@ -120,8 +121,21 @@ while running:
     for planet in planeten:
         planet.neue_pos(ZEITSPRUNG)
         planet.zeichnen()
+        if planet.kollision() and pygame.mouse.get_pressed()[0]:
+            print(pygame.mouse.get_pressed())
+            running = False
         
     pygame.display.flip()
     clock.tick(60)
 
-pygame.quit()
+    while not running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+                pygame.quit()
+
+        fenster.fill("black")
+        Sonne.zeichnen()
+
+        pygame.display.flip()
+        clock.tick(60)

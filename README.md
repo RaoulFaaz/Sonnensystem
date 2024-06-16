@@ -101,3 +101,6 @@ Funktion hinzugefügt welche testet, ob der Mauszeiger und ein Planet überlappe
 https://www.pygame.org/docs/ref/rect.html#pygame.Rect.collidepoint
 
 Radien entfernt da sie nicht mehr zum zeichnen der Kreise benötigt werden. 
+
+Neue Schlaufe eingebaut welche läuft, wenn man einen Planeten anklickt.
+https://www.pygame.org/docs/ref/mouse.html
