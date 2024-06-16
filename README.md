@@ -117,3 +117,6 @@ Mond in die Erde Schleife eingefügt indem ich die neue_pos-Funktion verallgemei
 Problem: Anziehung zwischen Mond und Erde zu klein und unerklärliche Bewegungen.
 Lösung: Das Erde-Objekt neu definieren und die Gravitationskonstante G anpassen.
 Dies ist pysikalsich nicht korrekt, da eine Konstante konstant bleiben sollte. 
+
+Funktion hinzugefügt, welche eine Textbox kreiert. 
+https://www.youtube.com/watch?v=ndtFoWWBAoE

@@ -91,8 +91,12 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
     # Überprüft ob der Mauszeiger über einem Planeten ist
     def kollision(self):
         return self.rect.collidepoint(pygame.mouse.get_pos())
-            
-        
+    
+# Kreiert eine Textbox an Position xy
+def textbox(text, x, y):
+    box = pygame.font.SysFont("Arial", 30).render(text, True, "white")
+    fenster.blit(box, (x, y))
+
 # planeten kreieren
 Sonne = Planet("sonne", "planeten/sonne.png", masse["sonne"], 0, 0, 0)
 Merkur = Planet("merkur", "planeten/merkur.png", masse["merkur"], 100, 0, geschwindigkeit["merkur"])
