@@ -137,8 +137,14 @@ while running:
     while not running and name == "erde":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                running = False
-                pygame.quit()
+                pygame.quit()     
+
+            # Methode um zurück zur Standartansicht zu kommen
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    G = 6.6743 * 10 ** -34
+                    fenster.fill("black")
+                    running = True
 
         # G den neuen Umständen anpassen (Physikalisch inkorrekt)
         G = 2 * 10 ** -28
@@ -150,7 +156,7 @@ while running:
         Mond.zeichnen()
         fenster.blit(Erde.img, Erde.rect) 
         textbox("Erde", fenster_breite - 300, 30)  
-        textbox("Test", fenster_breite - 300, 50) 
+        textbox("Test", fenster_breite - 300, 50)  
 
         pygame.display.flip()
         clock.tick(60)

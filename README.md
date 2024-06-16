@@ -122,3 +122,6 @@ Funktion hinzugefügt, welche eine Textbox kreiert.
 https://www.youtube.com/watch?v=ndtFoWWBAoE
 Problem: Nur eine Zeile
 Lösung: Momentan mehrere Befehle
+
+Mit Escape kann man nun zur vorherigen Ansicht zurückkehren.
+Problem: Planeten sind weggeschleudert worden. 
