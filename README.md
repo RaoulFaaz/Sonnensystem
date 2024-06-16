@@ -99,3 +99,5 @@ Neptun:
 
 Funktion hinzugefügt welche testet, ob der Mauszeiger und ein Planet überlappen:
 https://www.pygame.org/docs/ref/rect.html#pygame.Rect.collidepoint
+
+Radien entfernt da sie nicht mehr zum zeichnen der Kreise benötigt werden. 

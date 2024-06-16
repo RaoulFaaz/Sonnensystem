@@ -14,8 +14,6 @@ pygame.display.set_caption("Sonnensystem")
 masse = {"sonne": 1.989 * 10 ** 30, "merkur": 3.285 * 10 ** 23, "venus": 4.87 * 10 ** 24, "erde": 5.97 * 10 ** 24,
          "mars": 6.42 * 10 ** 23, "jupiter": 1.898 * 10 ** 27, "saturn": 5.68 * 10 ** 26, "uranus": 8.68 * 10 ** 25,
          "neptun": 1.02 * 10 ** 26}
-radius = {"sonne": 25, "merkur": 6, "venus": 9, "erde": 9, "mars": 7, "jupiter": 15, "saturn": 13, "uranus": 12,
-          "neptun": 12}
 geschwindigkeit = {"merkur": 0.003, "venus": 0.002, "erde": 0.0018, "mars": 0.0016, "jupiter": 0.0014, "saturn": 0.0013,
                    "uranus": 0.0012, "neptun": 0.0011}
 
@@ -30,11 +28,10 @@ MAX = 2500
 
 class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
 
-    def __init__(self,img, masse, radius, x, y, vy, vx=0):
+    def __init__(self,img, masse, x, y, vy, vx=0):
         self.img = pygame.image.load(img)
         self.rect = self.img.get_rect(center=(x + fenster_breite // 2, y + fenster_hoehe // 2))
         self.masse = masse
-        self.radius = radius
         self.x = x
         self.y = y
         self.img = pygame.image.load(img)
@@ -94,18 +91,17 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
     def kollision(self):
         if self.rect.collidepoint(pygame.mouse.get_pos()):
             return self
-        else: 
-            return chr(0)
+        
 # planeten kreieren
-Sonne = Planet("planeten/sonne.png", masse["sonne"], radius["sonne"], 0, 0, 0)
-Merkur = Planet("planeten/merkur.png", masse["merkur"], radius["merkur"], 100, 0, geschwindigkeit["merkur"])
-Venus = Planet("planeten/venus.png", masse["venus"], radius["venus"], 180, 0, geschwindigkeit["venus"])
-Erde = Planet("planeten/erde.png", masse["erde"], radius["erde"], 260, 0, geschwindigkeit["erde"])
-Mars = Planet("planeten/mars.png", masse["mars"], radius["mars"], 340, 0, geschwindigkeit["mars"])
-Jupiter = Planet("planeten/jupiter.png", masse["jupiter"], radius["jupiter"], 420, 0, geschwindigkeit["jupiter"])
-Saturn = Planet("planeten/saturn.png", masse["saturn"], radius["saturn"], 500, 0, geschwindigkeit["saturn"])
-Uranus = Planet("planeten/uranus.png", masse["uranus"], radius["uranus"], 580, 0, geschwindigkeit["uranus"])
-Neptun = Planet("planeten/neptun.png", masse["neptun"], radius["neptun"], 660, 0, geschwindigkeit["neptun"])
+Sonne = Planet("planeten/sonne.png", masse["sonne"], 0, 0, 0)
+Merkur = Planet("planeten/merkur.png", masse["merkur"], 100, 0, geschwindigkeit["merkur"])
+Venus = Planet("planeten/venus.png", masse["venus"], 180, 0, geschwindigkeit["venus"])
+Erde = Planet("planeten/erde.png", masse["erde"], 260, 0, geschwindigkeit["erde"])
+Mars = Planet("planeten/mars.png", masse["mars"], 340, 0, geschwindigkeit["mars"])
+Jupiter = Planet("planeten/jupiter.png", masse["jupiter"], 420, 0, geschwindigkeit["jupiter"])
+Saturn = Planet("planeten/saturn.png", masse["saturn"], 500, 0, geschwindigkeit["saturn"])
+Uranus = Planet("planeten/uranus.png", masse["uranus"], 580, 0, geschwindigkeit["uranus"])
+Neptun = Planet("planeten/neptun.png", masse["neptun"], 660, 0, geschwindigkeit["neptun"])
 planeten = [Merkur, Venus, Erde, Mars, Jupiter, Saturn, Uranus, Neptun]
 
 # Main Game loop
