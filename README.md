@@ -134,3 +134,5 @@ Mit einer neuen Konstante G_E wurde dieses Problem gelöst.
 
 
 Merkur Schleife Hinzugefügt.
+Venus Schleife Hinzugefügt.
+
