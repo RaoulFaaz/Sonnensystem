@@ -98,17 +98,20 @@ def textbox(text, x, y):
     fenster.blit(box, (x, y))
 
 # planeten kreieren
-Sonne = Planet("sonne", "planeten/sonne.png", masse["sonne"], 0, 0, 0)
-Merkur = Planet("merkur", "planeten/merkur.png", masse["merkur"], 100, 0, geschwindigkeit["merkur"])
-Venus = Planet("venus", "planeten/venus.png", masse["venus"], 180, 0, geschwindigkeit["venus"])
-Erde = Planet("erde", "planeten/erde.png", masse["erde"], 260, 0, geschwindigkeit["erde"])
-Mars = Planet("mars", "planeten/mars.png", masse["mars"], 340, 0, geschwindigkeit["mars"])
-Jupiter = Planet("jupiter", "planeten/jupiter.png", masse["jupiter"], 420, 0, geschwindigkeit["jupiter"])
-Saturn = Planet("saturn", "planeten/saturn.png", masse["saturn"], 500, 0, geschwindigkeit["saturn"])
-Uranus = Planet("uranus", "planeten/uranus.png", masse["uranus"], 580, 0, geschwindigkeit["uranus"])
-Neptun = Planet("neptun", "planeten/neptun.png", masse["neptun"], 660, 0, geschwindigkeit["neptun"])
-Mond = Planet("mond", "planeten/mond.png", masse["mond"], 200, 0, geschwindigkeit["mond"])
-planeten = [Merkur, Venus, Erde, Mars, Jupiter, Saturn, Uranus, Neptun]
+def planeten_kreieren():
+    Sonne = Planet("sonne", "planeten/sonne.png", masse["sonne"], 0, 0, 0)
+    Merkur = Planet("merkur", "planeten/merkur.png", masse["merkur"], 100, 0, geschwindigkeit["merkur"])
+    Venus = Planet("venus", "planeten/venus.png", masse["venus"], 180, 0, geschwindigkeit["venus"])
+    Erde = Planet("erde", "planeten/erde.png", masse["erde"], 260, 0, geschwindigkeit["erde"])
+    Mars = Planet("mars", "planeten/mars.png", masse["mars"], 340, 0, geschwindigkeit["mars"])
+    Jupiter = Planet("jupiter", "planeten/jupiter.png", masse["jupiter"], 420, 0, geschwindigkeit["jupiter"])
+    Saturn = Planet("saturn", "planeten/saturn.png", masse["saturn"], 500, 0, geschwindigkeit["saturn"])
+    Uranus = Planet("uranus", "planeten/uranus.png", masse["uranus"], 580, 0, geschwindigkeit["uranus"])
+    Neptun = Planet("neptun", "planeten/neptun.png", masse["neptun"], 660, 0, geschwindigkeit["neptun"])
+    Mond = Planet("mond", "planeten/mond.png", masse["mond"], 200, 0, geschwindigkeit["mond"])
+    planeten = [Merkur, Venus, Erde, Mars, Jupiter, Saturn, Uranus, Neptun]
+    return Sonne, Mond, planeten
+Sonne, Mond, planeten = planeten_kreieren()
 
 # Main Game loop
 running = True
@@ -143,6 +146,7 @@ while running:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     G = 6.6743 * 10 ** -34
+                    Sonne, Mond, planeten = planeten_kreieren()
                     fenster.fill("black")
                     running = True
 

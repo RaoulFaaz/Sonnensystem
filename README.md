@@ -125,3 +125,6 @@ Lösung: Momentan mehrere Befehle
 
 Mit Escape kann man nun zur vorherigen Ansicht zurückkehren.
 Problem: Planeten sind weggeschleudert worden. 
+Versuch eins: Die Planeten mit einer Funktion zu kreieren und diese noch mals aufzurufen wenn man esc drückt.
+-> Funktioniert immer noch nicht
+ 
