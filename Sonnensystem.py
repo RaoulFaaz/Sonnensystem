@@ -280,3 +280,49 @@ while running:
 
         pygame.display.flip()
         clock.tick(60)
+
+    # Uranus Schleife
+    while not running and name == "uranus":
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()     
+
+            # Methode um zurück zur Standartansicht zu kommen
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    Sonne, Mond, planeten = planeten_kreieren()
+                    running = True
+
+        fenster.fill("black")
+        Uranus = Planet("uranus", "planeten/uranus.png", masse["uranus"], 0, 0, 0)
+        Uranus.img = pygame.transform.scale(Uranus.img, (128, 128))
+        Uranus.rect.center = ((fenster_breite // 2) -64, (fenster_hoehe // 2) -64)
+        fenster.blit(Uranus.img, Uranus.rect) 
+        textbox("Uranus", fenster_breite - 300, 30)  
+        textbox("Test", fenster_breite - 300, 50)  
+
+        pygame.display.flip()
+        clock.tick(60)
+
+    # Neptun Schleife
+    while not running and name == "neptun":
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()     
+
+            # Methode um zurück zur Standartansicht zu kommen
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    Sonne, Mond, planeten = planeten_kreieren()
+                    running = True
+
+        fenster.fill("black")
+        Neptun  = Planet("neptun", "planeten/neptun.png", masse["neptun"], 0, 0, 0)
+        Neptun.img = pygame.transform.scale(Neptun.img, (128, 128))
+        Neptun.rect.center = ((fenster_breite // 2) -64, (fenster_hoehe // 2) -64)
+        fenster.blit(Neptun.img, Neptun.rect) 
+        textbox("Neptun", fenster_breite - 300, 30)  
+        textbox("Test", fenster_breite - 300, 50)  
+
+        pygame.display.flip()
+        clock.tick(60)
