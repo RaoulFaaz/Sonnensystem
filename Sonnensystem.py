@@ -62,8 +62,8 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
         return math.sqrt(x ** 2 + y ** 2)
 
     # Anzeihung zwischen zwei Körpern berechnen
-    def anziehung(self, other, d):
-        Fg = G * ((self.masse * other.masse) / d ** 2)
+    def anziehung(self, other, d, konst):
+        Fg = konst * ((self.masse * other.masse) / d ** 2)
         winkel = math.atan2((other.y - self.y), (other.x - self.x))
         Fg_x = math.cos(winkel) * Fg
         Fg_y = math.sin(winkel) * Fg
@@ -71,8 +71,8 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
         return Fg_x, Fg_y
 
     # Neue position eines Körpers berechnen
-    def neue_pos(self, zeit, other):
-        fx, fy = self.anziehung(other, self.distanz(other))
+    def neue_pos(self, zeit, other, konst=G):
+        fx, fy = self.anziehung(other, self.distanz(other), konst)
         # Geschwindikeit berechnen indem man a * m durch m und dann durch die Zeit rechnet
         self.vx += fx / self.masse * zeit
         self.vy += fy / self.masse * zeit
@@ -145,18 +145,16 @@ while running:
             # Methode um zurück zur Standartansicht zu kommen
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    G = 6.6743 * 10 ** -34
                     Sonne, Mond, planeten = planeten_kreieren()
-                    fenster.fill("black")
                     running = True
 
         # G den neuen Umständen anpassen (Physikalisch inkorrekt)
-        G = 2 * 10 ** -28
+        G_E = 2 * 10 ** -28
         fenster.fill("black")
         Erde = Planet("erde", "planeten/erde.png", masse["erde"], 0, 0, 0)
         Erde.img = pygame.transform.scale(Erde.img, (128, 128))
         Erde.rect.center = ((fenster_breite // 2) -64, (fenster_hoehe // 2) -64)
-        Mond.neue_pos(ZEITSPRUNG, Erde)
+        Mond.neue_pos(ZEITSPRUNG, Erde, G_E)
         Mond.zeichnen()
         fenster.blit(Erde.img, Erde.rect) 
         textbox("Erde", fenster_breite - 300, 30)  

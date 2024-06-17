@@ -127,4 +127,7 @@ Mit Escape kann man nun zur vorherigen Ansicht zurückkehren.
 Problem: Planeten sind weggeschleudert worden. 
 Versuch eins: Die Planeten mit einer Funktion zu kreieren und diese noch mals aufzurufen wenn man esc drückt.
 -> Funktioniert immer noch nicht
- 
+Lösung:
+Die Funktion neue_pos so addaptiert das sie auch eine andere Gravitationskonstante Akzeptiert und als Standartwert G nimmt.
+Die Planeten wurden Aufgrund der höheren Gravitation zu stark von der Sonne angezogen.
+Mit einer neuen Konstante G_E wurde dieses Problem gelöst.   
