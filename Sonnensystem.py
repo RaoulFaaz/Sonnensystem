@@ -136,6 +136,37 @@ while running:
         
     pygame.display.flip()
     clock.tick(60)
+
+
+    # Merkur Schleife
+    while not running and name == "merkur":
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()     
+
+            # Methode um zurück zur Standartansicht zu kommen
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    Sonne, Mond, planeten = planeten_kreieren()
+                    running = True
+
+        # G den neuen Umständen anpassen (Physikalisch inkorrekt)
+        fenster.fill("black")
+        Merkur = Planet("merkur", "planeten/merkur.png", masse["merkur"], 0, 0, 0)
+        Merkur.img = pygame.transform.scale(Merkur.img, (128, 128))
+        Merkur.rect.center = ((fenster_breite // 2) -64, (fenster_hoehe // 2) -64)
+        fenster.blit(Merkur.img, Merkur.rect) 
+        textbox("Merkur", fenster_breite - 300, 30)  
+        textbox("Test", fenster_breite - 300, 50)  
+
+        pygame.display.flip()
+        clock.tick(60)
+
+
+
+
+
+
     # Erde Schleife
     while not running and name == "erde":
         for event in pygame.event.get():
