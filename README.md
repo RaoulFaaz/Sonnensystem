@@ -135,4 +135,5 @@ Mit einer neuen Konstante G_E wurde dieses Problem gelöst.
 
 Merkur Schleife Hinzugefügt.
 Venus Schleife Hinzugefügt.
-
+Mars, Jupiter und Saturn hinzugefügt. (Monde vorerst ignotiert)
+Bei Jupiter und Saturn muss ich mich auf einige Monde begrenzen, da Sie zu viele haben. 

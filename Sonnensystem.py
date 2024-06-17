@@ -111,6 +111,7 @@ def planeten_kreieren():
     Mond = Planet("mond", "planeten/mond.png", masse["mond"], 200, 0, geschwindigkeit["mond"])
     planeten = [Merkur, Venus, Erde, Mars, Jupiter, Saturn, Uranus, Neptun]
     return Sonne, Mond, planeten
+
 Sonne, Mond, planeten = planeten_kreieren()
 
 # Main Game loop
@@ -150,7 +151,6 @@ while running:
                     Sonne, Mond, planeten = planeten_kreieren()
                     running = True
 
-        # G den neuen Umständen anpassen (Physikalisch inkorrekt)
         fenster.fill("black")
         Merkur = Planet("merkur", "planeten/merkur.png", masse["merkur"], 0, 0, 0)
         Merkur.img = pygame.transform.scale(Merkur.img, (128, 128))
@@ -174,7 +174,6 @@ while running:
                     Sonne, Mond, planeten = planeten_kreieren()
                     running = True
 
-        # G den neuen Umständen anpassen (Physikalisch inkorrekt)
         fenster.fill("black")
         Venus = Planet("venus", "planeten/venus.png", masse["venus"], 0, 0, 0)
         Venus.img = pygame.transform.scale(Venus.img, (128, 128))
@@ -185,10 +184,6 @@ while running:
 
         pygame.display.flip()
         clock.tick(60)
-
-
-
-
 
     # Erde Schleife
     while not running and name == "erde":
@@ -212,6 +207,75 @@ while running:
         Mond.zeichnen()
         fenster.blit(Erde.img, Erde.rect) 
         textbox("Erde", fenster_breite - 300, 30)  
+        textbox("Test", fenster_breite - 300, 50)  
+
+        pygame.display.flip()
+        clock.tick(60)
+
+    # Mars Schleife
+    while not running and name == "mars":
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()     
+
+            # Methode um zurück zur Standartansicht zu kommen
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    Sonne, Mond, planeten = planeten_kreieren()
+                    running = True
+
+        fenster.fill("black")
+        Mars = Planet("mars", "planeten/mars.png", masse["mars"], 0, 0, 0)
+        Mars.img = pygame.transform.scale(Mars.img, (128, 128))
+        Mars.rect.center = ((fenster_breite // 2) -64, (fenster_hoehe // 2) -64)
+        fenster.blit(Mars.img, Mars.rect) 
+        textbox("Mars", fenster_breite - 300, 30)  
+        textbox("Test", fenster_breite - 300, 50)  
+
+        pygame.display.flip()
+        clock.tick(60)
+
+    # Jupiter Schleife
+    while not running and name == "jupiter":
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()     
+
+            # Methode um zurück zur Standartansicht zu kommen
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    Sonne, Mond, planeten = planeten_kreieren()
+                    running = True
+
+        fenster.fill("black")
+        Jupiter = Planet("jupiter", "planeten/jupiter.png", masse["jupiter"], 0, 0, 0)
+        Jupiter.img = pygame.transform.scale(Jupiter.img, (128, 128))
+        Jupiter.rect.center = ((fenster_breite // 2) -64, (fenster_hoehe // 2) -64)
+        fenster.blit(Jupiter.img, Jupiter.rect) 
+        textbox("Jupiter", fenster_breite - 300, 30)  
+        textbox("Test", fenster_breite - 300, 50)  
+
+        pygame.display.flip()
+        clock.tick(60)
+
+    # Saturn Schleife
+    while not running and name == "saturn":
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()     
+
+            # Methode um zurück zur Standartansicht zu kommen
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    Sonne, Mond, planeten = planeten_kreieren()
+                    running = True
+
+        fenster.fill("black")
+        Saturn = Planet("saturn", "planeten/saturn.png", masse["saturn"], 0, 0, 0)
+        Saturn.img = pygame.transform.scale(Saturn.img, (128, 128))
+        Saturn.rect.center = ((fenster_breite // 2) -64, (fenster_hoehe // 2) -64)
+        fenster.blit(Saturn.img, Saturn.rect) 
+        textbox("Saturn", fenster_breite - 300, 30)  
         textbox("Test", fenster_breite - 300, 50)  
 
         pygame.display.flip()
