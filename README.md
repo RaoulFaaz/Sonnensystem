@@ -142,3 +142,4 @@ Uranus und Neptun Schleifen hinzugefügt.
 Monde:
 https://www.go-astronomy.com/planets/planet-moons.htm
 Icons für Phobos und Deimos, Monde von Mars generiert und zu PNGs konvertiert.
+92 Monde von Jupiter mit einer for-Schleife gezeichnet, jedoch bewegen sie sich nicht.
