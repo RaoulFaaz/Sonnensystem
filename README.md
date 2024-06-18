@@ -143,3 +143,6 @@ Monde:
 https://www.go-astronomy.com/planets/planet-moons.htm
 Icons für Phobos und Deimos, Monde von Mars generiert und zu PNGs konvertiert.
 92 Monde von Jupiter mit einer for-Schleife gezeichnet, jedoch bewegen sie sich nicht.
+Lösung: Die Variable erster_durchlauf, welcher True zugeteil war und die Liste lst aus der while-Loop genommen damit 
+sie nicht immer neu auf True gesetzt werden. 
+Jedoch sehe ich Jetz die Monde gar nicht mehr. 

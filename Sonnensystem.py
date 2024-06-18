@@ -26,6 +26,8 @@ ZEITSPRUNG = 750
 # maximal gespeicherte Werte für die Umlaufbahn
 MAX = 2500
 
+
+
 class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
 
     def __init__(self, name, img, masse, x, y, vy, vx=0):
@@ -118,6 +120,9 @@ Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
 
 # Main Game loop
 running = True
+# Überprüft ob die Jupitermonde schon gezeichnet wurden
+erster_durchlauf = True
+lst = []
 clock = pygame.time.Clock()
 
 while running:
@@ -255,25 +260,26 @@ while running:
                     running = True
 
         # G den neuen Umständen anpassen (Physikalisch inkorrekt)
-        G_J = 1.5 * 10 ** -30           
+        G_J = 1.5 * 10 ** -23          
         fenster.fill("black")
         Jupiter = Planet("jupiter", "planeten/jupiter.png", masse["jupiter"], 0, 0, 0)
         Jupiter.img = pygame.transform.scale(Jupiter.img, (128, 128))
         Jupiter.rect.center = ((fenster_breite // 2) -64, (fenster_hoehe // 2) -64)
         fenster.blit(Jupiter.img, Jupiter.rect) 
 
-        # 92 Monde von Jupiter
-        erster_durchlauf = True
-        lst = []
+        # 92 Monde von Jupiter 
         if erster_durchlauf:
             for i in range(80, 635, 6):
                 M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
                 M.img = pygame.transform.scale(M.img, (3, 3))
                 lst.append(M)
-            erster_durchlauf = False     
+            erster_durchlauf = False 
+            
+
         for m in lst:
             m.neue_pos(ZEITSPRUNG, Jupiter, G_J)
             m.zeichnen()
+            
         textbox("Jupiter", fenster_breite - 300, 30)  
         textbox("Test", fenster_breite - 300, 50)  
 
