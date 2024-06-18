@@ -13,9 +13,9 @@ pygame.display.set_caption("Sonnensystem")
 # Attribute Planeten
 masse = {"sonne": 1.989 * 10 ** 30, "merkur": 3.285 * 10 ** 23, "venus": 4.87 * 10 ** 24, "erde": 5.97 * 10 ** 24,
          "mars": 6.42 * 10 ** 23, "jupiter": 1.898 * 10 ** 27, "saturn": 5.68 * 10 ** 26, "uranus": 8.68 * 10 ** 25,
-         "neptun": 1.02 * 10 ** 26, "mond" : 7.3 * 10 ** 22}
+         "neptun": 1.02 * 10 ** 26, "mond" : 7.3 * 10 ** 22, "phobos": 1.08 * 10 ** 15, "deimos": 1.8 * 10 ** 15}
 geschwindigkeit = {"merkur": 0.003, "venus": 0.002, "erde": 0.0018, "mars": 0.0016, "jupiter": 0.0014, "saturn": 0.0013,
-                   "uranus": 0.0012, "neptun": 0.0011, "mond" : 0.0025}
+                   "uranus": 0.0012, "neptun": 0.0011, "mond" : 0.0025, "phobos": 0.002, "deimos": 0.002}
 
 # Gravitationskonstante "G" mal den faktor  10 ^ -23
 G = 6.6743 * 10 ** -34
@@ -109,10 +109,12 @@ def planeten_kreieren():
     Uranus = Planet("uranus", "planeten/uranus.png", masse["uranus"], 580, 0, geschwindigkeit["uranus"])
     Neptun = Planet("neptun", "planeten/neptun.png", masse["neptun"], 660, 0, geschwindigkeit["neptun"])
     Mond = Planet("mond", "planeten/mond.png", masse["mond"], 200, 0, geschwindigkeit["mond"])
+    Phobos = Planet("phobos", "planeten/phobos.png", masse["phobos"], 180, 0, geschwindigkeit["phobos"])
+    Deimos = Planet("deimos", "planeten/deimos.png", masse["deimos"], 240, 0, geschwindigkeit["deimos"])
     planeten = [Merkur, Venus, Erde, Mars, Jupiter, Saturn, Uranus, Neptun]
-    return Sonne, Mond, planeten
+    return Sonne, Mond, Phobos, Deimos, planeten
 
-Sonne, Mond, planeten = planeten_kreieren()
+Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
 
 # Main Game loop
 running = True
@@ -148,7 +150,7 @@ while running:
             # Methode um zurück zur Standartansicht zu kommen
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    Sonne, Mond, planeten = planeten_kreieren()
+                    Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
                     running = True
 
         fenster.fill("black")
@@ -171,7 +173,7 @@ while running:
             # Methode um zurück zur Standartansicht zu kommen
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    Sonne, Mond, planeten = planeten_kreieren()
+                    Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
                     running = True
 
         fenster.fill("black")
@@ -194,7 +196,7 @@ while running:
             # Methode um zurück zur Standartansicht zu kommen
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    Sonne, Mond, planeten = planeten_kreieren()
+                    Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
                     running = True
 
         # G den neuen Umständen anpassen (Physikalisch inkorrekt)
@@ -221,14 +223,19 @@ while running:
             # Methode um zurück zur Standartansicht zu kommen
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    Sonne, Mond, planeten = planeten_kreieren()
+                    Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
                     running = True
-
+        # G den neuen Umständen anpassen (Physikalisch inkorrekt)
+        G_M = 1.5 * 10 ** -27
         fenster.fill("black")
         Mars = Planet("mars", "planeten/mars.png", masse["mars"], 0, 0, 0)
         Mars.img = pygame.transform.scale(Mars.img, (128, 128))
         Mars.rect.center = ((fenster_breite // 2) -64, (fenster_hoehe // 2) -64)
         fenster.blit(Mars.img, Mars.rect) 
+        Phobos.neue_pos(ZEITSPRUNG, Mars, G_M)
+        Phobos.zeichnen()
+        Deimos.neue_pos(ZEITSPRUNG, Mars, G_M)
+        Deimos.zeichnen()
         textbox("Mars", fenster_breite - 300, 30)  
         textbox("Test", fenster_breite - 300, 50)  
 
@@ -244,7 +251,7 @@ while running:
             # Methode um zurück zur Standartansicht zu kommen
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    Sonne, Mond, planeten = planeten_kreieren()
+                    Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
                     running = True
 
         fenster.fill("black")
@@ -267,7 +274,7 @@ while running:
             # Methode um zurück zur Standartansicht zu kommen
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    Sonne, Mond, planeten = planeten_kreieren()
+                    Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
                     running = True
 
         fenster.fill("black")
@@ -290,7 +297,7 @@ while running:
             # Methode um zurück zur Standartansicht zu kommen
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    Sonne, Mond, planeten = planeten_kreieren()
+                    Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
                     running = True
 
         fenster.fill("black")
@@ -313,7 +320,7 @@ while running:
             # Methode um zurück zur Standartansicht zu kommen
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
-                    Sonne, Mond, planeten = planeten_kreieren()
+                    Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
                     running = True
 
         fenster.fill("black")

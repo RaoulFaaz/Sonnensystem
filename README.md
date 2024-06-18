@@ -136,5 +136,9 @@ Mit einer neuen Konstante G_E wurde dieses Problem gelöst.
 Merkur Schleife Hinzugefügt.
 Venus Schleife Hinzugefügt.
 Mars, Jupiter und Saturn Schleifen hinzugefügt. (Monde vorerst ignotiert)
-Bei Jupiter und Saturn muss ich mich auf einige Monde begrenzen, da Sie zu viele haben. 
+Bei Jupiter, Saturn, Uranus und Neptun muss ich mich auf einige Monde begrenzen, da Sie zu viele haben. 
 Uranus und Neptun Schleifen hinzugefügt. 
+
+Monde:
+https://www.go-astronomy.com/planets/planet-moons.htm
+Icons für Phobos und Deimos, Monde von Mars generiert und zu PNGs konvertiert.
