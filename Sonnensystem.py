@@ -42,12 +42,12 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
         self.vy = vy
         self.umlaufbahn = []
 
-    def zeichnen(self):
+    def zeichnen(self, umlaufbahn=True):
         x = self.x + (fenster_breite // 2) - 32
         y = self.y + (fenster_hoehe // 2) - 32
 
         # Überprüfen ob die Liste genügend Elemente
-        if len(self.umlaufbahn) >= 2:
+        if len(self.umlaufbahn) >= 2 and umlaufbahn:
             # Umlaufbahn zentrieren
             angepasste_umlaufbahn = [(point[0] + fenster_breite // 2, point[1] + fenster_hoehe // 2) for point in
                                      self.umlaufbahn]
@@ -260,7 +260,7 @@ while running:
                     running = True
 
         # G den neuen Umständen anpassen (Physikalisch inkorrekt)
-        G_J = 1.5 * 10 ** -23          
+        G_J = 10 ** -30       
         fenster.fill("black")
         Jupiter = Planet("jupiter", "planeten/jupiter.png", masse["jupiter"], 0, 0, 0)
         Jupiter.img = pygame.transform.scale(Jupiter.img, (128, 128))
@@ -275,11 +275,12 @@ while running:
                 lst.append(M)
             erster_durchlauf = False 
             
-
+        
         for m in lst:
             m.neue_pos(ZEITSPRUNG, Jupiter, G_J)
-            m.zeichnen()
+            m.zeichnen(False)
             
+
         textbox("Jupiter", fenster_breite - 300, 30)  
         textbox("Test", fenster_breite - 300, 50)  
 

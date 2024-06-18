@@ -146,3 +146,19 @@ Icons für Phobos und Deimos, Monde von Mars generiert und zu PNGs konvertiert.
 Lösung: Die Variable erster_durchlauf, welcher True zugeteil war und die Liste lst aus der while-Loop genommen damit 
 sie nicht immer neu auf True gesetzt werden. 
 Jedoch sehe ich Jetz die Monde gar nicht mehr. 
+Debugging:
+print(f"Mond position: x={m.x}, y={m.y}")
+Mond position: x=-3678848.536564351, y=149.96010395153914
+Mond position: x=-3605072.7061186978, y=149.9575681054963
+Mond position: x=-3533489.1059499006, y=149.95489764255777
+Mond position: x=-3464011.54928975, y=149.95208674443847
+Mond position: x=-3396558.0379139986, y=149.94912939266536
+Mond position: x=-3331050.5200884365, y=149.94601936302303
+Mond position: x=-3267414.6646758434, y=149.94275021985868
+Mond position: x=-3205579.650182312, y=149.939315310237
+-> Stark negativ
+-> G_J zu stark
+-> G_J verkleinert aber unübersichtlich
+-> Umlaufbahn Parameter zu zeichnen-Funktion hinzugefügt welcher Standartmässig auf True ist und ihn bei den Jupitermonden abgestellt. 
+Planeten machen Anfangs noch eine Spirale.
+
