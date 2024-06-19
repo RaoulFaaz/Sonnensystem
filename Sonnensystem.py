@@ -268,7 +268,6 @@ while running:
 
     # Jupiter Schleife
     while not running and name == "jupiter":
-        # monde kreieren
         if not jup_gest:
             monde = monde_kreieren(name)
             jup_gest = True
@@ -291,7 +290,6 @@ while running:
 
     # Saturn Schleife
     while not running and name == "saturn":
-        # monde kreieren
         if not sat_gest:
             monde = monde_kreieren(name)
             sat_gest = True
@@ -314,7 +312,6 @@ while running:
 
     # Uranus Schleife
     while not running and name == "uranus":
-        # monde kreieren
         if not ura_gest:
             monde = monde_kreieren(name)
             ura_gest = True
@@ -336,7 +333,6 @@ while running:
 
     # Neptun Schleife
     while not running and name == "neptun":
-        # monde kreieren
         if not nep_gest:
             monde = monde_kreieren(name)
             nep_gest = True
