@@ -19,13 +19,10 @@ geschwindigkeit = {"merkur": 0.003, "venus": 0.002, "erde": 0.0018, "mars": 0.00
 
 # Gravitationskonstante "G" mal den faktor  10 ^ -23
 G = 6.6743 * 10 ** -34
-
 # Dauer zwischen dem Update der Position in Sekunden 
 ZEITSPRUNG = 750
-
 # maximal gespeicherte Werte für die Umlaufbahn
 MAX = 2500
-
 
 class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
 
@@ -98,8 +95,6 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
 def textbox(text, x, y):
     box = pygame.font.SysFont("Arial", 20).render(text, True, "white")
     fenster.blit(box, (x, y))
-
-
 # planeten kreieren
 def planeten_kreieren():
     Sonne = Planet("sonne", "planeten/sonne.png", masse["sonne"], 0, 0, 0)
@@ -146,17 +141,35 @@ def monde_update(monde, planet, G):
             m.neue_pos(ZEITSPRUNG, planet, G)
             m.zeichnen(False)
 
+def planet_update(name, monde, G):
+    fenster.fill("black")
+    planet = Planet(name, "planeten/{}.png".format(name), masse[name], 0, 0, 0)
+    planet.img = pygame.transform.scale(planet.img, (128, 128))
+    planet.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
+    fenster.blit(planet.img, planet.rect)
+    monde_update(monde, planet, G)
+
 Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
 
-# Main Game loop
-running = True
 name = ''
 jup_gest = False
 sat_gest = False
 ura_gest = False
 nep_gest = False
+
+# G den verschiedenen Umständen anpassen (Physikalisch inkorrekt)
+G_E = 2 * 10 ** -28
+G_M = 1.5 * 10 ** -27
+G_J = 10 ** -30
+G_S = 4 * 10 ** -30
+G_U = 2 * 10 ** -29
+G_N = 10 ** -29
+
+running = True
 clock = pygame.time.Clock()
 
+
+# Main Game loop
 while running:
 
     for event in pygame.event.get():
@@ -234,8 +247,6 @@ while running:
                     Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
                     running = True
 
-        # G den neuen Umständen anpassen (Physikalisch inkorrekt)
-        G_E = 2 * 10 ** -28
         fenster.fill("black")
         Erde = Planet("erde", "planeten/erde.png", masse["erde"], 0, 0, 0)
         Erde.img = pygame.transform.scale(Erde.img, (128, 128))
@@ -260,8 +271,7 @@ while running:
                 if event.key == pygame.K_ESCAPE:
                     Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
                     running = True
-        # G den neuen Umständen anpassen (Physikalisch inkorrekt)
-        G_M = 1.5 * 10 ** -27
+
         fenster.fill("black")
         Mars = Planet("mars", "planeten/mars.png", masse["mars"], 0, 0, 0)
         Mars.img = pygame.transform.scale(Mars.img, (128, 128))
@@ -295,15 +305,7 @@ while running:
                     jup_gest = False                    
                     running = True
 
-        # G den neuen Umständen anpassen (Physikalisch inkorrekt)
-        G_J = 10 ** -30
-        fenster.fill("black")
-        Jupiter = Planet("jupiter", "planeten/jupiter.png", masse["jupiter"], 0, 0, 0)
-        Jupiter.img = pygame.transform.scale(Jupiter.img, (128, 128))
-        Jupiter.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
-        fenster.blit(Jupiter.img, Jupiter.rect)
-        monde_update(monde, Jupiter, G_J)
-
+        planet_update(name, monde, G_J)
         textbox("Jupiter", fenster_breite - 300, 30)
         textbox("Test", fenster_breite - 300, 50)
 
@@ -328,15 +330,7 @@ while running:
                     sat_gest = False
                     running = True
 
-        # G den neuen Umständen anpassen (Physikalisch inkorrekt)
-        G_S = 4 * 10 ** -30
-        fenster.fill("black")
-        Saturn = Planet("saturn", "planeten/saturn.png", masse["saturn"], 0, 0, 0)
-        Saturn.img = pygame.transform.scale(Saturn.img, (128, 128))
-        Saturn.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
-        fenster.blit(Saturn.img, Saturn.rect)
-        monde_update(monde, Saturn, G_S)
-
+        planet_update(name, monde, G_S)
         textbox("Saturn", fenster_breite - 300, 30)
         textbox("Test", fenster_breite - 300, 50)
 
@@ -360,15 +354,7 @@ while running:
                     ura_gest = False
                     running = True      
 
-        # G den neuen Umständen anpassen (Physikalisch inkorrekt)
-        G_U = 2 * 10 ** -29
-        fenster.fill("black")
-        Uranus = Planet("uranus", "planeten/uranus.png", masse["uranus"], 0, 0, 0)
-        Uranus.img = pygame.transform.scale(Uranus.img, (128, 128))
-        Uranus.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
-        fenster.blit(Uranus.img, Uranus.rect)
-        monde_update(monde, Uranus, G_U)
-
+        planet_update(name, monde, G_U)
         textbox("Uranus", fenster_breite - 300, 30)
         textbox("Test", fenster_breite - 300, 50)
 
@@ -393,15 +379,7 @@ while running:
                     nep_gest = False
                     running = True
 
-        # G den neuen Umständen anpassen (Physikalisch inkorrekt)
-        G_N = 10 ** -30
-        fenster.fill("black")
-        Neptun = Planet("neptun", "planeten/neptun.png", masse["neptun"], 0, 0, 0)
-        Neptun.img = pygame.transform.scale(Neptun.img, (128, 128))
-        Neptun.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
-        fenster.blit(Neptun.img, Neptun.rect)
-        monde_update(monde, Neptun, G_N)
-
+        planet_update(name, monde, G_N)
         textbox("Neptun", fenster_breite - 300, 30)
         textbox("Test", fenster_breite - 300, 50)
 
