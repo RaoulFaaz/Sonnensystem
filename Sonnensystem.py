@@ -122,7 +122,8 @@ Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
 running = True
 # Überprüft ob die Jupitermonde schon gezeichnet wurden
 erster_durchlauf = True
-lst = []
+jup = []
+sat = []
 clock = pygame.time.Clock()
 
 while running:
@@ -257,6 +258,8 @@ while running:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
+                    erster_durchlauf = True
+                    jup = []
                     running = True
 
         # G den neuen Umständen anpassen (Physikalisch inkorrekt)
@@ -272,11 +275,11 @@ while running:
             for i in range(80, 635, 6):
                 M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
                 M.img = pygame.transform.scale(M.img, (3, 3))
-                lst.append(M)
+                jup.append(M)
             erster_durchlauf = False 
             
         
-        for m in lst:
+        for m in jup:
             m.neue_pos(ZEITSPRUNG, Jupiter, G_J)
             m.zeichnen(False)
             
@@ -297,13 +300,34 @@ while running:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
+                    erster_durchlauf = True
+                    sat = []
                     running = True
+                    
 
+        # G den neuen Umständen anpassen (Physikalisch inkorrekt)
+        G_S = 4 * 10 ** -30
         fenster.fill("black")
         Saturn = Planet("saturn", "planeten/saturn.png", masse["saturn"], 0, 0, 0)
         Saturn.img = pygame.transform.scale(Saturn.img, (128, 128))
         Saturn.rect.center = ((fenster_breite // 2) -64, (fenster_hoehe // 2) -64)
         fenster.blit(Saturn.img, Saturn.rect) 
+
+         # 145 Monde von Saturn 
+        if erster_durchlauf:
+            for i in range(80, 805, 5):
+                M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
+                M.img = pygame.transform.scale(M.img, (3, 3))
+                sat.append(M)
+            erster_durchlauf = False 
+            
+        
+        for m in sat:
+            m.neue_pos(ZEITSPRUNG, Saturn, G_S)
+            m.zeichnen(False)
+
+
+
         textbox("Saturn", fenster_breite - 300, 30)  
         textbox("Test", fenster_breite - 300, 50)  
 
