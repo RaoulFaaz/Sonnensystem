@@ -117,19 +117,39 @@ def planeten_kreieren():
     planeten = [Merkur, Venus, Erde, Mars, Jupiter, Saturn, Uranus, Neptun]
     return Sonne, Mond, Phobos, Deimos, planeten
 
+def monde_kreieren(planet_name):
+    monde = []
+    if planet_name == "jupiter":
+        for i in range(80, 635, 6):
+                M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
+                M.img = pygame.transform.scale(M.img, (3, 3))
+                monde.append(M)
+    elif planet_name == "saturn":
+        for i in range(80, 805, 5):
+                M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
+                M.img = pygame.transform.scale(M.img, (3, 3))
+                monde.append(M)
+    elif planet_name == "uranus":
+        for i in range(110, 300, 5):
+                M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
+                M.img = pygame.transform.scale(M.img, (5, 5))
+                monde.append(M)
+    elif planet_name == "neptun":
+        for i in range(110, 250, 10):
+                M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
+                M.img = pygame.transform.scale(M.img, (8, 8))
+                monde.append(M)
+    return monde
 
 Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
 
 # Main Game loop
 running = True
-# Überprüft ob die Jupitermonde schon gezeichnet wurden
-erster_durchlauf = True
-
-# Mond Listen
-jup = []
-sat = []
-ura = []
-nep = []
+name = ''
+jup_gest = False
+sat_gest = False
+ura_gest = False
+nep_gest = False
 clock = pygame.time.Clock()
 
 while running:
@@ -254,6 +274,11 @@ while running:
 
     # Jupiter Schleife
     while not running and name == "jupiter":
+        # monde kreieren
+        if not jup_gest:
+            monde = monde_kreieren(name)
+            jup_gest = True
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -262,8 +287,7 @@ while running:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
-                    erster_durchlauf = True
-                    jup = []
+                    jup_gest = False                    
                     running = True
 
         # G den neuen Umständen anpassen (Physikalisch inkorrekt)
@@ -274,15 +298,7 @@ while running:
         Jupiter.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
         fenster.blit(Jupiter.img, Jupiter.rect)
 
-        # 92 Monde von Jupiter 
-        if erster_durchlauf:
-            for i in range(80, 635, 6):
-                M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
-                M.img = pygame.transform.scale(M.img, (3, 3))
-                jup.append(M)
-            erster_durchlauf = False
-
-        for m in jup:
+        for m in monde:
             m.neue_pos(ZEITSPRUNG, Jupiter, G_J)
             m.zeichnen(False)
 
@@ -294,6 +310,11 @@ while running:
 
     # Saturn Schleife
     while not running and name == "saturn":
+        # monde kreieren
+        if not sat_gest:
+            monde = monde_kreieren(name)
+            sat_gest = True
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -302,8 +323,7 @@ while running:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
-                    erster_durchlauf = True
-                    sat = []
+                    sat_gest = False
                     running = True
 
         # G den neuen Umständen anpassen (Physikalisch inkorrekt)
@@ -314,15 +334,7 @@ while running:
         Saturn.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
         fenster.blit(Saturn.img, Saturn.rect)
 
-        # 145 Monde von Saturn
-        if erster_durchlauf:
-            for i in range(80, 805, 5):
-                M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
-                M.img = pygame.transform.scale(M.img, (3, 3))
-                sat.append(M)
-            erster_durchlauf = False
-
-        for m in sat:
+        for m in monde:
             m.neue_pos(ZEITSPRUNG, Saturn, G_S)
             m.zeichnen(False)
 
@@ -334,6 +346,10 @@ while running:
 
     # Uranus Schleife
     while not running and name == "uranus":
+        # monde kreieren
+        if not ura_gest:
+            monde = monde_kreieren(name)
+            ura_gest = True
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -342,9 +358,8 @@ while running:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
-                    running = True
-                    ura = []
-                    erster_durchlauf = True
+                    ura_gest = False
+                    running = True      
 
         # G den neuen Umständen anpassen (Physikalisch inkorrekt)
         G_U = 2 * 10 ** -29
@@ -354,15 +369,8 @@ while running:
         Uranus.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
         fenster.blit(Uranus.img, Uranus.rect)
 
-        # 27 Monde von Uranus
-        if erster_durchlauf:
-            for i in range(110, 300, 5):
-                M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
-                M.img = pygame.transform.scale(M.img, (5, 5))
-                ura.append(M)
-            erster_durchlauf = False
 
-        for m in ura:
+        for m in monde:
             m.neue_pos(ZEITSPRUNG, Uranus, G_U)
             m.zeichnen(False)
 
@@ -374,6 +382,11 @@ while running:
 
     # Neptun Schleife
     while not running and name == "neptun":
+        # monde kreieren
+        if not nep_gest:
+            monde = monde_kreieren(name)
+            nep_gest = True
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -382,8 +395,7 @@ while running:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
-                    nep = []
-                    erster_durchlauf = True
+                    nep_gest = False
                     running = True
 
         # G den neuen Umständen anpassen (Physikalisch inkorrekt)
@@ -394,15 +406,7 @@ while running:
         Neptun.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
         fenster.blit(Neptun.img, Neptun.rect)
 
-        # 14 Monde von Neptun 
-        if erster_durchlauf:
-            for i in range(110, 250, 10):
-                M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
-                M.img = pygame.transform.scale(M.img, (8, 8))
-                nep.append(M)
-            erster_durchlauf = False
-
-        for m in nep:
+        for m in monde:
             m.neue_pos(ZEITSPRUNG, Neptun, G_U)
             m.zeichnen(False)
 
@@ -411,3 +415,4 @@ while running:
 
         pygame.display.flip()
         clock.tick(60)
+

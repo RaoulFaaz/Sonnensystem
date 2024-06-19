@@ -170,4 +170,8 @@ Problem:
 Nach dem Anklicken von Saturn und dem verlassen der Saturn-Schleife, werden die Monde der anderen Planeten nicht angezeigt.
 Nur nach verlassen deren Schleife und erneutem anklicken sind sie sichtbar. 
 Das Problem begrenzt sich nicht nur auf Saturn sondern alle Planeten deren Monde mit einer for-Schleife gezeichnet werden. 
+
+Lösung:
+Die Monde mit einer Funktion übersichtlich kreiert und für jeden Planet (mit vielen Monden) eine eigene Variabel hinzugefügt
+welche angibt ob das Zeichnen der Monde bereits gestarted wurde. 
   
