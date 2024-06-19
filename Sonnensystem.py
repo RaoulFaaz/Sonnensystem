@@ -125,6 +125,7 @@ erster_durchlauf = True
 jup = []
 sat = []
 ura = []
+nep = []
 clock = pygame.time.Clock()
 
 while running:
@@ -303,9 +304,8 @@ while running:
                     Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
                     erster_durchlauf = True
                     sat = []
-                    running = True
-                    
-
+                    running = True                    
+            
         # G den neuen Umständen anpassen (Physikalisch inkorrekt)
         G_S = 4 * 10 ** -30
         fenster.fill("black")
@@ -365,12 +365,9 @@ while running:
                 ura.append(M)
             erster_durchlauf = False 
             
-        
         for m in ura:
             m.neue_pos(ZEITSPRUNG, Uranus, G_U)
             m.zeichnen(False)
-
-
 
 
         textbox("Uranus", fenster_breite - 300, 30)  
@@ -378,6 +375,7 @@ while running:
 
         pygame.display.flip()
         clock.tick(60)
+
 
     # Neptun Schleife
     while not running and name == "neptun":
@@ -389,13 +387,32 @@ while running:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
+                    nep = []
+                    erster_durchlauf = True
                     running = True
 
+        # G den neuen Umständen anpassen (Physikalisch inkorrekt)
+        G_N = 10 ** -30
         fenster.fill("black")
         Neptun  = Planet("neptun", "planeten/neptun.png", masse["neptun"], 0, 0, 0)
         Neptun.img = pygame.transform.scale(Neptun.img, (128, 128))
         Neptun.rect.center = ((fenster_breite // 2) -64, (fenster_hoehe // 2) -64)
         fenster.blit(Neptun.img, Neptun.rect) 
+
+        # 14 Monde von Neptun 
+        if erster_durchlauf:
+            for i in range(110, 250, 10):
+                M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
+                M.img = pygame.transform.scale(M.img, (8, 8))
+                nep.append(M)
+            erster_durchlauf = False 
+            
+        for m in nep:
+            m.neue_pos(ZEITSPRUNG, Neptun, G_U)
+            m.zeichnen(False)
+
+
+
         textbox("Neptun", fenster_breite - 300, 30)  
         textbox("Test", fenster_breite - 300, 50)  
 
