@@ -177,5 +177,5 @@ welche angibt ob das Zeichnen der Monde bereits gestarted wurde.
 
 Funktion hinzugefügt, welche die Position der Monde updatet anstatt dies in jeder Schleife zu wiederhohlen. 
 Funktion hinzugefügt, welche die Position der Planeten mit vielen Monden updated um den Code nicht in jeder Schleife wiederhohlen zu müssen. 
-
+Code übersichtlicher gemacht.
   
