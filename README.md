@@ -179,3 +179,4 @@ Funktion hinzugefügt, welche die Position der Monde updatet anstatt dies in jed
 Funktion hinzugefügt, welche die Position der Planeten mit vielen Monden updated um den Code nicht in jeder Schleife wiederhohlen zu müssen. 
 Code übersichtlicher gemacht.
   
+Funktion hinzugefügt welche den Screen updated. Bisher immer den ganzen Code wiederhohlt. 

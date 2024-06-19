@@ -149,6 +149,10 @@ def planet_update(name, monde=None, G=None):
     if monde != None:
         monde_update(monde, planet, G)
 
+def update():
+    pygame.display.flip()
+    clock.tick(60)
+
 Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
 
 name = ''
@@ -184,9 +188,7 @@ while running:
         if planet.kollision() and pygame.mouse.get_pressed()[0]:
             name = planet.name
             running = False
-
-    pygame.display.flip()
-    clock.tick(60)
+    update()
 
     # Merkur Schleife
     while not running and name == "merkur":
@@ -203,9 +205,7 @@ while running:
         planet_update(name)
         textbox("Merkur", fenster_breite - 300, 30)
         textbox("Test", fenster_breite - 300, 50)
-
-        pygame.display.flip()
-        clock.tick(60)
+        update()
 
     # Venus Schleife
     while not running and name == "venus":
@@ -222,9 +222,7 @@ while running:
         planet_update(name)
         textbox("Venus", fenster_breite - 300, 30)
         textbox("Test", fenster_breite - 300, 50)
-
-        pygame.display.flip()
-        clock.tick(60)
+        update()
 
     # Erde Schleife
     while not running and name == "erde":
@@ -244,9 +242,7 @@ while running:
         Mond.zeichnen()
         textbox("Erde", fenster_breite - 300, 30)
         textbox("Test", fenster_breite - 300, 50)
-
-        pygame.display.flip()
-        clock.tick(60)
+        update()
 
     # Mars Schleife
     while not running and name == "mars":
@@ -268,9 +264,7 @@ while running:
         Deimos.zeichnen()
         textbox("Mars", fenster_breite - 300, 30)
         textbox("Test", fenster_breite - 300, 50)
-
-        pygame.display.flip()
-        clock.tick(60)
+        update()
 
     # Jupiter Schleife
     while not running and name == "jupiter":
@@ -293,9 +287,7 @@ while running:
         planet_update(name, monde, G_J)
         textbox("Jupiter", fenster_breite - 300, 30)
         textbox("Test", fenster_breite - 300, 50)
-
-        pygame.display.flip()
-        clock.tick(60)
+        update()
 
     # Saturn Schleife
     while not running and name == "saturn":
@@ -318,9 +310,7 @@ while running:
         planet_update(name, monde, G_S)
         textbox("Saturn", fenster_breite - 300, 30)
         textbox("Test", fenster_breite - 300, 50)
-
-        pygame.display.flip()
-        clock.tick(60)
+        update()
 
     # Uranus Schleife
     while not running and name == "uranus":
@@ -342,9 +332,7 @@ while running:
         planet_update(name, monde, G_U)
         textbox("Uranus", fenster_breite - 300, 30)
         textbox("Test", fenster_breite - 300, 50)
-
-        pygame.display.flip()
-        clock.tick(60)
+        update()
 
     # Neptun Schleife
     while not running and name == "neptun":
@@ -367,6 +355,4 @@ while running:
         planet_update(name, monde, G_N)
         textbox("Neptun", fenster_breite - 300, 30)
         textbox("Test", fenster_breite - 300, 50)
-
-        pygame.display.flip()
-        clock.tick(60)
+        update()
