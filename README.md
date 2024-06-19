@@ -165,3 +165,7 @@ Planeten machen Anfangs noch eine Spirale.
 Monde von Saturn hinzugefügt. 
 Monde von Uranus hinzugefügt.
 Monde von Neptun hinzugefügt.
+
+Problem:
+Nach dem Anklicken von Saturn und dem verlassen der Saturn-Schleife, werden die Monde der anderen Planeten nicht angezeigt.
+Nur nach verlassen deren Schleife und erneutem anklicken sind sie sichtbar.  
