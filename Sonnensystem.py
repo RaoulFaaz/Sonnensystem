@@ -141,6 +141,11 @@ def monde_kreieren(planet_name):
                 monde.append(M)
     return monde
 
+def monde_update(monde, planet, G):
+    for m in monde:
+            m.neue_pos(ZEITSPRUNG, planet, G)
+            m.zeichnen(False)
+
 Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
 
 # Main Game loop
@@ -297,10 +302,7 @@ while running:
         Jupiter.img = pygame.transform.scale(Jupiter.img, (128, 128))
         Jupiter.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
         fenster.blit(Jupiter.img, Jupiter.rect)
-
-        for m in monde:
-            m.neue_pos(ZEITSPRUNG, Jupiter, G_J)
-            m.zeichnen(False)
+        monde_update(monde, Jupiter, G_J)
 
         textbox("Jupiter", fenster_breite - 300, 30)
         textbox("Test", fenster_breite - 300, 50)
@@ -333,10 +335,7 @@ while running:
         Saturn.img = pygame.transform.scale(Saturn.img, (128, 128))
         Saturn.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
         fenster.blit(Saturn.img, Saturn.rect)
-
-        for m in monde:
-            m.neue_pos(ZEITSPRUNG, Saturn, G_S)
-            m.zeichnen(False)
+        monde_update(monde, Saturn, G_S)
 
         textbox("Saturn", fenster_breite - 300, 30)
         textbox("Test", fenster_breite - 300, 50)
@@ -368,11 +367,7 @@ while running:
         Uranus.img = pygame.transform.scale(Uranus.img, (128, 128))
         Uranus.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
         fenster.blit(Uranus.img, Uranus.rect)
-
-
-        for m in monde:
-            m.neue_pos(ZEITSPRUNG, Uranus, G_U)
-            m.zeichnen(False)
+        monde_update(monde, Uranus, G_U)
 
         textbox("Uranus", fenster_breite - 300, 30)
         textbox("Test", fenster_breite - 300, 50)
@@ -405,14 +400,10 @@ while running:
         Neptun.img = pygame.transform.scale(Neptun.img, (128, 128))
         Neptun.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
         fenster.blit(Neptun.img, Neptun.rect)
-
-        for m in monde:
-            m.neue_pos(ZEITSPRUNG, Neptun, G_U)
-            m.zeichnen(False)
+        monde_update(monde, Neptun, G_N)
 
         textbox("Neptun", fenster_breite - 300, 30)
         textbox("Test", fenster_breite - 300, 50)
 
         pygame.display.flip()
         clock.tick(60)
-

@@ -174,4 +174,6 @@ Das Problem begrenzt sich nicht nur auf Saturn sondern alle Planeten deren Monde
 Lösung:
 Die Monde mit einer Funktion übersichtlich kreiert und für jeden Planet (mit vielen Monden) eine eigene Variabel hinzugefügt
 welche angibt ob das Zeichnen der Monde bereits gestarted wurde. 
+
+Funktion hinzugefügt, welche die Position der Monde updatet anstatt dies in jeder Schleife zu wiederhohlen. 
   
