@@ -13,9 +13,9 @@ pygame.display.set_caption("Sonnensystem")
 # Attribute Planeten
 masse = {"sonne": 1.989 * 10 ** 30, "merkur": 3.285 * 10 ** 23, "venus": 4.87 * 10 ** 24, "erde": 5.97 * 10 ** 24,
          "mars": 6.42 * 10 ** 23, "jupiter": 1.898 * 10 ** 27, "saturn": 5.68 * 10 ** 26, "uranus": 8.68 * 10 ** 25,
-         "neptun": 1.02 * 10 ** 26, "mond" : 7.3 * 10 ** 22, "phobos": 1.08 * 10 ** 15, "deimos": 1.8 * 10 ** 15}
+         "neptun": 1.02 * 10 ** 26, "mond": 7.3 * 10 ** 22, "phobos": 1.08 * 10 ** 15, "deimos": 1.8 * 10 ** 15}
 geschwindigkeit = {"merkur": 0.003, "venus": 0.002, "erde": 0.0018, "mars": 0.0016, "jupiter": 0.0014, "saturn": 0.0013,
-                   "uranus": 0.0012, "neptun": 0.0011, "mond" : 0.0025, "phobos": 0.002, "deimos": 0.002}
+                   "uranus": 0.0012, "neptun": 0.0011, "mond": 0.0025, "phobos": 0.002, "deimos": 0.002}
 
 # Gravitationskonstante "G" mal den faktor  10 ^ -23
 G = 6.6743 * 10 ** -34
@@ -25,7 +25,6 @@ ZEITSPRUNG = 750
 
 # maximal gespeicherte Werte für die Umlaufbahn
 MAX = 2500
-
 
 
 class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
@@ -89,15 +88,17 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
         # Überschneidungen im Orbit verhindern indem man das erste Element löscht, falls die Liste zu lang wird
         if len(self.umlaufbahn) > MAX:
             self.umlaufbahn.pop(0)
-            
+
     # Überprüft ob der Mauszeiger über einem Planeten ist
     def kollision(self):
         return self.rect.collidepoint(pygame.mouse.get_pos())
-    
+
+
 # Kreiert eine Textbox an Position xy
 def textbox(text, x, y):
     box = pygame.font.SysFont("Arial", 20).render(text, True, "white")
     fenster.blit(box, (x, y))
+
 
 # planeten kreieren
 def planeten_kreieren():
@@ -115,6 +116,7 @@ def planeten_kreieren():
     Deimos = Planet("deimos", "planeten/deimos.png", masse["deimos"], 240, 0, geschwindigkeit["deimos"])
     planeten = [Merkur, Venus, Erde, Mars, Jupiter, Saturn, Uranus, Neptun]
     return Sonne, Mond, Phobos, Deimos, planeten
+
 
 Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
 
@@ -144,16 +146,15 @@ while running:
         if planet.kollision() and pygame.mouse.get_pressed()[0]:
             name = planet.name
             running = False
-        
+
     pygame.display.flip()
     clock.tick(60)
-
 
     # Merkur Schleife
     while not running and name == "merkur":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.quit()     
+                pygame.quit()
 
             # Methode um zurück zur Standartansicht zu kommen
             if event.type == pygame.KEYDOWN:
@@ -164,10 +165,10 @@ while running:
         fenster.fill("black")
         Merkur = Planet("merkur", "planeten/merkur.png", masse["merkur"], 0, 0, 0)
         Merkur.img = pygame.transform.scale(Merkur.img, (128, 128))
-        Merkur.rect.center = ((fenster_breite // 2) -64, (fenster_hoehe // 2) -64)
-        fenster.blit(Merkur.img, Merkur.rect) 
-        textbox("Merkur", fenster_breite - 300, 30)  
-        textbox("Test", fenster_breite - 300, 50)  
+        Merkur.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
+        fenster.blit(Merkur.img, Merkur.rect)
+        textbox("Merkur", fenster_breite - 300, 30)
+        textbox("Test", fenster_breite - 300, 50)
 
         pygame.display.flip()
         clock.tick(60)
@@ -176,7 +177,7 @@ while running:
     while not running and name == "venus":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.quit()     
+                pygame.quit()
 
             # Methode um zurück zur Standartansicht zu kommen
             if event.type == pygame.KEYDOWN:
@@ -187,10 +188,10 @@ while running:
         fenster.fill("black")
         Venus = Planet("venus", "planeten/venus.png", masse["venus"], 0, 0, 0)
         Venus.img = pygame.transform.scale(Venus.img, (128, 128))
-        Venus.rect.center = ((fenster_breite // 2) -64, (fenster_hoehe // 2) -64)
-        fenster.blit(Venus.img, Venus.rect) 
-        textbox("Venus", fenster_breite - 300, 30)  
-        textbox("Test", fenster_breite - 300, 50)  
+        Venus.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
+        fenster.blit(Venus.img, Venus.rect)
+        textbox("Venus", fenster_breite - 300, 30)
+        textbox("Test", fenster_breite - 300, 50)
 
         pygame.display.flip()
         clock.tick(60)
@@ -199,7 +200,7 @@ while running:
     while not running and name == "erde":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.quit()     
+                pygame.quit()
 
             # Methode um zurück zur Standartansicht zu kommen
             if event.type == pygame.KEYDOWN:
@@ -212,12 +213,12 @@ while running:
         fenster.fill("black")
         Erde = Planet("erde", "planeten/erde.png", masse["erde"], 0, 0, 0)
         Erde.img = pygame.transform.scale(Erde.img, (128, 128))
-        Erde.rect.center = ((fenster_breite // 2) -64, (fenster_hoehe // 2) -64)
+        Erde.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
         Mond.neue_pos(ZEITSPRUNG, Erde, G_E)
         Mond.zeichnen()
-        fenster.blit(Erde.img, Erde.rect) 
-        textbox("Erde", fenster_breite - 300, 30)  
-        textbox("Test", fenster_breite - 300, 50)  
+        fenster.blit(Erde.img, Erde.rect)
+        textbox("Erde", fenster_breite - 300, 30)
+        textbox("Test", fenster_breite - 300, 50)
 
         pygame.display.flip()
         clock.tick(60)
@@ -226,7 +227,7 @@ while running:
     while not running and name == "mars":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.quit()     
+                pygame.quit()
 
             # Methode um zurück zur Standartansicht zu kommen
             if event.type == pygame.KEYDOWN:
@@ -238,14 +239,14 @@ while running:
         fenster.fill("black")
         Mars = Planet("mars", "planeten/mars.png", masse["mars"], 0, 0, 0)
         Mars.img = pygame.transform.scale(Mars.img, (128, 128))
-        Mars.rect.center = ((fenster_breite // 2) -64, (fenster_hoehe // 2) -64)
-        fenster.blit(Mars.img, Mars.rect) 
+        Mars.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
+        fenster.blit(Mars.img, Mars.rect)
         Phobos.neue_pos(ZEITSPRUNG, Mars, G_M)
         Phobos.zeichnen()
         Deimos.neue_pos(ZEITSPRUNG, Mars, G_M)
         Deimos.zeichnen()
-        textbox("Mars", fenster_breite - 300, 30)  
-        textbox("Test", fenster_breite - 300, 50)  
+        textbox("Mars", fenster_breite - 300, 30)
+        textbox("Test", fenster_breite - 300, 50)
 
         pygame.display.flip()
         clock.tick(60)
@@ -254,7 +255,7 @@ while running:
     while not running and name == "jupiter":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.quit()     
+                pygame.quit()
 
             # Methode um zurück zur Standartansicht zu kommen
             if event.type == pygame.KEYDOWN:
@@ -265,12 +266,12 @@ while running:
                     running = True
 
         # G den neuen Umständen anpassen (Physikalisch inkorrekt)
-        G_J = 10 ** -30       
+        G_J = 10 ** -30
         fenster.fill("black")
         Jupiter = Planet("jupiter", "planeten/jupiter.png", masse["jupiter"], 0, 0, 0)
         Jupiter.img = pygame.transform.scale(Jupiter.img, (128, 128))
-        Jupiter.rect.center = ((fenster_breite // 2) -64, (fenster_hoehe // 2) -64)
-        fenster.blit(Jupiter.img, Jupiter.rect) 
+        Jupiter.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
+        fenster.blit(Jupiter.img, Jupiter.rect)
 
         # 92 Monde von Jupiter 
         if erster_durchlauf:
@@ -278,16 +279,14 @@ while running:
                 M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
                 M.img = pygame.transform.scale(M.img, (3, 3))
                 jup.append(M)
-            erster_durchlauf = False 
-            
-        
+            erster_durchlauf = False
+
         for m in jup:
             m.neue_pos(ZEITSPRUNG, Jupiter, G_J)
             m.zeichnen(False)
-            
 
-        textbox("Jupiter", fenster_breite - 300, 30)  
-        textbox("Test", fenster_breite - 300, 50)  
+        textbox("Jupiter", fenster_breite - 300, 30)
+        textbox("Test", fenster_breite - 300, 50)
 
         pygame.display.flip()
         clock.tick(60)
@@ -296,7 +295,7 @@ while running:
     while not running and name == "saturn":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.quit()     
+                pygame.quit()
 
             # Methode um zurück zur Standartansicht zu kommen
             if event.type == pygame.KEYDOWN:
@@ -304,33 +303,30 @@ while running:
                     Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
                     erster_durchlauf = True
                     sat = []
-                    running = True                    
-            
+                    running = True
+
         # G den neuen Umständen anpassen (Physikalisch inkorrekt)
         G_S = 4 * 10 ** -30
         fenster.fill("black")
         Saturn = Planet("saturn", "planeten/saturn.png", masse["saturn"], 0, 0, 0)
         Saturn.img = pygame.transform.scale(Saturn.img, (128, 128))
-        Saturn.rect.center = ((fenster_breite // 2) -64, (fenster_hoehe // 2) -64)
-        fenster.blit(Saturn.img, Saturn.rect) 
+        Saturn.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
+        fenster.blit(Saturn.img, Saturn.rect)
 
-         # 145 Monde von Saturn 
+        # 145 Monde von Saturn
         if erster_durchlauf:
             for i in range(80, 805, 5):
                 M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
                 M.img = pygame.transform.scale(M.img, (3, 3))
                 sat.append(M)
-            erster_durchlauf = False 
-            
-        
+            erster_durchlauf = False
+
         for m in sat:
             m.neue_pos(ZEITSPRUNG, Saturn, G_S)
             m.zeichnen(False)
 
-
-
-        textbox("Saturn", fenster_breite - 300, 30)  
-        textbox("Test", fenster_breite - 300, 50)  
+        textbox("Saturn", fenster_breite - 300, 30)
+        textbox("Test", fenster_breite - 300, 50)
 
         pygame.display.flip()
         clock.tick(60)
@@ -339,7 +335,7 @@ while running:
     while not running and name == "uranus":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.quit()     
+                pygame.quit()
 
             # Methode um zurück zur Standartansicht zu kommen
             if event.type == pygame.KEYDOWN:
@@ -354,34 +350,32 @@ while running:
         fenster.fill("black")
         Uranus = Planet("uranus", "planeten/uranus.png", masse["uranus"], 0, 0, 0)
         Uranus.img = pygame.transform.scale(Uranus.img, (128, 128))
-        Uranus.rect.center = ((fenster_breite // 2) -64, (fenster_hoehe // 2) -64)
-        fenster.blit(Uranus.img, Uranus.rect) 
+        Uranus.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
+        fenster.blit(Uranus.img, Uranus.rect)
 
-         # 27 Monde von Uranus 
+        # 27 Monde von Uranus
         if erster_durchlauf:
             for i in range(110, 300, 5):
                 M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
                 M.img = pygame.transform.scale(M.img, (5, 5))
                 ura.append(M)
-            erster_durchlauf = False 
-            
+            erster_durchlauf = False
+
         for m in ura:
             m.neue_pos(ZEITSPRUNG, Uranus, G_U)
             m.zeichnen(False)
 
-
-        textbox("Uranus", fenster_breite - 300, 30)  
-        textbox("Test", fenster_breite - 300, 50)  
+        textbox("Uranus", fenster_breite - 300, 30)
+        textbox("Test", fenster_breite - 300, 50)
 
         pygame.display.flip()
         clock.tick(60)
-
 
     # Neptun Schleife
     while not running and name == "neptun":
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                pygame.quit()     
+                pygame.quit()
 
             # Methode um zurück zur Standartansicht zu kommen
             if event.type == pygame.KEYDOWN:
@@ -394,10 +388,10 @@ while running:
         # G den neuen Umständen anpassen (Physikalisch inkorrekt)
         G_N = 10 ** -30
         fenster.fill("black")
-        Neptun  = Planet("neptun", "planeten/neptun.png", masse["neptun"], 0, 0, 0)
+        Neptun = Planet("neptun", "planeten/neptun.png", masse["neptun"], 0, 0, 0)
         Neptun.img = pygame.transform.scale(Neptun.img, (128, 128))
-        Neptun.rect.center = ((fenster_breite // 2) -64, (fenster_hoehe // 2) -64)
-        fenster.blit(Neptun.img, Neptun.rect) 
+        Neptun.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
+        fenster.blit(Neptun.img, Neptun.rect)
 
         # 14 Monde von Neptun 
         if erster_durchlauf:
@@ -405,16 +399,14 @@ while running:
                 M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
                 M.img = pygame.transform.scale(M.img, (8, 8))
                 nep.append(M)
-            erster_durchlauf = False 
-            
+            erster_durchlauf = False
+
         for m in nep:
             m.neue_pos(ZEITSPRUNG, Neptun, G_U)
             m.zeichnen(False)
 
-
-
-        textbox("Neptun", fenster_breite - 300, 30)  
-        textbox("Test", fenster_breite - 300, 50)  
+        textbox("Neptun", fenster_breite - 300, 30)
+        textbox("Test", fenster_breite - 300, 50)
 
         pygame.display.flip()
         clock.tick(60)
