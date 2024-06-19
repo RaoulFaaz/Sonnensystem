@@ -124,6 +124,8 @@ Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
 running = True
 # Überprüft ob die Jupitermonde schon gezeichnet wurden
 erster_durchlauf = True
+
+# Mond Listen
 jup = []
 sat = []
 ura = []
@@ -134,7 +136,6 @@ while running:
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
             pygame.quit()
 
     # Position updaten und Planeten zeichnen
