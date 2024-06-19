@@ -90,7 +90,6 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
     def kollision(self):
         return self.rect.collidepoint(pygame.mouse.get_pos())
 
-
 # Kreiert eine Textbox an Position xy
 def textbox(text, x, y):
     box = pygame.font.SysFont("Arial", 20).render(text, True, "white")
@@ -141,13 +140,14 @@ def monde_update(monde, planet, G):
             m.neue_pos(ZEITSPRUNG, planet, G)
             m.zeichnen(False)
 
-def planet_update(name, monde, G):
+def planet_update(name, monde=None, G=None):
     fenster.fill("black")
     planet = Planet(name, "planeten/{}.png".format(name), masse[name], 0, 0, 0)
     planet.img = pygame.transform.scale(planet.img, (128, 128))
     planet.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
     fenster.blit(planet.img, planet.rect)
-    monde_update(monde, planet, G)
+    if monde != None:
+        monde_update(monde, planet, G)
 
 Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
 
@@ -167,7 +167,6 @@ G_N = 10 ** -29
 
 running = True
 clock = pygame.time.Clock()
-
 
 # Main Game loop
 while running:
@@ -201,11 +200,7 @@ while running:
                     Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
                     running = True
 
-        fenster.fill("black")
-        Merkur = Planet("merkur", "planeten/merkur.png", masse["merkur"], 0, 0, 0)
-        Merkur.img = pygame.transform.scale(Merkur.img, (128, 128))
-        Merkur.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
-        fenster.blit(Merkur.img, Merkur.rect)
+        planet_update(name)
         textbox("Merkur", fenster_breite - 300, 30)
         textbox("Test", fenster_breite - 300, 50)
 
@@ -224,11 +219,7 @@ while running:
                     Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
                     running = True
 
-        fenster.fill("black")
-        Venus = Planet("venus", "planeten/venus.png", masse["venus"], 0, 0, 0)
-        Venus.img = pygame.transform.scale(Venus.img, (128, 128))
-        Venus.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
-        fenster.blit(Venus.img, Venus.rect)
+        planet_update(name)
         textbox("Venus", fenster_breite - 300, 30)
         textbox("Test", fenster_breite - 300, 50)
 
@@ -247,13 +238,10 @@ while running:
                     Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
                     running = True
 
-        fenster.fill("black")
+        planet_update(name)
         Erde = Planet("erde", "planeten/erde.png", masse["erde"], 0, 0, 0)
-        Erde.img = pygame.transform.scale(Erde.img, (128, 128))
-        Erde.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
         Mond.neue_pos(ZEITSPRUNG, Erde, G_E)
         Mond.zeichnen()
-        fenster.blit(Erde.img, Erde.rect)
         textbox("Erde", fenster_breite - 300, 30)
         textbox("Test", fenster_breite - 300, 50)
 
@@ -272,11 +260,8 @@ while running:
                     Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
                     running = True
 
-        fenster.fill("black")
+        planet_update(name)
         Mars = Planet("mars", "planeten/mars.png", masse["mars"], 0, 0, 0)
-        Mars.img = pygame.transform.scale(Mars.img, (128, 128))
-        Mars.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
-        fenster.blit(Mars.img, Mars.rect)
         Phobos.neue_pos(ZEITSPRUNG, Mars, G_M)
         Phobos.zeichnen()
         Deimos.neue_pos(ZEITSPRUNG, Mars, G_M)
