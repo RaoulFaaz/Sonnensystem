@@ -124,6 +124,7 @@ running = True
 erster_durchlauf = True
 jup = []
 sat = []
+ura = []
 clock = pygame.time.Clock()
 
 while running:
@@ -345,12 +346,33 @@ while running:
                 if event.key == pygame.K_ESCAPE:
                     Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
                     running = True
+                    ura = []
+                    erster_durchlauf = True
 
+        # G den neuen Umständen anpassen (Physikalisch inkorrekt)
+        G_U = 2 * 10 ** -29
         fenster.fill("black")
         Uranus = Planet("uranus", "planeten/uranus.png", masse["uranus"], 0, 0, 0)
         Uranus.img = pygame.transform.scale(Uranus.img, (128, 128))
         Uranus.rect.center = ((fenster_breite // 2) -64, (fenster_hoehe // 2) -64)
         fenster.blit(Uranus.img, Uranus.rect) 
+
+         # 27 Monde von Uranus 
+        if erster_durchlauf:
+            for i in range(110, 300, 5):
+                M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
+                M.img = pygame.transform.scale(M.img, (5, 5))
+                ura.append(M)
+            erster_durchlauf = False 
+            
+        
+        for m in ura:
+            m.neue_pos(ZEITSPRUNG, Uranus, G_U)
+            m.zeichnen(False)
+
+
+
+
         textbox("Uranus", fenster_breite - 300, 30)  
         textbox("Test", fenster_breite - 300, 50)  
 

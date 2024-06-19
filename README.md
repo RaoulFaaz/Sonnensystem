@@ -163,3 +163,5 @@ Mond position: x=-3205579.650182312, y=149.939315310237
 Planeten machen Anfangs noch eine Spirale.
 
 Monde von Saturn hinzugefügt. 
+Monde von Uranus hinzugefügt.
+
