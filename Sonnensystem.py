@@ -90,10 +90,12 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
     def kollision(self):
         return self.rect.collidepoint(pygame.mouse.get_pos())
 
-# Kreiert eine Textbox an Position xy
-def textbox(text, x, y):
-    box = pygame.font.SysFont("Arial", 20).render(text, True, "white")
-    fenster.blit(box, (x, y))
+# Kreiert eine Textbox an Position xy pro Element in der Liste eine Zeile 
+def textbox(text_liste, x, y):
+    linie_h = 20
+    for i, linie in enumerate(text_liste):
+        box = pygame.font.SysFont("Arial", 20).render(linie, True, "white")
+        fenster.blit(box, (x, y + linie_h * i))
 # planeten kreieren
 def planeten_kreieren():
     Sonne = Planet("sonne", "planeten/sonne.png", masse["sonne"], 0, 0, 0)
@@ -209,8 +211,7 @@ while running:
                     running = True
 
         planet_update(name)
-        textbox("Merkur", fenster_breite - 300, 30)
-        textbox("Test", fenster_breite - 300, 50)
+        textbox(["Merkur", "Test"], fenster_breite - 300, 30)
         update()
 
     # Venus Schleife
@@ -226,8 +227,7 @@ while running:
                     running = True
 
         planet_update(name)
-        textbox("Venus", fenster_breite - 300, 30)
-        textbox("Test", fenster_breite - 300, 50)
+        textbox(["Venus", "Test"], fenster_breite - 300, 30)
         update()
 
     # Erde Schleife
@@ -246,8 +246,7 @@ while running:
         Erde = Planet("erde", "planeten/erde.png", masse["erde"], 0, 0, 0)
         Mond.neue_pos(ZEITSPRUNG, Erde, G_E)
         Mond.zeichnen()
-        textbox("Erde", fenster_breite - 300, 30)
-        textbox("Test", fenster_breite - 300, 50)
+        textbox(["Erde", "Test"], fenster_breite - 300, 30)
         update()
 
     # Mars Schleife
@@ -268,8 +267,7 @@ while running:
         Phobos.zeichnen()
         Deimos.neue_pos(ZEITSPRUNG, Mars, G_M)
         Deimos.zeichnen()
-        textbox("Mars", fenster_breite - 300, 30)
-        textbox("Test", fenster_breite - 300, 50)
+        textbox(["Mars", "Test"], fenster_breite - 300, 30)
         update()
 
     # Jupiter Schleife
@@ -291,8 +289,7 @@ while running:
                     running = True
 
         planet_update(name, monde, G_J)
-        textbox("Jupiter", fenster_breite - 300, 30)
-        textbox("Test", fenster_breite - 300, 50)
+        textbox(["Jupiter", "Test"], fenster_breite - 300, 30)
         update()
 
     # Saturn Schleife
@@ -314,8 +311,7 @@ while running:
                     running = True
 
         planet_update(name, monde, G_S)
-        textbox("Saturn", fenster_breite - 300, 30)
-        textbox("Test", fenster_breite - 300, 50)
+        textbox(["Saturn", "Test"], fenster_breite - 300, 30)
         update()
 
     # Uranus Schleife
@@ -336,8 +332,7 @@ while running:
                     running = True      
 
         planet_update(name, monde, G_U)
-        textbox("Uranus", fenster_breite - 300, 30)
-        textbox("Test", fenster_breite - 300, 50)
+        textbox(["Uranus", "Test"], fenster_breite - 300, 30)
         update()
 
     # Neptun Schleife
@@ -359,6 +354,5 @@ while running:
                     running = True
 
         planet_update(name, monde, G_N)
-        textbox("Neptun", fenster_breite - 300, 30)
-        textbox("Test", fenster_breite - 300, 50)
+        textbox(["Neptun", "Test"], fenster_breite - 300, 30)
         update()

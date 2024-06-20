@@ -186,3 +186,5 @@ Start angepasst aber immernoch zu geordnet.
 Anderung rückgängig gemacht.
 Funktion eingefügt welche die Planetenkreation voralufen lässt und somit die regelmässige Spirale umgeht. 
 Diese lässt Aufgrund der vielen berechnungen das Programm kurz stocken wenn man Jupiter oder Saturn anklickt.
+
+Textbox Funktion so angepasst, dass sie mehrere Zeilen auf einmal rendern kann welche sie als Strings in einer Liste bekommt.
