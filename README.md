@@ -180,3 +180,6 @@ Funktion hinzugefügt, welche die Position der Planeten mit vielen Monden update
 Code übersichtlicher gemacht.
   
 Funktion hinzugefügt welche den Screen updated. Bisher immer den ganzen Code wiederhohlt. 
+
+Mondumlaufbahn zu beginn zu geordnet.
+Start angepasst aber immernoch zu geordnet. 
