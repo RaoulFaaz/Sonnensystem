@@ -152,6 +152,12 @@ def planet_update(name, monde=None, G=None):
 def update():
     pygame.display.flip()
     clock.tick(60)
+# läst die Planeten kreation vorlaufen um eine Spirale zu umgehen
+def vorlaufen(name, G, n=1000):
+    planet = Planet(name, "planeten/{}.png".format(name), masse[name], 0, 0, 0)
+    for i in range(n):
+        for m in monde:
+            m.neue_pos(ZEITSPRUNG, planet, G)
 
 Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
 
@@ -271,6 +277,7 @@ while running:
         if not jup_gest:
             monde = monde_kreieren(name)
             jup_gest = True
+            vorlaufen(name, G_J, 2000)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -293,6 +300,7 @@ while running:
         if not sat_gest:
             monde = monde_kreieren(name)
             sat_gest = True
+            vorlaufen(name, G_S, 2000)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -315,6 +323,7 @@ while running:
         if not ura_gest:
             monde = monde_kreieren(name)
             ura_gest = True
+            vorlaufen(name, G_U)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -336,6 +345,7 @@ while running:
         if not nep_gest:
             monde = monde_kreieren(name)
             nep_gest = True
+            vorlaufen(name, G_N)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:

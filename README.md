@@ -184,3 +184,5 @@ Funktion hinzugefügt welche den Screen updated. Bisher immer den ganzen Code wi
 Mondumlaufbahn zu beginn zu geordnet.
 Start angepasst aber immernoch zu geordnet. 
 Anderung rückgängig gemacht.
+Funktion eingefügt welche die Planetenkreation voralufen lässt und somit die regelmässige Spirale umgeht. 
+Diese lässt Aufgrund der vielen berechnungen das Programm kurz stocken wenn man Jupiter oder Saturn anklickt.
