@@ -164,10 +164,7 @@ def vorlaufen(name, G, n=1000):
 Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
 
 name = ''
-jup_gest = False
-sat_gest = False
-ura_gest = False
-nep_gest = False
+jup_gest, sat_gest, ura_gest, nep_gest = False, False, False, False
 
 # G den verschiedenen Umständen anpassen (Physikalisch inkorrekt)
 G_E = 2 * 10 ** -28
