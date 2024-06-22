@@ -193,4 +193,4 @@ anz_mode dictonary hinzugefügt und den "monde" Parameter aus der info-Funktion 
 info-Funktion in die planet_update funktion integriert.
 Temperatur dictionary hinzugefügt.
 Tempearatur zur info-funktion hinzugefügt.
-
+Umlaufdauer dict hinzugefügt.
