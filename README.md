@@ -191,3 +191,4 @@ Anzahl Monde an bessere Quelle angepasst, da die Anzahl in verschiedenen Quellen
 Funktion info hinzugefügt welche die Infos über einen Planet in einer Textbox wiedergibt.
 anz_mode dictonary hinzugefügt und den "monde" Parameter aus der info-Funktion entfernt. (anz_monde anstatt monde um aliase mit monde liste zu vermeiden)
 info-Funktion in die planet_update funktion integriert.
+Temperatur dictionary hinzugefügt.
