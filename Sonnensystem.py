@@ -116,22 +116,22 @@ def planeten_kreieren():
 def monde_kreieren(planet_name):
     monde = []
     if planet_name == "jupiter":
-        for i in range(80, 540, 5):
+        for i in range(80, 555, 5):
                 M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
                 M.img = pygame.transform.scale(M.img, (3, 3))
                 monde.append(M)
     elif planet_name == "saturn":
-        for i in range(80, 805, 5):
+        for i in range(80, 810, 5):
                 M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
                 M.img = pygame.transform.scale(M.img, (3, 3))
                 monde.append(M)
     elif planet_name == "uranus":
-        for i in range(110, 300, 5):
+        for i in range(110, 250, 5):
                 M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
                 M.img = pygame.transform.scale(M.img, (5, 5))
                 monde.append(M)
     elif planet_name == "neptun":
-        for i in range(110, 250, 10):
+        for i in range(110, 222, 7):
                 M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
                 M.img = pygame.transform.scale(M.img, (8, 8))
                 monde.append(M)
@@ -286,7 +286,7 @@ while running:
                     running = True
 
         planet_update(name, monde, G_J)
-        textbox(["Jupiter", "Monde: 92", "Masse: {}".format(masse["jupiter"])], fenster_breite - 300, 30)
+        textbox(["Jupiter", "Monde: 95", "Masse: {}".format(masse["jupiter"])], fenster_breite - 300, 30)
         update()
 
     # Saturn Schleife
@@ -308,7 +308,7 @@ while running:
                     running = True
 
         planet_update(name, monde, G_S)
-        textbox(["Saturn", "Monde: 145", "Masse: {}".format(masse["saturn"])], fenster_breite - 300, 30)
+        textbox(["Saturn", "Monde: 146", "Masse: {}".format(masse["saturn"])], fenster_breite - 300, 30)
         update()
 
     # Uranus Schleife
@@ -329,7 +329,7 @@ while running:
                     running = True      
 
         planet_update(name, monde, G_U)
-        textbox(["Uranus", "Monde: 27", "Masse: {}".format(masse["uranus"])], fenster_breite - 300, 30)
+        textbox(["Uranus", "Monde: 28", "Masse: {}".format(masse["uranus"])], fenster_breite - 300, 30)
         update()
 
     # Neptun Schleife
@@ -351,5 +351,5 @@ while running:
                     running = True
 
         planet_update(name, monde, G_N)
-        textbox(["Neptun", "Monde: 14", "Masse: {}".format(masse["neptun"])], fenster_breite - 300, 30)
+        textbox(["Neptun", "Monde: 16", "Masse: {}".format(masse["neptun"])], fenster_breite - 300, 30)
         update()
