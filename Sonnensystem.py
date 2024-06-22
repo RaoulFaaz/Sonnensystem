@@ -16,11 +16,15 @@ masse = {"sonne": 1.989 * 10 ** 30, "merkur": 3.285 * 10 ** 23, "venus": 4.87 * 
          "neptun": 1.02 * 10 ** 26, "mond": 7.3 * 10 ** 22, "phobos": 1.08 * 10 ** 15, "deimos": 1.8 * 10 ** 15}
 geschwindigkeit = {"merkur": 0.003, "venus": 0.002, "erde": 0.0018, "mars": 0.0016, "jupiter": 0.0014, "saturn": 0.0013,
                    "uranus": 0.0012, "neptun": 0.0011, "mond": 0.0025, "phobos": 0.002, "deimos": 0.002}
-anz_monde = {"merkur" : 0, "venus" : 0, "erde" : 1, "mars" : 2, "jupiter" : 95, "saturn" : 146, "uranus" : 28, "neptun" : 16}
-temp = {"merkur" : 167, "venus" : 464, "erde" : 15, "mars" : -65, "jupiter" : -110, "saturn" : -140, "uranus" : -195, "neptun" : -200}
-umlaufdauer = {"merkur" : 88, "venus" : 225, "erde" : 365, "mars" : 687, "jupiter" : 4331, "saturn" : 10747, "uranus" : 30589, "neptun" : 59800}
-durchmesser = {"merkur" : 4879, "venus" : 12104, "erde" : 12756, "mars" : 6792, "jupiter" : 142984, "saturn" : 120536, "uranus" : 51118, "neptun" : 49528}
-distanz_sonne = {"merkur" : 58 * 10 ** 6, "venus" : 108 * 10 ** 6, "erde" : 150 * 10 ** 6, "mars" : 228 * 10 ** 6, "jupiter" : 778 * 10 ** 6, "saturn" : 1432 * 10 ** 6, "uranus" : 2867 * 10 ** 6, "neptun" : 4515 * 10 ** 6}
+anz_monde = {"merkur": 0, "venus": 0, "erde": 1, "mars": 2, "jupiter": 95, "saturn": 146, "uranus": 28, "neptun": 16}
+temp = {"merkur": 167, "venus": 464, "erde": 15, "mars": -65, "jupiter": -110, "saturn": -140, "uranus": -195,
+        "neptun": -200}
+umlaufdauer = {"merkur": 88, "venus": 225, "erde": 365, "mars": 687, "jupiter": 4331, "saturn": 10747, "uranus": 30589,
+               "neptun": 59800}
+durchmesser = {"merkur": 4879, "venus": 12104, "erde": 12756, "mars": 6792, "jupiter": 142984, "saturn": 120536,
+               "uranus": 51118, "neptun": 49528}
+distanz_sonne = {"merkur": 58 * 10 ** 6, "venus": 108 * 10 ** 6, "erde": 150 * 10 ** 6, "mars": 228 * 10 ** 6,
+                 "jupiter": 778 * 10 ** 6, "saturn": 1432 * 10 ** 6, "uranus": 2867 * 10 ** 6, "neptun": 4515 * 10 ** 6}
 
 # Gravitationskonstante "G" mal den faktor  10 ^ -23
 G = 6.6743 * 10 ** -34
@@ -28,6 +32,7 @@ G = 6.6743 * 10 ** -34
 ZEITSPRUNG = 750
 # maximal gespeicherte Werte für die Umlaufbahn
 MAX = 2500
+
 
 class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
 
@@ -95,12 +100,15 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
     def kollision(self):
         return self.rect.collidepoint(pygame.mouse.get_pos())
 
-# Kreiert eine Textbox an Position xy pro Element in der Liste eine Zeile 
+
+# Kreiert eine Textbox an Position xy pro Element in der Liste eine Zeile
 def textbox(text_liste, x, y):
     linie_h = 20
     for i, linie in enumerate(text_liste):
         box = pygame.font.SysFont("Arial", 20).render(linie, True, "white")
         fenster.blit(box, (x, y + linie_h * i))
+
+
 # planeten kreieren
 def planeten_kreieren():
     Sonne = Planet("sonne", "planeten/sonne.png", masse["sonne"], 0, 0, 0)
@@ -118,38 +126,45 @@ def planeten_kreieren():
     planeten = [Merkur, Venus, Erde, Mars, Jupiter, Saturn, Uranus, Neptun]
     return Sonne, Mond, Phobos, Deimos, planeten
 
+
 def monde_kreieren(planet_name):
     monde = []
     if planet_name == "jupiter":
         for i in range(80, 555, 5):
-                M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
-                M.img = pygame.transform.scale(M.img, (3, 3))
-                monde.append(M)
+            M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
+            M.img = pygame.transform.scale(M.img, (3, 3))
+            monde.append(M)
     elif planet_name == "saturn":
         for i in range(80, 810, 5):
-                M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
-                M.img = pygame.transform.scale(M.img, (3, 3))
-                monde.append(M)
+            M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
+            M.img = pygame.transform.scale(M.img, (3, 3))
+            monde.append(M)
     elif planet_name == "uranus":
         for i in range(110, 250, 5):
-                M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
-                M.img = pygame.transform.scale(M.img, (5, 5))
-                monde.append(M)
+            M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
+            M.img = pygame.transform.scale(M.img, (5, 5))
+            monde.append(M)
     elif planet_name == "neptun":
         for i in range(110, 222, 7):
-                M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
-                M.img = pygame.transform.scale(M.img, (8, 8))
-                monde.append(M)
+            M = Planet("m", "planeten/mond.png", 10 ** 15, i, 0, geschwindigkeit["mond"])
+            M.img = pygame.transform.scale(M.img, (8, 8))
+            monde.append(M)
     return monde
+
 
 def monde_update(monde, planet, G):
     for m in monde:
-            m.neue_pos(ZEITSPRUNG, planet, G)
-            m.zeichnen(False)
-            
+        m.neue_pos(ZEITSPRUNG, planet, G)
+        m.zeichnen(False)
+
+
 def info(name):
-    textbox([name.upper(), "Monde: {}".format(anz_monde[name]), "Masse: {}".format(masse[name]), "Durchschnittstemperatur: {}°C".format(temp[name]), "Umlaufdauer: {} Tage".format(umlaufdauer[name]), "Durchmesser: {} km".format(durchmesser[name]), "Distanz zur Sonne: {} km".format(distanz_sonne[name])], fenster_breite - 300, 30)
-    
+    textbox([name.upper(), "Monde: {}".format(anz_monde[name]), "Masse: {}".format(masse[name]),
+             "Durchschnittstemperatur: {}°C".format(temp[name]), "Umlaufdauer: {} Tage".format(umlaufdauer[name]),
+             "Durchmesser: {} km".format(durchmesser[name]), "Distanz zur Sonne: {} km".format(distanz_sonne[name])],
+            fenster_breite - 300, 30)
+
+
 def planet_update(name, monde=None, G=None):
     fenster.fill("black")
     planet = Planet(name, "planeten/{}.png".format(name), masse[name], 0, 0, 0)
@@ -160,9 +175,12 @@ def planet_update(name, monde=None, G=None):
         monde_update(monde, planet, G)
     info(name)
 
+
 def update():
     pygame.display.flip()
     clock.tick(60)
+
+
 # läst die Planeten kreation vorlaufen um eine Spirale zu umgehen
 def vorlaufen(name, G, n=1000):
     planet = Planet(name, "planeten/{}.png".format(name), masse[name], 0, 0, 0)
@@ -171,7 +189,6 @@ def vorlaufen(name, G, n=1000):
             m.neue_pos(ZEITSPRUNG, planet, G)
 
 
-    
 Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
 
 name = ''
@@ -289,7 +306,7 @@ while running:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
                     Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
-                    jup_gest = False                    
+                    jup_gest = False
                     running = True
 
         planet_update(name, monde, G_J)
@@ -331,7 +348,7 @@ while running:
                 if event.key == pygame.K_ESCAPE:
                     Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
                     ura_gest = False
-                    running = True      
+                    running = True
 
         planet_update(name, monde, G_U)
         update()
