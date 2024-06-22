@@ -21,6 +21,7 @@ temp = {"merkur" : 167, "venus" : 464, "erde" : 15, "mars" : -65, "jupiter" : -1
 umlaufdauer = {"merkur" : 88, "venus" : 225, "erde" : 365, "mars" : 687, "jupiter" : 4331, "saturn" : 10747, "uranus" : 30589, "neptun" : 59800}
 durchmesser = {"merkur" : 4879, "venus" : 12104, "erde" : 12756, "mars" : 6792, "jupiter" : 142984, "saturn" : 120536, "uranus" : 51118, "neptun" : 49528}
 distanz_sonne = {"merkur" : 58 * 10 ** 6, "venus" : 108 * 10 ** 6, "erde" : 150 * 10 ** 6, "mars" : 228 * 10 ** 6, "jupiter" : 778 * 10 ** 6, "saturn" : 1432 * 10 ** 6, "uranus" : 2867 * 10 ** 6, "neptun" : 4515 * 10 ** 6}
+
 # Gravitationskonstante "G" mal den faktor  10 ^ -23
 G = 6.6743 * 10 ** -34
 # Dauer zwischen dem Update der Position in Sekunden 
@@ -147,7 +148,7 @@ def monde_update(monde, planet, G):
             m.zeichnen(False)
             
 def info(name):
-    textbox([name.upper(), "Monde: {}".format(anz_monde[name]), "Masse: {}".format(masse[name]), "Durchschnittstemperatur: {}°C".format(temp[name]), "Umlaufdauer: {} Tage".format(umlaufdauer[name]), "Durchmesser: {} km".format(umlaufdauer[name])], fenster_breite - 300, 30)
+    textbox([name.upper(), "Monde: {}".format(anz_monde[name]), "Masse: {}".format(masse[name]), "Durchschnittstemperatur: {}°C".format(temp[name]), "Umlaufdauer: {} Tage".format(umlaufdauer[name]), "Durchmesser: {} km".format(umlaufdauer[name]), "Distanz zur Sonne: {} km".format(distanz_sonne[name])], fenster_breite - 300, 30)
     
 def planet_update(name, monde=None, G=None):
     fenster.fill("black")
