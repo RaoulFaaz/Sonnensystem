@@ -185,3 +185,7 @@ Diese lässt Aufgrund der vielen berechnungen das Programm kurz stocken wenn man
 
 Textbox Funktion so angepasst, dass sie mehrere Zeilen auf einmal rendern kann welche sie als Strings in einer Liste bekommt.
 Textboxen ergänzt.
+
+Anzahl Monde an bessere Quelle angepasst, da die Anzahl in verschiedenen Quellen inkonsisten ist. (https://nssdc.gsfc.nasa.gov/planetary/factsheet/) 
+
+Funktion info hinzugefügt welche die Infos über einen Planet in einer Textbox wiedergibt.
