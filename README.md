@@ -197,3 +197,4 @@ Umlaufdauer dict hinzugefügt.
 Umlaufdauer zur info-Funktion hizugefügt.
 Durchmesser dict hinzugefügt.
 Durchmesser zur info-Funktion hinzugefügt.
+Distanz zur Sonne dict hinzugefügt.
