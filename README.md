@@ -189,3 +189,4 @@ Textboxen ergänzt.
 Anzahl Monde an bessere Quelle angepasst, da die Anzahl in verschiedenen Quellen inkonsisten ist. (https://nssdc.gsfc.nasa.gov/planetary/factsheet/) 
 
 Funktion info hinzugefügt welche die Infos über einen Planet in einer Textbox wiedergibt.
+anz_mode dictonary hinzugefügt und den "monde" Parameter aus der info-Funktion entfernt. (anz_monde anstatt monde um aliase mit monde liste zu vermeiden)
