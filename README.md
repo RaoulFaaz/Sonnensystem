@@ -136,7 +136,7 @@ Bei Jupiter, Saturn, Uranus und Neptun muss ich mich auf einige Monde begrenzen,
 Uranus und Neptun Schleifen hinzugefügt.
 
 Monde:
-https://www.go-astronomy.com/planets/planet-moons.htm (Anzahl Monde inkonsistent in verschiedenen Quellen)
+https://nssdc.gsfc.nasa.gov/planetary/factsheet/
 Icons für Phobos und Deimos, Monde von Mars generiert und zu PNGs konvertiert.
 92 Monde von Jupiter mit einer for-Schleife gezeichnet, jedoch bewegen sie sich nicht.
 Lösung: Die Variable erster_durchlauf, welcher True zugeteil war und die Liste lst aus der while-Loop genommen damit
