@@ -141,7 +141,10 @@ def monde_update(monde, planet, G):
     for m in monde:
             m.neue_pos(ZEITSPRUNG, planet, G)
             m.zeichnen(False)
-
+            
+def info(name):
+    textbox([name.upper(), "Monde: {}".format(anz_monde[name]), "Masse: {}".format(masse[name])], fenster_breite - 300, 30)
+    
 def planet_update(name, monde=None, G=None):
     fenster.fill("black")
     planet = Planet(name, "planeten/{}.png".format(name), masse[name], 0, 0, 0)
@@ -150,6 +153,7 @@ def planet_update(name, monde=None, G=None):
     fenster.blit(planet.img, planet.rect)
     if monde != None:
         monde_update(monde, planet, G)
+    info(name)
 
 def update():
     pygame.display.flip()
@@ -161,8 +165,7 @@ def vorlaufen(name, G, n=1000):
         for m in monde:
             m.neue_pos(ZEITSPRUNG, planet, G)
 
-def info(name):
-    textbox([name.upper(), "Monde: {}".format(anz_monde[name]), "Masse: {}".format(masse[name])], fenster_breite - 300, 30)
+
     
 Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
 
@@ -211,7 +214,6 @@ while running:
                     running = True
 
         planet_update(name)
-        info(name)
         update()
 
     # Venus Schleife
@@ -227,7 +229,6 @@ while running:
                     running = True
 
         planet_update(name)
-        info(name)
         update()
 
     # Erde Schleife
@@ -246,7 +247,6 @@ while running:
         Erde = Planet("erde", "planeten/erde.png", masse["erde"], 0, 0, 0)
         Mond.neue_pos(ZEITSPRUNG, Erde, G_E)
         Mond.zeichnen()
-        info(name)
         update()
 
     # Mars Schleife
@@ -267,7 +267,6 @@ while running:
         Phobos.zeichnen()
         Deimos.neue_pos(ZEITSPRUNG, Mars, G_M)
         Deimos.zeichnen()
-        info(name)
         update()
 
     # Jupiter Schleife
@@ -289,7 +288,6 @@ while running:
                     running = True
 
         planet_update(name, monde, G_J)
-        info(name)
         update()
 
     # Saturn Schleife
@@ -311,7 +309,6 @@ while running:
                     running = True
 
         planet_update(name, monde, G_S)
-        info(name)
         update()
 
     # Uranus Schleife
@@ -332,7 +329,6 @@ while running:
                     running = True      
 
         planet_update(name, monde, G_U)
-        info(name)
         update()
 
     # Neptun Schleife
@@ -354,5 +350,4 @@ while running:
                     running = True
 
         planet_update(name, monde, G_N)
-        info(name)
         update()
