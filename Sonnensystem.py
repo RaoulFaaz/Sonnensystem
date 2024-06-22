@@ -146,7 +146,7 @@ def monde_update(monde, planet, G):
             m.zeichnen(False)
             
 def info(name):
-    textbox([name.upper(), "Monde: {}".format(anz_monde[name]), "Masse: {}".format(masse[name]), "Durchschnittstemperatur: {}°C".format(temp[name]), "Umlaufdauer: {} Tage".format(umlaufdauer[name])], fenster_breite - 300, 30)
+    textbox([name.upper(), "Monde: {}".format(anz_monde[name]), "Masse: {}".format(masse[name]), "Durchschnittstemperatur: {}°C".format(temp[name]), "Umlaufdauer: {} Tage".format(umlaufdauer[name]), "Durchmesser: {} km".format(umlaufdauer[name])], fenster_breite - 300, 30)
     
 def planet_update(name, monde=None, G=None):
     fenster.fill("black")

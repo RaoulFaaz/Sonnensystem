@@ -196,3 +196,4 @@ Tempearatur zur info-Funktion hinzugefügt.
 Umlaufdauer dict hinzugefügt.
 Umlaufdauer zur info-Funktion hizugefügt.
 Durchmesser dict hinzugefügt.
+Durchmesser zur info-Funktion hinzugefügt.
