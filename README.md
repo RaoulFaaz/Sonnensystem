@@ -199,3 +199,7 @@ Durchmesser dict hinzugefügt.
 Durchmesser zur info-Funktion hinzugefügt.
 Distanz zur Sonne dict hinzugefügt.
 Distanz zur Sonne zur info-Funktion hinzugefügt.
+
+
+Fehler in der Textbox korrigiert welcher die Masse der Erde (5.97 * 10^24) als 5.96999999999999 * 10^24 darstellte. 
+Der Fehler erfolgte aufgrund der Floatarchimetik in Python. (Gelöst mit ChatGPT (Formatierung :.2e))
