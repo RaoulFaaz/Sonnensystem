@@ -159,9 +159,9 @@ def monde_update(monde, planet, G):
 
 
 def info(name):
-    textbox([name.upper(), "Monde: {}".format(anz_monde[name]), "Masse: {}".format(masse[name]),
+    textbox([name.upper(), "Monde: {}".format(anz_monde[name]), "Masse: {:.2e}".format(masse[name]),
              "Durchschnittstemperatur: {}°C".format(temp[name]), "Umlaufdauer: {} Tage".format(umlaufdauer[name]),
-             "Durchmesser: {} km".format(durchmesser[name]), "Distanz zur Sonne: {} km".format(distanz_sonne[name])],
+             "Durchmesser: {} km".format(durchmesser[name]), "Distanz zur Sonne: {:.2e} km".format(distanz_sonne[name])],
             fenster_breite - 300, 30)
 
 
