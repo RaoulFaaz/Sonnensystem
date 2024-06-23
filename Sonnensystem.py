@@ -3,10 +3,9 @@ import math
 
 pygame.init()
 
+# Fenster kreieren
 fenster_breite = 1400
 fenster_hoehe = 900
-
-# Fenster kreieren
 fenster = pygame.display.set_mode((fenster_breite, fenster_hoehe))
 pygame.display.set_caption("Sonnensystem")
 
@@ -103,7 +102,7 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
 
 # Kreiert eine Textbox an Position xy pro Element in der Liste eine Zeile
 def textbox(text_liste, x, y):
-    linie_h = 20
+    linie_h = 30
     for i, linie in enumerate(text_liste):
         box = pygame.font.SysFont("Arial", 20).render(linie, True, "white")
         fenster.blit(box, (x, y + linie_h * i))
@@ -113,7 +112,7 @@ def textbox(text_liste, x, y):
 def planeten_kreieren():
     Sonne = Planet("sonne", "planeten/sonne.png", masse["sonne"], 0, 0, 0)
     Merkur = Planet("merkur", "planeten/merkur.png", masse["merkur"], 100, 0, geschwindigkeit["merkur"])
-    Venus = Planet("venus", "planeten/venus.png", masse["venus"], 180, 0, geschwindigkeit["venus"])
+    Venus = Planet("venus", "planeten/venus.png", masse["venus"], 200, 0, geschwindigkeit["venus"])
     Erde = Planet("erde", "planeten/erde.png", masse["erde"], 260, 0, geschwindigkeit["erde"])
     Mars = Planet("mars", "planeten/mars.png", masse["mars"], 340, 0, geschwindigkeit["mars"])
     Jupiter = Planet("jupiter", "planeten/jupiter.png", masse["jupiter"], 420, 0, geschwindigkeit["jupiter"])
