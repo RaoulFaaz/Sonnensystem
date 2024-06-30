@@ -155,7 +155,8 @@ def info(name):
              "Durchschnittstemperatur: {}°C".format(temp[name]), "Umlaufdauer: {} Tage".format(umlaufdauer[name]),
              "Durchmesser: {} km".format(durchmesser[name]), "Distanz zur Sonne: {:.2e} km".format(distanz_sonne[name])],
             fenster_breite - 300, 30)
-
+    esc = pygame.image.load("esc.png")
+    fenster.blit(esc, (10, 10))
 
 def planet_update(name, monde=None, G=None):
     fenster.fill("black")

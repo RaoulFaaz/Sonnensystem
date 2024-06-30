@@ -215,3 +215,6 @@ quit_check Funktion hinzugefügt welche überprüft, ob das Fenster geschlossen 
 Problem: Esc in der Detailansicht funktioniert nicht mehr.
 Lösung: Running als globale Variable definiert. 
 -> Code stark vereinfacht. 
+
+Esc Icon hinzugefügt.
+<a href="https://www.flaticon.com/free-icons/ui" title="ui icons">Ui icons created by UIUX Mall - Flaticon</a>
