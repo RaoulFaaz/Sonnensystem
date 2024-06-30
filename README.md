@@ -232,4 +232,5 @@ esc_rect schon vorher definieren
 
 Die Bewegung der Planeten angepasst, so dass sie sich gegen den Uhrzeigersinn drehen.
 https://science.nasa.gov/resource/orbits-and-keplers-laws/
+-> Erklärt durch Nebulare Theorie https://www.youtube.com/watch?v=sCkhEu3lYNc
 
