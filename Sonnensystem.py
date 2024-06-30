@@ -32,6 +32,9 @@ ZEITSPRUNG = 750
 # maximal gespeicherte Werte für die Umlaufbahn
 MAX = 2500
 
+esc_icon = pygame.image.load("esc.png")
+esc_rect = esc_icon.get_rect()
+
 
 class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
 
@@ -151,6 +154,7 @@ def monde_update(monde, planet, G):
 
 
 def info(name):
+    global esc_rect
     textbox([name.upper(), "Monde: {}".format(anz_monde[name]), "Masse: {:.2e} kg".format(masse[name]),
              "Durchschnittstemperatur: {}°C".format(temp[name]), "Umlaufdauer: {} Tage".format(umlaufdauer[name]),
              "Durchmesser: {} km".format(durchmesser[name]), "Distanz zur Sonne: {:.2e} km".format(distanz_sonne[name])],
@@ -158,7 +162,8 @@ def info(name):
     esc_icon = pygame.image.load("esc.png")
     esc_rect = esc_icon.get_rect()
     esc_rect.topleft = (10, 10)
-    fenster.blit(esc_icon, esc_rect )
+    fenster.blit(esc_icon, esc_rect)
+    
 
 def planet_update(name, monde=None, G=None):
     fenster.fill("black")
@@ -192,6 +197,9 @@ def quit_check():
                     if event.key == pygame.K_ESCAPE:
                         Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
                         running = True
+        elif esc_rect.collidepoint(pygame.mouse.get_pos()) and pygame.mouse.get_pressed()[0]:
+            Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
+            running = True
                         
 Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
 

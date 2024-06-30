@@ -214,9 +214,18 @@ Lösung: Zeichnen Funktion der Klasse Planeten angepasst und Icons in der richti
 quit_check Funktion hinzugefügt welche überprüft, ob das Fenster geschlossen werden soll oder die Detailansicht verlassen werden soll.
 Problem: Esc in der Detailansicht funktioniert nicht mehr.
 Lösung: Running als globale Variable definiert. 
+https://www.w3schools.com/python/python_variables_global.asp
 -> Code stark vereinfacht. 
 
 Esc Icon hinzugefügt.
 <a href="https://www.flaticon.com/free-icons/ui" title="ui icons">Ui icons created by UIUX Mall - Flaticon</a>
 Esc rect hinzugefügt:
 https://www.pygame.org/docs/ref/rect.html
+
+Andere Möglichkeit hinzugefügt die Detailansicht zu verlassen:
+Auf das esc-icon klicken.
+Problem:
+name 'esc_rect' is not defined
+Da die Funktion noch nicht gecalled wurde.
+Lösung:
+esc_rect schon vorher definieren
