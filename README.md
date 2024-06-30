@@ -229,3 +229,7 @@ name 'esc_rect' is not defined
 Da die Funktion noch nicht gecalled wurde.
 Lösung:
 esc_rect schon vorher definieren
+
+Die Bewegung der Planeten angepasst, so dass sie sich gegen den Uhrzeigersinn drehen.
+https://science.nasa.gov/resource/orbits-and-keplers-laws/
+

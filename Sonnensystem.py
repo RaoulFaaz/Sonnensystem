@@ -13,8 +13,8 @@ pygame.display.set_caption("Sonnensystem")
 masse = {"sonne": 1.989 * 10 ** 30, "merkur": 3.285 * 10 ** 23, "venus": 4.87 * 10 ** 24, "erde": 5.97 * 10 ** 24,
          "mars": 6.42 * 10 ** 23, "jupiter": 1.898 * 10 ** 27, "saturn": 5.68 * 10 ** 26, "uranus": 8.68 * 10 ** 25,
          "neptun": 1.02 * 10 ** 26, "mond": 7.3 * 10 ** 22, "phobos": 1.08 * 10 ** 15, "deimos": 1.8 * 10 ** 15}
-geschwindigkeit = {"merkur": 0.003, "venus": 0.002, "erde": 0.0018, "mars": 0.0016, "jupiter": 0.0014, "saturn": 0.0013,
-                   "uranus": 0.0012, "neptun": 0.0011, "mond": 0.0025, "phobos": 0.002, "deimos": 0.002}
+geschwindigkeit = {"merkur": -0.003, "venus": -0.002, "erde": -0.0018, "mars": -0.0016, "jupiter": -0.0014, "saturn": -0.0013,
+                   "uranus": -0.0012, "neptun": -0.0011, "mond": -0.0025, "phobos": -0.002, "deimos": -0.002}
 anz_monde = {"merkur": 0, "venus": 0, "erde": 1, "mars": 2, "jupiter": 95, "saturn": 146, "uranus": 28, "neptun": 16}
 temp = {"merkur": 167, "venus": 464, "erde": 15, "mars": -65, "jupiter": -110, "saturn": -140, "uranus": -195,
         "neptun": -200}
