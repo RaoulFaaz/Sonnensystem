@@ -218,3 +218,5 @@ Lösung: Running als globale Variable definiert.
 
 Esc Icon hinzugefügt.
 <a href="https://www.flaticon.com/free-icons/ui" title="ui icons">Ui icons created by UIUX Mall - Flaticon</a>
+Esc rect hinzugefügt:
+https://www.pygame.org/docs/ref/rect.html
