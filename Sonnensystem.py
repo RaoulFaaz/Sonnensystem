@@ -179,7 +179,17 @@ def vorlaufen(name, G, n=1000):
         for m in monde:
             m.neue_pos(ZEITSPRUNG, planet, G)
 
-
+def quit_check():
+    global running
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+        # Methode um zurück zur Standartansicht zu kommen
+        if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
+                        running = True
+                        
 Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
 
 name = ''
@@ -199,9 +209,7 @@ clock = pygame.time.Clock()
 # Main Game loop
 while running:
 
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
+    quit_check()
 
     # Position updaten und Planeten zeichnen
     fenster.fill("black")
@@ -216,46 +224,19 @@ while running:
 
     # Merkur Schleife
     while not running and name == "merkur":
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-
-            # Methode um zurück zur Standartansicht zu kommen
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
-                    Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
-                    running = True
-
+        quit_check()
         planet_update(name)
         update()
 
     # Venus Schleife
     while not running and name == "venus":
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-
-            # Methode um zurück zur Standartansicht zu kommen
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
-                    Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
-                    running = True
-
+        quit_check()
         planet_update(name)
         update()
 
     # Erde Schleife
     while not running and name == "erde":
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-
-            # Methode um zurück zur Standartansicht zu kommen
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
-                    Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
-                    running = True
-
+        quit_check()
         planet_update(name)
         Erde = Planet("erde", "planeten/erde.png", masse["erde"], 0, 0, 0)
         Mond.neue_pos(ZEITSPRUNG, Erde, G_E)
@@ -264,16 +245,7 @@ while running:
 
     # Mars Schleife
     while not running and name == "mars":
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-
-            # Methode um zurück zur Standartansicht zu kommen
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
-                    Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
-                    running = True
-
+        quit_check()
         planet_update(name)
         Mars = Planet("mars", "planeten/mars.png", masse["mars"], 0, 0, 0)
         Phobos.neue_pos(ZEITSPRUNG, Mars, G_M)
@@ -289,17 +261,7 @@ while running:
             jup_gest = True
             vorlaufen(name, G_J, 2000)
 
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-
-            # Methode um zurück zur Standartansicht zu kommen
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
-                    Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
-                    jup_gest = False
-                    running = True
-
+        quit_check()
         planet_update(name, monde, G_J)
         update()
 
@@ -310,17 +272,7 @@ while running:
             sat_gest = True
             vorlaufen(name, G_S, 2000)
 
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-
-            # Methode um zurück zur Standartansicht zu kommen
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
-                    Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
-                    sat_gest = False
-                    running = True
-
+        quit_check()
         planet_update(name, monde, G_S)
         update()
 
@@ -330,17 +282,8 @@ while running:
             monde = monde_kreieren(name)
             ura_gest = True
             vorlaufen(name, G_U)
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-
-            # Methode um zurück zur Standartansicht zu kommen
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
-                    Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
-                    ura_gest = False
-                    running = True
-
+            
+        quit_check()
         planet_update(name, monde, G_U)
         update()
 
@@ -351,16 +294,6 @@ while running:
             nep_gest = True
             vorlaufen(name, G_N)
 
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-
-            # Methode um zurück zur Standartansicht zu kommen
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
-                    Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
-                    nep_gest = False
-                    running = True
-
+        quit_check()
         planet_update(name, monde, G_N)
         update()

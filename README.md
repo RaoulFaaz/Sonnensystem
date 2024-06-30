@@ -210,3 +210,8 @@ Die Funktion monde_kreieren mit einer Subfunktion monde_append stark vereinfacht
 Planetenicons mit mehr Pixeln hinzugefügt um den verpixelten Effekt in der Detailansicht zu vermeiden:
 Problem: Nicht richtig zentriert (wahrscheinlich aufgrund der grösseren originalen Grösse).
 Lösung: Zeichnen Funktion der Klasse Planeten angepasst und Icons in der richtigen grösse (128 anstatt 512 Pixel) hizugefügt. 
+
+quit_check Funktion hinzugefügt welche überprüft, ob das Fenster geschlossen werden soll oder die Detailansicht verlassen werden soll.
+Problem: Esc in der Detailansicht funktioniert nicht mehr.
+Lösung: Running als globale Variable definiert. 
+-> Code stark vereinfacht. 
