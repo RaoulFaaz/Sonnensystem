@@ -128,26 +128,20 @@ def planeten_kreieren():
 
 def monde_kreieren(planet_name):
     monde = []
+    def monde_append(planeten, groesse, start):
+            for i in range(start, (planeten * groesse) + start , groesse):
+                M = Planet("m", "planeten/mond.png", 10 ** 15, i if i % 2 == 0 else -i, 0, geschwindigkeit["mond"])
+                M.img = pygame.transform.scale(M.img, (3, 3))
+                monde.append(M)
+        
     if planet_name == "jupiter":
-        for i in range(80, 555, 5):
-            M = Planet("m", "planeten/mond.png", 10 ** 15, i if i % 2 == 0 else -i, 0, geschwindigkeit["mond"])
-            M.img = pygame.transform.scale(M.img, (3, 3))
-            monde.append(M)
+        monde_append(95, 5, 80)
     elif planet_name == "saturn":
-        for i in range(80, 810, 5):
-            M = Planet("m", "planeten/mond.png", 10 ** 15, i if i % 2 == 0 else -i, 0, geschwindigkeit["mond"])
-            M.img = pygame.transform.scale(M.img, (3, 3))
-            monde.append(M)
+        monde_append(145, 5, 80)
     elif planet_name == "uranus":
-        for i in range(110, 250, 5):
-            M = Planet("m", "planeten/mond.png", 10 ** 15, i if i % 2 == 0 else -i, 0, geschwindigkeit["mond"])
-            M.img = pygame.transform.scale(M.img, (5, 5))
-            monde.append(M)
+        monde_append(28, 5, 110)
     elif planet_name == "neptun":
-        for i in range(110, 222, 7):
-            M = Planet("m", "planeten/mond.png", 10 ** 15, i if i % 2 == 0 else -i, 0, geschwindigkeit["mond"])
-            M.img = pygame.transform.scale(M.img, (8, 8))
-            monde.append(M)
+        monde_append(16, 7, 110)
     return monde
 
 
