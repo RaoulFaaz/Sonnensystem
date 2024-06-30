@@ -206,3 +206,7 @@ Der Fehler erfolgte aufgrund der Floatarchimetik in Python. (Gelöst mit ChatGPT
 Masseinheit zur Masse hinzugefügt.
 
 Die Funktion monde_kreieren mit einer Subfunktion monde_append stark vereinfacht. 
+
+Planetenicons mit mehr Pixeln hinzugefügt um den verpixelten Effekt in der Detailansicht zu vermeiden:
+Problem: Nicht richtig zentriert (wahrscheinlich aufgrund der grösseren originalen Grösse).
+Lösung: Zeichnen Funktion der Klasse Planeten angepasst und Icons in der richtigen grösse (128 anstatt 512 Pixel) hizugefügt. 

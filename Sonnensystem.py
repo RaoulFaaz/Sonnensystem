@@ -48,8 +48,8 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
         self.umlaufbahn = []
 
     def zeichnen(self, umlaufbahn=True):
-        x = self.x + (fenster_breite // 2) - 32
-        y = self.y + (fenster_hoehe // 2) - 32
+        # Zentrieren
+        self.rect.center = (self.x + fenster_breite // 2, self.y + fenster_hoehe // 2)
 
         # Überprüfen ob die Liste genügend Elemente
         if len(self.umlaufbahn) >= 2 and umlaufbahn:
@@ -58,7 +58,6 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
                                      self.umlaufbahn]
             pygame.draw.lines(fenster, "white", False, angepasste_umlaufbahn, 1)
 
-        self.rect.center = (self.x + fenster_breite // 2, self.y + fenster_hoehe // 2)
         fenster.blit(self.img, self.rect)
 
     # Distanz zwischen zwei Körpern berechnen mit Pythagoras
@@ -162,7 +161,6 @@ def planet_update(name, monde=None, G=None):
     fenster.fill("black")
     planet = Planet(name, "planeten_gross/{}.png".format(name), masse[name], 0, 0, 0)
     planet.img = pygame.transform.scale(planet.img, (128, 128))
-    planet.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
     fenster.blit(planet.img, planet.rect)
     if monde != None:
         monde_update(monde, planet, G)
