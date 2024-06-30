@@ -160,7 +160,7 @@ def info(name):
 
 def planet_update(name, monde=None, G=None):
     fenster.fill("black")
-    planet = Planet(name, "planeten/{}.png".format(name), masse[name], 0, 0, 0)
+    planet = Planet(name, "planeten_gross/{}.png".format(name), masse[name], 0, 0, 0)
     planet.img = pygame.transform.scale(planet.img, (128, 128))
     planet.rect.center = ((fenster_breite // 2) - 64, (fenster_hoehe // 2) - 64)
     fenster.blit(planet.img, planet.rect)
