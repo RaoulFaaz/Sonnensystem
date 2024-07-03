@@ -1,5 +1,6 @@
 import pygame
 import math
+import webbrowser
 
 pygame.init()
 
@@ -37,6 +38,11 @@ MAX = 2500
 
 esc_icon = pygame.image.load("esc.png")
 esc_rect = esc_icon.get_rect()
+
+wiki_text = "Mehr lesen in Wikipedia"
+wiki_font = pygame.font.SysFont("Arial", 20)
+wiki_link = wiki_font.render(wiki_text, True, "blue")
+wiki_rect = wiki_link.get_rect()
 
 
 class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
@@ -157,11 +163,20 @@ def monde_update(monde, planet, G):
 
 
 def info(name):
-    global esc_rect
+    global esc_rect, wiki_rect
+    
     textbox([name.upper(), "Monde: {}".format(anz_monde[name]), "Masse: {:.2e} kg".format(masse[name]),
              "Durchschnittstemperatur: {}°C".format(temp[name]), "Umlaufdauer: {} Tage".format(umlaufdauer[name]),
              "Durchmesser: {} km".format(durchmesser[name]), "Distanz zur Sonne: {:.2e} km".format(distanz_sonne[name])],
             fenster_breite - 300, 30)
+    
+    wiki_text = "Mehr lesen in Wikipedia"
+    wiki_font = pygame.font.SysFont("Arial", 20)
+    wiki_link = wiki_font.render(wiki_text, True, "blue")
+    wiki_rect = wiki_link.get_rect()
+    wiki_rect.topleft = (fenster_breite - 300, 240)
+    fenster.blit(wiki_link, wiki_rect)
+    
     esc_icon = pygame.image.load("esc.png")
     esc_rect = esc_icon.get_rect()
     esc_rect.topleft = (10, 10)
@@ -203,7 +218,12 @@ def quit_check():
         elif esc_rect.collidepoint(pygame.mouse.get_pos()) and pygame.mouse.get_pressed()[0]:
             Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
             running = True
-                        
+        elif wiki_rect.collidepoint(pygame.mouse.get_pos()) and pygame.mouse.get_pressed()[0]:
+            if name != "erde": 
+                webbrowser.open("https://de.wikipedia.org/wiki/{}_(Planet)".format(name.capitalize()))    
+            else:
+                webbrowser.open("https://de.wikipedia.org/wiki/Erde")
+                   
 Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
 
 name = ''

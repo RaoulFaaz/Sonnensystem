@@ -238,3 +238,7 @@ Titel Icon hinzugefügt.
 Die Erde als Icon gewählt.
 https://stackoverflow.com/questions/21271059/how-do-i-change-the-pygame-icon
 
+
+Mehr lesen in Wikipedia Option hinzugefügt.
+Ausnahme für Erde, da es der einizge Planet in Wikipedia ist, bei dem der Link nicht _(Planet) benötigt.
+https://de.wikipedia.org/wiki/
