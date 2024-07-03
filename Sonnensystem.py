@@ -6,8 +6,11 @@ pygame.init()
 # Fenster kreieren
 fenster_breite = 1400
 fenster_hoehe = 900
+icon = pygame.image.load("erde_klein.png")
 fenster = pygame.display.set_mode((fenster_breite, fenster_hoehe))
 pygame.display.set_caption("Sonnensystem")
+pygame.display.set_icon(icon)
+
 
 # Attribute Planeten
 masse = {"sonne": 1.989 * 10 ** 30, "merkur": 3.285 * 10 ** 23, "venus": 4.87 * 10 ** 24, "erde": 5.97 * 10 ** 24,

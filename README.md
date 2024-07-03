@@ -234,3 +234,7 @@ Die Bewegung der Planeten angepasst, so dass sie sich gegen den Uhrzeigersinn dr
 https://science.nasa.gov/resource/orbits-and-keplers-laws/
 -> Erklärt durch Nebulare Theorie https://www.youtube.com/watch?v=sCkhEu3lYNc
 
+Titel Icon hinzugefügt.
+Die Erde als Icon gewählt.
+https://stackoverflow.com/questions/21271059/how-do-i-change-the-pygame-icon
+
