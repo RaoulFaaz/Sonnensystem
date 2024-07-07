@@ -181,7 +181,14 @@ def info(name):
     esc_rect = esc_icon.get_rect()
     esc_rect.topleft = (10, 10)
     fenster.blit(esc_icon, esc_rect)
+
+def beschriften(mond, x_verschiebung=10, y_verschiebung=20):
+    font = pygame.font.SysFont("Arial", 15)
+    text = font.render(mond.name.capitalize(), True, "white")
+    text_rect = text.get_rect(center=(mond.rect.centerx + x_verschiebung, mond.rect.centery + y_verschiebung))
+    fenster.blit(text, text_rect)
     
+       
 
 def planet_update(name, monde=None, G=None):
     fenster.fill("black")
@@ -192,11 +199,9 @@ def planet_update(name, monde=None, G=None):
         monde_update(monde, planet, G)
     info(name)
 
-
 def update():
     pygame.display.flip()
     clock.tick(60)
-
 
 # läst die Planeten kreation vorlaufen um eine Spirale zu umgehen
 def vorlaufen(name, G, n=1000):
@@ -284,8 +289,10 @@ while running:
         Mars = Planet("mars", "planeten/mars.png", masse["mars"], 0, 0, 0)
         Phobos.neue_pos(ZEITSPRUNG, Mars, G_M)
         Phobos.zeichnen()
+        beschriften(Phobos)
         Deimos.neue_pos(ZEITSPRUNG, Mars, G_M)
         Deimos.zeichnen()
+        beschriften(Deimos)
         update()
 
     # Jupiter Schleife
