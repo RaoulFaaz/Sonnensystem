@@ -18,11 +18,13 @@ masse = {"sonne": 1.989 * 10 ** 30, "merkur": 3.285 * 10 ** 23, "venus": 4.87 * 
          "mars": 6.42 * 10 ** 23, "jupiter": 1.898 * 10 ** 27, "saturn": 5.68 * 10 ** 26, "uranus": 8.68 * 10 ** 25,
          "neptun": 1.02 * 10 ** 26, "mond": 7.3 * 10 ** 22, "phobos": 1.08 * 10 ** 15, "deimos": 1.8 * 10 ** 15,
          "io": 8.932 * 10 ** 22, "europa": 4.8 * 10 ** 22,  "ganymed": 1.482 * 10 ** 23, "callisto": 1.076 * 10 ** 23, 
-         "rhea": 2.31 * 10 ** 21, "titan": 1.345 * 10 ** 23}
+         "rhea": 2.31 * 10 ** 21, "titan": 1.345 * 10 ** 23, "titania": 3.42 * 10 ** 21, "oberon": 2.88 * 10 ** 21,
+         "triton": 2.14 * 10 ** 22}
 
 geschwindigkeit = {"merkur": -0.003, "venus": -0.002, "erde": -0.0018, "mars": -0.0016, "jupiter": -0.0014, "saturn": -0.0013,
                    "uranus": -0.0012, "neptun": -0.0011, "mond": -0.0025, "phobos": -0.002, "deimos": -0.002, "io": -0.002,
-                   "europa": -0.0019, "ganymed": -0.0018, "callisto": -0.0017, "rhea": -0.002, "titan": -0.002}
+                   "europa": -0.0019, "ganymed": -0.0018, "callisto": -0.0017, "rhea": -0.002, "titan": -0.002, "titania": -0.002,
+                   "oberon": -0.002, "triton": 0.002}
 anz_monde = {"merkur": 0, "venus": 0, "erde": 1, "mars": 2, "jupiter": 95, "saturn": 146, "uranus": 28, "neptun": 16}
 temp = {"merkur": 167, "venus": 464, "erde": 15, "mars": -65, "jupiter": -110, "saturn": -140, "uranus": -195,
         "neptun": -200}
@@ -143,8 +145,11 @@ def planeten_kreieren():
     Callisto = Planet("callisto", "planeten/callisto.png", masse["callisto"], 400, 0, geschwindigkeit["callisto"])
     Rhea = Planet("rhea", "planeten/rhea.png", masse["rhea"], 300, 0, geschwindigkeit["rhea"])
     Titan = Planet("titan", "planeten/titan.png", masse["titan"], 400, 0, geschwindigkeit["titan"])
+    Titania = Planet("titania", "planeten/titania.png", masse["titania"], 300, 0, geschwindigkeit["titania"])
+    Oberon =  Planet("oberon", "planeten/oberon.png", masse["oberon"], 350, 0, geschwindigkeit["oberon"])
+    Triton = Planet("triton", "planeten/triton.png", masse["triton"], 250, 0, geschwindigkeit["triton"])
     planeten = [Merkur, Venus, Erde, Mars, Jupiter, Saturn, Uranus, Neptun]
-    return Sonne, Mond, Phobos, Deimos, Io, Europa, Ganymed, Callisto, Rhea, Titan, planeten
+    return Sonne, Mond, Phobos, Deimos, Io, Europa, Ganymed, Callisto, Rhea, Titan, Titania, Oberon, Triton, planeten
 
 
 def monde_kreieren(planet_name):
@@ -160,9 +165,9 @@ def monde_kreieren(planet_name):
     elif planet_name == "saturn":
         monde_append(143, 5, 80)
     elif planet_name == "uranus":
-        monde_append(28, 5, 110)
+        monde_append(26, 5, 110)
     elif planet_name == "neptun":
-        monde_append(16, 7, 110)
+        monde_append(15, 7, 110)
     return monde
 
 
@@ -226,10 +231,10 @@ def quit_check():
         # Methode um zurück zur Standartansicht zu kommen
         if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
-                        Sonne, Mond, Phobos, Deimos, Io, Europa, Ganymed, Callisto, Rhea, Titan, planeten = planeten_kreieren()
+                        Sonne, Mond, Phobos, Deimos, Io, Europa, Ganymed, Callisto, Rhea, Titan, Titania, Oberon, Triton, planeten = planeten_kreieren()
                         running = True
         elif esc_rect.collidepoint(pygame.mouse.get_pos()) and pygame.mouse.get_pressed()[0]:
-            Sonne, Mond, Phobos, Deimos, Io, Europa, Ganymed, Callisto, Rhea, Titan, planeten = planeten_kreieren()
+            Sonne, Mond, Phobos, Deimos, Io, Europa, Ganymed, Callisto, Rhea, Titan, Titania, Oberon, Triton, planeten = planeten_kreieren()
             running = True
         elif wiki_rect.collidepoint(pygame.mouse.get_pos()) and pygame.mouse.get_pressed()[0]:
             if name != "erde": 
@@ -237,7 +242,7 @@ def quit_check():
             else:
                 webbrowser.open("https://de.wikipedia.org/wiki/Erde")
                    
-Sonne, Mond, Phobos, Deimos, Io, Europa, Ganymed, Callisto, Rhea, Titan, planeten = planeten_kreieren()
+Sonne, Mond, Phobos, Deimos, Io, Europa, Ganymed, Callisto, Rhea, Titan, Titania, Oberon, Triton, planeten = planeten_kreieren()
 
 name = ''
 jup_gest, sat_gest, ura_gest, nep_gest = False, False, False, False
@@ -357,6 +362,13 @@ while running:
             
         quit_check()
         planet_update(name, monde, G_U)
+        Uranus = Planet("uranus", "planeten/uranus.png", masse["uranus"], 0, 0, 0)
+        Titania.neue_pos(ZEITSPRUNG, Uranus, G_U)
+        Titania.zeichnen()
+        beschriften(Titania)
+        Oberon.neue_pos(ZEITSPRUNG, Uranus, G_U)
+        Oberon.zeichnen()
+        beschriften(Oberon)
         update()
 
     # Neptun Schleife
@@ -368,4 +380,8 @@ while running:
 
         quit_check()
         planet_update(name, monde, G_N)
+        Neptun = Planet("neptun", "planeten/neptun.png", masse["neptun"], 0, 0, 0)
+        Triton.neue_pos(ZEITSPRUNG, Neptun, G_N)
+        Triton.zeichnen()
+        beschriften(Triton)
         update()

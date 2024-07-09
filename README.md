@@ -275,3 +275,24 @@ Titan Icon:
 <a href="https://www.flaticon.com/free-icons/moon" title="moon icons">Moon icons created by Freepik - Flaticon</a>
 
 Die grössten Saturnmonde hervorgehoben.
+
+Uranus:
+https://nssdc.gsfc.nasa.gov/planetary/factsheet/uraniansatfact.html
+
+Titania Icon:
+<a href="https://www.flaticon.com/free-icons/full-moon" title="full moon icons">Full moon icons created by Ina Mella - Flaticon</a>
+
+Oberon Icon:
+<a href="https://www.flaticon.com/free-icons/moon-phase" title="moon phase icons">Moon phase icons created by Manuel Viveros - Flaticon</a>
+
+
+Die grössten Uranusmonde hervorgehoben.
+
+Neptun:
+https://nssdc.gsfc.nasa.gov/planetary/factsheet/neptuniansatfact.html
+https://mondlexikon.jimdofree.com/neptun/triton/#:~:text=Triton%20ist%20der%20einzige%20irregul%C3%A4re,entgegen%20der%20Rotationsrichtung%20des%20Neptun.
+
+Triton Icon:
+<a href="https://www.flaticon.com/free-icons/moon-phase" title="moon phase icons">Moon phase icons created by Muhammad Ali - Flaticon</a>
+
+Den grössten Neptunmond hervorgehoben. 
