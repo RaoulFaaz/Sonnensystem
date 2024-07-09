@@ -253,3 +253,15 @@ Ganymed icon:
 <a href="https://www.flaticon.com/free-icons/full" title="full icons">Full icons created by Nsit - Flaticon</a>
 Ganymed den grössten Jupitermond hinzugefügt.
 
+Io Icon:
+<a href="https://www.flaticon.com/free-icons/planet" title="planet icons">Planet icons created by designhub - Flaticon</a>
+
+Europa Icon:
+<a href="https://www.flaticon.com/free-icons/moon" title="moon icons">Moon icons created by Freepik - Flaticon</a>
+
+Callisto Icon:
+<a href="https://www.flaticon.com/free-icons/full-moon" title="full moon icons">Full moon icons created by Ina Mella - Flaticon</a>
+
+Alle grossen Jupitermonde hervorgehoben. 
+
+
