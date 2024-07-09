@@ -16,9 +16,9 @@ pygame.display.set_icon(icon)
 # Attribute Planeten
 masse = {"sonne": 1.989 * 10 ** 30, "merkur": 3.285 * 10 ** 23, "venus": 4.87 * 10 ** 24, "erde": 5.97 * 10 ** 24,
          "mars": 6.42 * 10 ** 23, "jupiter": 1.898 * 10 ** 27, "saturn": 5.68 * 10 ** 26, "uranus": 8.68 * 10 ** 25,
-         "neptun": 1.02 * 10 ** 26, "mond": 7.3 * 10 ** 22, "phobos": 1.08 * 10 ** 15, "deimos": 1.8 * 10 ** 15}
+         "neptun": 1.02 * 10 ** 26, "mond": 7.3 * 10 ** 22, "phobos": 1.08 * 10 ** 15, "deimos": 1.8 * 10 ** 15, "ganymed": 1.482 * 10 ** 23}
 geschwindigkeit = {"merkur": -0.003, "venus": -0.002, "erde": -0.0018, "mars": -0.0016, "jupiter": -0.0014, "saturn": -0.0013,
-                   "uranus": -0.0012, "neptun": -0.0011, "mond": -0.0025, "phobos": -0.002, "deimos": -0.002}
+                   "uranus": -0.0012, "neptun": -0.0011, "mond": -0.0025, "phobos": -0.002, "deimos": -0.002, "ganymed": -0.002}
 anz_monde = {"merkur": 0, "venus": 0, "erde": 1, "mars": 2, "jupiter": 95, "saturn": 146, "uranus": 28, "neptun": 16}
 temp = {"merkur": 167, "venus": 464, "erde": 15, "mars": -65, "jupiter": -110, "saturn": -140, "uranus": -195,
         "neptun": -200}
@@ -133,8 +133,9 @@ def planeten_kreieren():
     Mond = Planet("mond", "planeten/mond.png", masse["mond"], 200, 0, geschwindigkeit["mond"])
     Phobos = Planet("phobos", "planeten/phobos.png", masse["phobos"], 180, 0, geschwindigkeit["phobos"])
     Deimos = Planet("deimos", "planeten/deimos.png", masse["deimos"], 240, 0, geschwindigkeit["deimos"])
+    Ganymed = Planet("ganymed", "planeten/ganymed.png", masse["ganymed"], 350, 0, geschwindigkeit["ganymed"])
     planeten = [Merkur, Venus, Erde, Mars, Jupiter, Saturn, Uranus, Neptun]
-    return Sonne, Mond, Phobos, Deimos, planeten
+    return Sonne, Mond, Phobos, Deimos, Ganymed, planeten
 
 
 def monde_kreieren(planet_name):
@@ -218,10 +219,10 @@ def quit_check():
         # Methode um zurück zur Standartansicht zu kommen
         if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
-                        Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
+                        Sonne, Mond, Phobos, Deimos, Ganymed, planeten = planeten_kreieren()
                         running = True
         elif esc_rect.collidepoint(pygame.mouse.get_pos()) and pygame.mouse.get_pressed()[0]:
-            Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
+            Sonne, Mond, Phobos, Deimos, Ganymed, planeten = planeten_kreieren()
             running = True
         elif wiki_rect.collidepoint(pygame.mouse.get_pos()) and pygame.mouse.get_pressed()[0]:
             if name != "erde": 
@@ -229,7 +230,7 @@ def quit_check():
             else:
                 webbrowser.open("https://de.wikipedia.org/wiki/Erde")
                    
-Sonne, Mond, Phobos, Deimos, planeten = planeten_kreieren()
+Sonne, Mond, Phobos, Deimos, Ganymed, planeten = planeten_kreieren()
 
 name = ''
 jup_gest, sat_gest, ura_gest, nep_gest = False, False, False, False
@@ -304,6 +305,10 @@ while running:
 
         quit_check()
         planet_update(name, monde, G_J)
+        Jupiter = Planet("jupiter", "planeten/jupiter.png", masse["jupiter"], 0, 0, 0)
+        Ganymed.neue_pos(ZEITSPRUNG, Jupiter, G_J)
+        Ganymed.zeichnen(False)
+        beschriften(Ganymed)
         update()
 
     # Saturn Schleife

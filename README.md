@@ -245,3 +245,11 @@ https://de.wikipedia.org/wiki/
 
 
 Beschriften Funktion hinzugefügt welche zur Beschriftung der grossen Monde verwendet werden kann. 
+
+Grösste Monde der anderen Planeten vergrössert einfügen:
+https://www.worldatlas.com/space/biggest-moons-in-our-solar-system.html
+https://nssdc.gsfc.nasa.gov/planetary/factsheet/joviansatfact.html
+Ganymed icon:
+<a href="https://www.flaticon.com/free-icons/full" title="full icons">Full icons created by Nsit - Flaticon</a>
+Ganymed den grössten Jupitermond hinzugefügt.
+
