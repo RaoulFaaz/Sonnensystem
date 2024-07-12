@@ -151,7 +151,7 @@ def planeten_kreieren():
     return Sonne, Mond, Phobos, Deimos, Io, Europa, Ganymed, Callisto, Rhea, Titan, Titania, Oberon, Triton, planeten
 
 
-def monde_kreieren(planet_name):
+def monde_kreieren():
     monde = []
     def monde_append(planeten, groesse, start):
             for i in range(start, (planeten * groesse) + start , groesse):
@@ -159,13 +159,13 @@ def monde_kreieren(planet_name):
                 M.img = pygame.transform.scale(M.img, (3, 3))
                 monde.append(M)
         
-    if planet_name == "jupiter":
+    if name == "jupiter":
         monde_append(91, 5, 80)
-    elif planet_name == "saturn":
+    elif name == "saturn":
         monde_append(143, 5, 80)
-    elif planet_name == "uranus":
+    elif name == "uranus":
         monde_append(26, 5, 110)
-    elif planet_name == "neptun":
+    elif name == "neptun":
         monde_append(15, 7, 110)
     return monde
 
@@ -184,7 +184,7 @@ def mond_update(mond, G):
     
 
 
-def info(name):
+def info():
     global esc_rect, wiki_rect
     
     textbox([name.upper(), "Monde: {}".format(anz_monde[name]), "Masse: {:.2e} kg".format(masse[name]),
@@ -210,14 +210,14 @@ def beschriften(mond, x_verschiebung=10, y_verschiebung=25):
     text_rect = text.get_rect(center=(mond.rect.centerx + x_verschiebung, mond.rect.centery + y_verschiebung))
     fenster.blit(text, text_rect)
     
-def planet_update(name, monde=None, G=None):
+def planet_update(monde=None, G=None):
     fenster.fill("black")
     planet = Planet(name, "planeten_gross/{}.png".format(name), masse[name], 0, 0, 0)
     planet.img = pygame.transform.scale(planet.img, (128, 128))
     fenster.blit(planet.img, planet.rect)
     if monde != None:
         monde_update(monde, planet, G)
-    info(name)
+    info()
 
 def update():
     pygame.display.flip()
@@ -284,26 +284,26 @@ while running:
     # Merkur Schleife
     while not running and name == "merkur":
         quit_check()
-        planet_update(name)
+        planet_update()
         update()
 
     # Venus Schleife
     while not running and name == "venus":
         quit_check()
-        planet_update(name)
+        planet_update()
         update()
 
     # Erde Schleife
     while not running and name == "erde":
         quit_check()
-        planet_update(name)
+        planet_update()
         mond_update(Mond, G_E)
         update()
 
     # Mars Schleife
     while not running and name == "mars":
         quit_check()
-        planet_update(name)
+        planet_update()
         mond_update(Phobos, G_M)
         mond_update(Deimos, G_M)
         update()
@@ -311,12 +311,12 @@ while running:
     # Jupiter Schleife
     while not running and name == "jupiter":
         if not jup_gest:
-            monde = monde_kreieren(name)
+            monde = monde_kreieren()
             jup_gest = True
             vorlaufen(name, G_J, 2000)
 
         quit_check()
-        planet_update(name, monde, G_J)
+        planet_update(monde, G_J)
         mond_update(Io, G_J)
         mond_update(Europa, G_J)
         mond_update(Ganymed, G_J)
@@ -326,12 +326,12 @@ while running:
     # Saturn Schleife
     while not running and name == "saturn":
         if not sat_gest:
-            monde = monde_kreieren(name)
+            monde = monde_kreieren()
             sat_gest = True
             vorlaufen(name, G_S, 2000)
 
         quit_check()
-        planet_update(name, monde, G_S)
+        planet_update(monde, G_S)
         mond_update(Rhea, G_S)
         mond_update(Titan, G_S)
         update()
@@ -339,12 +339,12 @@ while running:
     # Uranus Schleife
     while not running and name == "uranus":
         if not ura_gest:
-            monde = monde_kreieren(name)
+            monde = monde_kreieren()
             ura_gest = True
             vorlaufen(name, G_U)
             
         quit_check()
-        planet_update(name, monde, G_U)
+        planet_update(monde, G_U)
         mond_update(Titania, G_U)
         mond_update(Oberon, G_U)
         update()
@@ -352,11 +352,11 @@ while running:
     # Neptun Schleife
     while not running and name == "neptun":
         if not nep_gest:
-            monde = monde_kreieren(name)
+            monde = monde_kreieren()
             nep_gest = True
             vorlaufen(name, G_N)
 
         quit_check()
-        planet_update(name, monde, G_N)
+        planet_update(monde, G_N)
         mond_update(Triton, G_N)
         update()

@@ -298,3 +298,4 @@ Triton Icon:
 Den grössten Neptunmond hervorgehoben.
 
 Mond_update Funktion hinzugefügt und den Code stark vereinfacht und übesrsichtlicher gemacht.
+Unnötiger Parameter "name" bei verschiedenen Funktionen entfernt. 
