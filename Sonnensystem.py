@@ -224,6 +224,26 @@ def vorlaufen(G, n=1000):
         for m in monde:
             m.neue_pos(ZEITSPRUNG, planet, G)
 
+def starten():
+    global monde, jup_gest, sat_gest, ura_gest, nep_gest
+    
+    if name == "jupiter" and not jup_gest:
+        monde = monde_kreieren()
+        jup_gest = True
+        vorlaufen(G_J, 2000)
+    elif name == "saturn" and not sat_gest:
+        monde = monde_kreieren()
+        sat_gest = True
+        vorlaufen(G_S, 2000)
+    elif name == "uranus" and not ura_gest:
+        monde = monde_kreieren()
+        ura_gest = True
+        vorlaufen(G_U)
+    elif name == "neptun" and not nep_gest:
+        monde = monde_kreieren()
+        nep_gest = True
+        vorlaufen(G_N)
+        
 def quit_check():
     global running
     for event in pygame.event.get():
@@ -304,11 +324,7 @@ while running:
 
     # Jupiter Schleife
     while not running and name == "jupiter":
-        if not jup_gest:
-            monde = monde_kreieren()
-            jup_gest = True
-            vorlaufen(G_J, 2000)
-            
+        starten()            
         quit_check()
         planet_update(monde, G_J)
         mond_update(Io, G_J)
@@ -319,11 +335,7 @@ while running:
 
     # Saturn Schleife
     while not running and name == "saturn":
-        if not sat_gest:
-            monde = monde_kreieren()
-            sat_gest = True
-            vorlaufen(G_S, 2000)
-
+        starten()
         quit_check()
         planet_update(monde, G_S)
         mond_update(Rhea, G_S)
@@ -332,11 +344,7 @@ while running:
 
     # Uranus Schleife
     while not running and name == "uranus":
-        if not ura_gest:
-            monde = monde_kreieren()
-            ura_gest = True
-            vorlaufen(G_U)
-            
+        starten()
         quit_check()
         planet_update(monde, G_U)
         mond_update(Titania, G_U)
@@ -345,11 +353,7 @@ while running:
 
     # Neptun Schleife
     while not running and name == "neptun":
-        if not nep_gest:
-            monde = monde_kreieren()
-            nep_gest = True
-            vorlaufen(G_N)
-
+        starten()
         quit_check()
         planet_update(monde, G_N)
         mond_update(Triton, G_N)

@@ -306,3 +306,5 @@ gest kann nicht auf true gesetzt werden.
 
 Funktion entfernt -> Da zu viele Fehler:
 Grosse Monde zu langsam und stockend, kleine Monde nicht gezeichnet
+
+Funktionierende Version der Starten_Funktion implementiert und code besser lesbar gemacht.
