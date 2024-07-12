@@ -299,3 +299,7 @@ Den grössten Neptunmond hervorgehoben.
 
 Mond_update Funktion hinzugefügt und den Code stark vereinfacht und übesrsichtlicher gemacht.
 Unnötiger Parameter "name" bei verschiedenen Funktionen entfernt. 
+
+Neue Funktion starten hinzugefügt.
+Problem:
+gest kann nicht auf true gesetzt werden. 

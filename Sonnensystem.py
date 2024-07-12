@@ -224,6 +224,12 @@ def vorlaufen(G, n=1000):
         for m in monde:
             m.neue_pos(ZEITSPRUNG, planet, G)
 
+def starten(gest, G, n):
+    if not gest:
+            monde = monde_kreieren()
+            #gest = True
+            vorlaufen(G, n)
+
 def quit_check():
     global running
     for event in pygame.event.get():
@@ -308,6 +314,7 @@ while running:
             monde = monde_kreieren()
             jup_gest = True
             vorlaufen(G_J, 2000)
+            
         quit_check()
         planet_update(monde, G_J)
         mond_update(Io, G_J)
