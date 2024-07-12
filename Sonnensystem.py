@@ -123,8 +123,6 @@ def textbox(text_liste, x, y):
         box = pygame.font.SysFont("Arial", 20).render(linie, True, "white")
         fenster.blit(box, (x, y + linie_h * i))
 
-
-# planeten kreieren
 def planeten_kreieren():
     Sonne = Planet("sonne", "planeten/sonne.png", masse["sonne"], 0, 0, 0)
     Merkur = Planet("merkur", "planeten/merkur.png", masse["merkur"], 100, 0, geschwindigkeit["merkur"])
@@ -150,7 +148,6 @@ def planeten_kreieren():
     planeten = [Merkur, Venus, Erde, Mars, Jupiter, Saturn, Uranus, Neptun]
     return Sonne, Mond, Phobos, Deimos, Io, Europa, Ganymed, Callisto, Rhea, Titan, Titania, Oberon, Triton, planeten
 
-
 def monde_kreieren():
     monde = []
     def monde_append(planeten, groesse, start):
@@ -169,7 +166,6 @@ def monde_kreieren():
         monde_append(15, 7, 110)
     return monde
 
-
 def monde_update(monde, planet, G):
     for m in monde:
         m.neue_pos(ZEITSPRUNG, planet, G)
@@ -181,8 +177,6 @@ def mond_update(mond, G):
     mond.zeichnen()
     if mond != Mond:
         beschriften(mond)
-    
-
 
 def info():
     global esc_rect, wiki_rect
@@ -224,7 +218,7 @@ def update():
     clock.tick(60)
 
 # läst die Planeten kreation vorlaufen um eine Spirale zu umgehen
-def vorlaufen(name, G, n=1000):
+def vorlaufen(G, n=1000):
     planet = Planet(name, "planeten/{}.png".format(name), masse[name], 0, 0, 0)
     for i in range(n):
         for m in monde:
@@ -252,6 +246,7 @@ def quit_check():
 Sonne, Mond, Phobos, Deimos, Io, Europa, Ganymed, Callisto, Rhea, Titan, Titania, Oberon, Triton, planeten = planeten_kreieren()
 
 name = ''
+monde = ''
 jup_gest, sat_gest, ura_gest, nep_gest = False, False, False, False
 
 # G den verschiedenen Umständen anpassen (Physikalisch inkorrekt)
@@ -267,9 +262,8 @@ clock = pygame.time.Clock()
 
 # Main Game loop
 while running:
-
+    
     quit_check()
-
     # Position updaten und Planeten zeichnen
     fenster.fill("black")
     Sonne.zeichnen()
@@ -313,8 +307,7 @@ while running:
         if not jup_gest:
             monde = monde_kreieren()
             jup_gest = True
-            vorlaufen(name, G_J, 2000)
-
+            vorlaufen(G_J, 2000)
         quit_check()
         planet_update(monde, G_J)
         mond_update(Io, G_J)
@@ -328,7 +321,7 @@ while running:
         if not sat_gest:
             monde = monde_kreieren()
             sat_gest = True
-            vorlaufen(name, G_S, 2000)
+            vorlaufen(G_S, 2000)
 
         quit_check()
         planet_update(monde, G_S)
@@ -341,7 +334,7 @@ while running:
         if not ura_gest:
             monde = monde_kreieren()
             ura_gest = True
-            vorlaufen(name, G_U)
+            vorlaufen(G_U)
             
         quit_check()
         planet_update(monde, G_U)
@@ -354,7 +347,7 @@ while running:
         if not nep_gest:
             monde = monde_kreieren()
             nep_gest = True
-            vorlaufen(name, G_N)
+            vorlaufen(G_N)
 
         quit_check()
         planet_update(monde, G_N)
