@@ -303,3 +303,6 @@ Unnötiger Parameter "name" bei verschiedenen Funktionen entfernt.
 Neue Funktion starten hinzugefügt.
 Problem:
 gest kann nicht auf true gesetzt werden. 
+
+Funktion entfernt -> Da zu viele Fehler:
+Grosse Monde zu langsam und stockend, kleine Monde nicht gezeichnet
