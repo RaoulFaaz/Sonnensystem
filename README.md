@@ -308,3 +308,6 @@ Funktion entfernt -> Da zu viele Fehler:
 Grosse Monde zu langsam und stockend, kleine Monde nicht gezeichnet
 
 Funktionierende Version der Starten_Funktion implementiert und code besser lesbar gemacht.
+
+Fehler gefunden bei welchem man in der Normalansicht den nicht sichtbaren Link klicken kann.
+Gelöst indem ich überprüfe, dass running auf False gestellt ist.

@@ -123,7 +123,7 @@ def textbox(text_liste, x, y):
         box = pygame.font.SysFont("Arial", 20).render(linie, True, "white")
         fenster.blit(box, (x, y + linie_h * i))
 
-def planeten_kreieren():
+def planeten_kreieren(): # Und einige Monde
     Sonne = Planet("sonne", "planeten/sonne.png", masse["sonne"], 0, 0, 0)
     Merkur = Planet("merkur", "planeten/merkur.png", masse["merkur"], 100, 0, geschwindigkeit["merkur"])
     Venus = Planet("venus", "planeten/venus.png", masse["venus"], 200, 0, geschwindigkeit["venus"])
@@ -142,8 +142,8 @@ def planeten_kreieren():
     Callisto = Planet("callisto", "planeten/callisto.png", masse["callisto"], 400, 0, geschwindigkeit["callisto"])
     Rhea = Planet("rhea", "planeten/rhea.png", masse["rhea"], 300, 0, geschwindigkeit["rhea"])
     Titan = Planet("titan", "planeten/titan.png", masse["titan"], 400, 0, geschwindigkeit["titan"])
-    Titania = Planet("titania", "planeten/titania.png", masse["titania"], 300, 0, geschwindigkeit["titania"])
-    Oberon =  Planet("oberon", "planeten/oberon.png", masse["oberon"], 350, 0, geschwindigkeit["oberon"])
+    Titania = Planet("titania", "planeten/titania.png", masse["titania"], 250, 0, geschwindigkeit["titania"])
+    Oberon =  Planet("oberon", "planeten/oberon.png", masse["oberon"], 300, 0, geschwindigkeit["oberon"])
     Triton = Planet("triton", "planeten/triton.png", masse["triton"], 250, 0, geschwindigkeit["triton"])
     planeten = [Merkur, Venus, Erde, Mars, Jupiter, Saturn, Uranus, Neptun]
     return Sonne, Mond, Phobos, Deimos, Io, Europa, Ganymed, Callisto, Rhea, Titan, Titania, Oberon, Triton, planeten
@@ -251,13 +251,13 @@ def quit_check():
             pygame.quit()
         # Methode um zurück zur Standartansicht zu kommen
         if event.type == pygame.KEYDOWN:
-                    if event.key == pygame.K_ESCAPE:
-                        Sonne, Mond, Phobos, Deimos, Io, Europa, Ganymed, Callisto, Rhea, Titan, Titania, Oberon, Triton, planeten = planeten_kreieren()
-                        running = True
+            if event.key == pygame.K_ESCAPE:
+                Sonne, Mond, Phobos, Deimos, Io, Europa, Ganymed, Callisto, Rhea, Titan, Titania, Oberon, Triton, planeten = planeten_kreieren()
+                running = True
         elif esc_rect.collidepoint(pygame.mouse.get_pos()) and pygame.mouse.get_pressed()[0]:
             Sonne, Mond, Phobos, Deimos, Io, Europa, Ganymed, Callisto, Rhea, Titan, Titania, Oberon, Triton, planeten = planeten_kreieren()
             running = True
-        elif wiki_rect.collidepoint(pygame.mouse.get_pos()) and pygame.mouse.get_pressed()[0]:
+        elif wiki_rect.collidepoint(pygame.mouse.get_pos()) and pygame.mouse.get_pressed()[0] and not running:
             if name != "erde": 
                 webbrowser.open("https://de.wikipedia.org/wiki/{}_(Planet)".format(name.capitalize()))    
             else:
@@ -280,7 +280,7 @@ G_N = 10 ** -29
 running = True
 clock = pygame.time.Clock()
 
-# Main Game loop
+# Main loop
 while running:
     
     quit_check()
