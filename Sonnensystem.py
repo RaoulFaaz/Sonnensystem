@@ -20,7 +20,6 @@ masse = {"sonne": 1.989 * 10 ** 30, "merkur": 3.285 * 10 ** 23, "venus": 4.87 * 
          "io": 8.932 * 10 ** 22, "europa": 4.8 * 10 ** 22,  "ganymed": 1.482 * 10 ** 23, "callisto": 1.076 * 10 ** 23, 
          "rhea": 2.31 * 10 ** 21, "titan": 1.345 * 10 ** 23, "titania": 3.42 * 10 ** 21, "oberon": 2.88 * 10 ** 21,
          "triton": 2.14 * 10 ** 22}
-
 geschwindigkeit = {"merkur": -0.003, "venus": -0.002, "erde": -0.0018, "mars": -0.0016, "jupiter": -0.0014, "saturn": -0.0013,
                    "uranus": -0.0012, "neptun": -0.0011, "mond": -0.0025, "phobos": -0.002, "deimos": -0.002, "io": -0.002,
                    "europa": -0.0019, "ganymed": -0.0018, "callisto": -0.0017, "rhea": -0.002, "titan": -0.002, "titania": -0.002,
@@ -175,6 +174,14 @@ def monde_update(monde, planet, G):
     for m in monde:
         m.neue_pos(ZEITSPRUNG, planet, G)
         m.zeichnen(False)
+        
+def mond_update(mond, G):
+    planet = Planet(name, "planeten/{}.png".format(name), masse[name], 0, 0, 0)
+    mond.neue_pos(ZEITSPRUNG, planet, G)
+    mond.zeichnen()
+    if mond != Mond:
+        beschriften(mond)
+    
 
 
 def info(name):
@@ -290,22 +297,15 @@ while running:
     while not running and name == "erde":
         quit_check()
         planet_update(name)
-        Erde = Planet("erde", "planeten/erde.png", masse["erde"], 0, 0, 0)
-        Mond.neue_pos(ZEITSPRUNG, Erde, G_E)
-        Mond.zeichnen()
+        mond_update(Mond, G_E)
         update()
 
     # Mars Schleife
     while not running and name == "mars":
         quit_check()
         planet_update(name)
-        Mars = Planet("mars", "planeten/mars.png", masse["mars"], 0, 0, 0)
-        Phobos.neue_pos(ZEITSPRUNG, Mars, G_M)
-        Phobos.zeichnen()
-        beschriften(Phobos)
-        Deimos.neue_pos(ZEITSPRUNG, Mars, G_M)
-        Deimos.zeichnen()
-        beschriften(Deimos)
+        mond_update(Phobos, G_M)
+        mond_update(Deimos, G_M)
         update()
 
     # Jupiter Schleife
@@ -317,20 +317,10 @@ while running:
 
         quit_check()
         planet_update(name, monde, G_J)
-        
-        Jupiter = Planet("jupiter", "planeten/jupiter.png", masse["jupiter"], 0, 0, 0)
-        Io.neue_pos(ZEITSPRUNG, Jupiter, G_J)
-        Io.zeichnen()
-        beschriften(Io)
-        Europa.neue_pos(ZEITSPRUNG, Jupiter, G_J)
-        Europa.zeichnen()
-        beschriften(Europa)
-        Ganymed.neue_pos(ZEITSPRUNG, Jupiter, G_J)
-        Ganymed.zeichnen()
-        beschriften(Ganymed)
-        Callisto.neue_pos(ZEITSPRUNG, Jupiter, G_J)
-        Callisto.zeichnen()
-        beschriften(Callisto)
+        mond_update(Io, G_J)
+        mond_update(Europa, G_J)
+        mond_update(Ganymed, G_J)
+        mond_update(Callisto, G_J)
         update()
 
     # Saturn Schleife
@@ -342,15 +332,8 @@ while running:
 
         quit_check()
         planet_update(name, monde, G_S)
-        
-        Saturn = Planet("saturn", "planeten/saturn.png", masse["saturn"], 0, 0, 0)
-        Rhea.neue_pos(ZEITSPRUNG, Saturn, G_S)
-        Rhea.zeichnen()
-        beschriften(Rhea)
-        Titan.neue_pos(ZEITSPRUNG, Saturn, G_S)
-        Titan.zeichnen()
-        beschriften(Titan)
-        
+        mond_update(Rhea, G_S)
+        mond_update(Titan, G_S)
         update()
 
     # Uranus Schleife
@@ -362,13 +345,8 @@ while running:
             
         quit_check()
         planet_update(name, monde, G_U)
-        Uranus = Planet("uranus", "planeten/uranus.png", masse["uranus"], 0, 0, 0)
-        Titania.neue_pos(ZEITSPRUNG, Uranus, G_U)
-        Titania.zeichnen()
-        beschriften(Titania)
-        Oberon.neue_pos(ZEITSPRUNG, Uranus, G_U)
-        Oberon.zeichnen()
-        beschriften(Oberon)
+        mond_update(Titania, G_U)
+        mond_update(Oberon, G_U)
         update()
 
     # Neptun Schleife
@@ -380,8 +358,5 @@ while running:
 
         quit_check()
         planet_update(name, monde, G_N)
-        Neptun = Planet("neptun", "planeten/neptun.png", masse["neptun"], 0, 0, 0)
-        Triton.neue_pos(ZEITSPRUNG, Neptun, G_N)
-        Triton.zeichnen()
-        beschriften(Triton)
+        mond_update(Triton, G_N)
         update()

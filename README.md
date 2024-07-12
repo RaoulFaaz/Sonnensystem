@@ -295,4 +295,6 @@ https://mondlexikon.jimdofree.com/neptun/triton/#:~:text=Triton%20ist%20der%20ei
 Triton Icon:
 <a href="https://www.flaticon.com/free-icons/moon-phase" title="moon phase icons">Moon phase icons created by Muhammad Ali - Flaticon</a>
 
-Den grössten Neptunmond hervorgehoben. 
+Den grössten Neptunmond hervorgehoben.
+
+Mond_update Funktion hinzugefügt und den Code stark vereinfacht und übesrsichtlicher gemacht.
