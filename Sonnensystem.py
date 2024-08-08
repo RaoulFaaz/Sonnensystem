@@ -96,7 +96,7 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
     # Neue position eines Körpers berechnen
     def neue_pos(self, zeit, other, konst=G):
         fx, fy = self.anziehung(other, self.distanz(other), konst)
-        # Geschwindikeit berechnen indem man a * m durch m und dann durch die Zeit rechnet
+        # Geschwindikeit berechnen indem man a * m durch m und dann mal die Zeit rechnet
         self.vx += fx / self.masse * zeit
         self.vy += fy / self.masse * zeit
 
