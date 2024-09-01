@@ -117,10 +117,10 @@ class Planet:  # Beinhält die Sonne obwohl die Sonne kein Planet ist
 
 
 # Kreiert eine Textbox an Position xy pro Element in der Liste eine Zeile
-def textbox(text_liste, x, y):
+def textbox(text_liste, x, y, groesse):
     linie_h = 30
     for i, linie in enumerate(text_liste):
-        box = pygame.font.SysFont("Arial", 20).render(linie, True, "white")
+        box = pygame.font.SysFont("Arial", groesse).render(linie, True, "white")
         fenster.blit(box, (x, y + linie_h * i))
 
 def planeten_kreieren(): # Und einige Monde
@@ -184,7 +184,7 @@ def info():
     textbox([name.upper(), "Monde: {}".format(anz_monde[name]), "Masse: {:.2e} kg".format(masse[name]),
              "Durchschnittstemperatur: {}°C".format(temp[name]), "Umlaufdauer: {} Tage".format(umlaufdauer[name]),
              "Durchmesser: {} km".format(durchmesser[name]), "Distanz zur Sonne: {:.2e} km".format(distanz_sonne[name])],
-            fenster_breite - 300, 30)
+            fenster_breite - 300, 30, 20)
     
     wiki_text = "Mehr lesen in Wikipedia"
     wiki_font = pygame.font.SysFont("Arial", 20)
@@ -287,6 +287,7 @@ while running:
     # Position updaten und Planeten zeichnen
     fenster.fill("black")
     Sonne.zeichnen()
+    textbox(["Planeten anklicken für Detailansicht"], 20, 850, 25)
     for planet in planeten:
         planet.neue_pos(ZEITSPRUNG, Sonne)
         planet.zeichnen()
